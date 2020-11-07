@@ -118,15 +118,15 @@ MainWindow::MainWindow( QWidget *parent )
 	// 「カスタマイズ」メニューの構築
 	customizeMenu = menuBar()->addMenu( QString::fromUtf8( "カスタマイズ" ) );
 
-	QAction* action = new QAction( QString::fromUtf8( "ファイル名設定..." ), this );
-	connect( action, SIGNAL( triggered() ), this, SLOT( customizeFileName() ) );
-	customizeMenu->addAction( action );
+//	QAction* action = new QAction( QString::fromUtf8( "ファイル名設定..." ), this );
+//	connect( action, SIGNAL( triggered() ), this, SLOT( customizeFileName() ) );
+//	customizeMenu->addAction( action );
 
-	action = new QAction( QString::fromUtf8( "タイトルタグ設定..." ), this );
-	connect( action, SIGNAL( triggered() ), this, SLOT( customizeTitle() ) );
-	customizeMenu->addAction( action );
+//	action = new QAction( QString::fromUtf8( "タイトルタグ設定..." ), this );
+//	connect( action, SIGNAL( triggered() ), this, SLOT( customizeTitle() ) );
+//	customizeMenu->addAction( action );
 
-	action = new QAction( QString::fromUtf8( "保存フォルダ..." ), this );
+	QAction* action = new QAction( QString::fromUtf8( "保存フォルダ..." ), this );
 	connect( action, SIGNAL( triggered() ), this, SLOT( customizeSaveFolder() ) );
 	customizeMenu->addAction( action );
 
@@ -198,21 +198,8 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		{ ui->toolButton_business2, "business2", false, "business2_title", DefaultTitle, "business2_file_name", DefaultFileName },
 		{ ui->toolButton_gakusyu, "gakusyu", false, "gakusyu_title", DefaultTitle, "gakusyu_file_name", DefaultFileName },
 		{ ui->toolButton_gendai, "gendai", false, "gendai_title", DefaultTitle, "gendai_file_name", DefaultFileName },
-		{ ui->toolButton_chinese, "chinese", false, "chinese_title", DefaultTitle, "chinese_file_name", DefaultFileName },
-		{ ui->toolButton_french, "french", false, "french_title", DefaultTitle, "french_file_name", DefaultFileName },
-		{ ui->toolButton_italian, "italian", false, "italian_title", DefaultTitle, "italian_file_name", DefaultFileName },
-		{ ui->toolButton_hangeul, "hangeul", false, "hangeul_title", DefaultTitle, "hangeul_file_name", DefaultFileName },
-		{ ui->toolButton_german, "german", false, "german_title", DefaultTitle, "german_file_name", DefaultFileName },
-		{ ui->toolButton_spanish, "spanish", false, "spanish_title", DefaultTitle, "spanish_file_name", DefaultFileName },
-//		{ ui->toolButton_levelup_chinese, "levelup-chinese", false, "levelup-chinese_title", DefaultTitle, "levelup-chinese_file_name", DefaultFileName },
-//		{ ui->toolButton_levelup_hangeul, "levelup-hangeul", false, "levelup-hangeul_title", DefaultTitle, "levelup-hangeul_file_name", DefaultFileName },
 		{ ui->toolButton_enjoy, "enjoy", false, "enjoy_title", DefaultTitle, "enjoy_file_name", DefaultFileName },
-		{ ui->toolButton_russian, "russian", false, "russian_title", DefaultTitle, "russian_file_name", DefaultFileName },
 		{ ui->toolButton_vrradio, "vrradio", false, "vrradio_title", DefaultTitle, "vrradio_file_name", DefaultFileName },
-		{ ui->toolButton_vrradio1, "vrradio1", false, "vrradio_title", DefaultTitle, "vrradio_file_name", DefaultFileName },
-		{ ui->toolButton_stepup_chinese, "stepup-chinese", false, "stepup-chinese_title", DefaultTitle, "stepup-chinese_file_name", DefaultFileName },
-//		{ ui->toolButton_omotenashi_chinese, "omotenashi-chinese", false, "omotenashi-chinese_title", DefaultTitle, "omotenashi-chinese_file_name", DefaultFileName },
-		{ ui->toolButton_omotenashi_hangeul, "omotenashi-hangeul", false, "omotenashi-hangeul_title", DefaultTitle, "omotenashi-hangeul_file_name", DefaultFileName },
 		{ ui->checkBox_13, "charo", false, "charo_title", DefaultTitle, "charo_file_name", DefaultFileName },
 		{ ui->checkBox_14, "e-news", false, "e-news_title", DefaultTitle, "e-news_file_name", DefaultFileName },
 		{ ui->checkBox_shower, "shower", false, "shower_title", DefaultTitle, "shower_file_name", DefaultFileName },

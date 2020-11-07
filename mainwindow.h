@@ -26,7 +26,7 @@
 #include <QCloseEvent>
 #include "messagewindow.h"
 
-#define INI_FILE "CaptureStream.ini"
+#define INI_FILE "CS-English.ini"
 
 //ニュースで英会話「音声と動画」「音声のみ」「動画のみ」
 #define ENewsSaveBoth	0
