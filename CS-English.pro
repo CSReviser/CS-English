@@ -43,13 +43,13 @@ macx {
 		CONFIG += ppc
 		QMAKE_CC = gcc-4.0
 		QMAKE_CXX = g++-4.0
-		QMAKE_MAC_SDK = /Developer/SDKs/MacOSX10.4u.sdk
-		QMAKE_CFLAGS_RELEASE += -mmacosx-version-min=10.4
-		QMAKE_CXXFLAGS_RELEASE += -mmacosx-version-min=10.4
+		QMAKE_MAC_SDK = /Developer/SDKs/MacOSX10.12u.sdk
+		QMAKE_CFLAGS_RELEASE += -mmacosx-version-min=10.12
+		QMAKE_CXXFLAGS_RELEASE += -mmacosx-version-min=10.12
 	}
 
 	release {
-		QMAKE_POST_LINK += macdeployqt CaptureStream.app
+		QMAKE_POST_LINK += macdeployqt CS-English.app
 	}
 }
 
