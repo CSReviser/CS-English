@@ -1,18 +1,15 @@
-### CaptureStream
-ストリーミングで公開されているNHKラジオ語学講座のダウンロードを自動化するためのツールです。 開発が中断しているhttps://osdn.net/projects/capturestream/  の派生版です。 開発を引き継いだものではありません。ファイル自体のダウンロードにはffmpegを利用します。              
+### CS-English
+ストリーミングで公開されているNHKラジオ語学講座の英語講座に特化し、ダウンロードを自動化するためのツールです。 開発が中断しているhttps://osdn.net/projects/capturestream/  の派生版ですが、機能は限定しており、名称も変更しました。開発を引き継いだものではありません。                            
+ファイル自体のダウンロードにはffmpegを利用します。              
 2020年度版：らじる★らじる配信講座には対応していません。                  
 ※ ダウンロードした語学講座のファイルは著作権法で許されている範囲内でご利用ください。       
    
 ### 安定版(master)最新リリース  
-GUI版  [2020/10/05版](https://github.com/CSReviser/CaptureStream/releases/tag/20201005)   
-Windows版:32ビット   
-[CaptureStream-Windows-20201005.zip](https://github.com/CSReviser/CaptureStream/releases/download/20201005/CaptureStream-Windows-20201005.zip)   
+GUI版  [2020/10/05版](https://github.com/CSReviser/CS-English/releases/tag/20201005)   
 Ubuntu版:64ビット : [バイナリビルド手順](https://github.com/CSReviser/CaptureStream/wiki/ubuntuビルド手順)                          
-【qt4】[CaptureStream-Ubuntu-qt4-20201005.zip](https://github.com/CSReviser/CaptureStream/releases/download/20201005/CaptureStream-Ubuntu-qt4-20201005.zip)                                                                                                            
-【qt5】[CaptureStream-Ubuntu-qt5-20201005.zip](https://github.com/CSReviser/CaptureStream/releases/download/20201005/CaptureStream-Ubuntu-qt5-20201005.zip)                                                              
 Macintosh版: [macOS版について](https://github.com/CSReviser/CaptureStream/wiki/Macintosh%E7%89%88)                          
 
-### 2020年度後期の対応講座  
+### 2020年度の対応講座  
 [2020年度 NHK英語講座レベル一覧](https://eigoryoku.nhk-book.co.jp/cefr)                
 基礎英語0  
 基礎英語1  
@@ -25,23 +22,12 @@ Macintosh版: [macOS版について](https://github.com/CSReviser/CaptureStream/
 遠山顕の英会話楽習  
 高校生からはじめる「現代英語」  
 エンジョイシンプルイングリッシュ    
-まいにち中国語  
-ステップアップ中国語  
-まいにちフランス語　　※１    
-まいにちイタリア語　　※１   
-まいにちハングル講座  
-まいにちドイツ語　　※１     
-まいにちスペイン語　　※１     
-まいにちロシア語　　※１ 
 
-※１：１つのボタンに入門（初級）と応用（中級）を割り当てています。  
-※２：カスタマイズメニューは一部の講座のみ2018年度対応で更新しています。    
-※３：2020年度NHKゴガクHPリニューアル(らじる★らじる配信講座)は非対応です。    
+
+※１：2020年度NHKゴガクHPリニューアル(らじる★らじる配信講座)は非対応です。    
 ＜非対応講座＞   
 ボキャブライダー       
 世界へ発信！ニュースで英語術      
-アラビア語       
-ポルトガル語       
 
 ### 作者  
 [jakago](https://github.com/jakago) 2014年度版以前  
