@@ -5,7 +5,7 @@
 ※ ダウンロードした語学講座のファイルは著作権法で許されている範囲内でご利用ください。       
    
 ### 安定版(master)最新リリース  
-Ubuntu版:64ビット : [バイナリビルド手順](https://github.com/CSReviser/CaptureStream/wiki/ubuntuビルド手順)                          
+Ubuntu版:[バイナリビルド手順](https://github.com/CSReviser/CaptureStream/wiki/ubuntuビルド手順)                          
 Macintosh版: [macOS版について](https://github.com/CSReviser/CaptureStream/wiki/Macintosh%E7%89%88)                          
 
 ### 2020年度の対応講座  
