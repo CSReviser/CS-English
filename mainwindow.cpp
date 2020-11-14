@@ -73,10 +73,11 @@ namespace {
 				<< "Jan" << "Feb" << "Mar" << "Apr" << "May" << "Jun"
 				<< "Jul" << "Aug" << "Sep" << "Oct" << "Nov" << "Dec";
 		if ( regexp.indexIn( __DATE__ ) != -1 ) {
-			int month = months.indexOf( regexp.cap( 1 ) ) + 1;
-			int day = regexp.cap( 2 ).toInt();
-			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
-					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
+//			int month = months.indexOf( regexp.cap( 1 ) ) + 1;
+//			int day = regexp.cap( 2 ).toInt();
+//			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
+//					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
+			result = QString( " (2020/11/14)" ); 
 		}
 		return result;
 	}
