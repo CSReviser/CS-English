@@ -5,6 +5,7 @@
 ※ ダウンロードした語学講座のファイルは著作権法で許されている範囲内でご利用ください。       
    
 ### 安定版(master)最新リリース  
+[リリース](https://github.com/CSReviser/CS-English/releases)    
 Ubuntu版:[バイナリビルド手順](https://github.com/CSReviser/CS-English/wiki/ubuntuビルド手順)                          
 Macintosh版: [macOS版について](https://github.com/CSReviser/CS-English/wiki/Macintosh%E7%89%88)                          
 
