@@ -34,7 +34,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>語学講座ダウンローダ</string>
+   <string>語学講座CS-English</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="sizePolicy">
