@@ -6,7 +6,7 @@
 ### ※2020/10/05版は2020年度後期講座に対応しました。
 ### 最新リリース GUI版  [2021/01/31版](https://github.com/CSReviser/CS-English/releases/tag/20210131)     
 ### Windows版:      
-### [CS-English-Windows-20210131.zip](https://github.com/CSReviser/CaptureStream/releases/download/20201005/CaptureStream-Windows-20201005.zip)       
+### [CS-English-Windows-20210131.zip](https://github.com/CSReviser/CS-English/releases/download/20210131/CS-English-Windows-20210131.zip)       
 ### Ubuntu版: [バイナリビルド手順](https://github.com/CSReviser/CaptureStream/wiki/ubuntuビルド手順)                          
 ### 【qt4】[CaptureStream-Ubuntu-qt4-20201005.zip](https://github.com/CSReviser/CaptureStream/releases/download/20201005/CaptureStream-Ubuntu-qt4-20201005.zip)                                    
 ### 【qt5】[CaptureStream-Ubuntu-qt5-20201005.zip](https://github.com/CSReviser/CaptureStream/releases/download/20201005/CaptureStream-Ubuntu-qt5-20201005.zip)                                 　　　            
