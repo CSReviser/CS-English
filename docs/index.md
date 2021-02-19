@@ -1,12 +1,12 @@
-### 語学講座ダウンローダ (2020年度)      
+### 語学講座CS-English (2020年度)      
 らじる★らじる配信講座には対応していません。らじる配信講座をご希望の方はらじる配信に対応したアプリをご利用ください。[類似アプリ](https://github.com/CSReviser/CaptureStream/wiki/類似アプリ)       
-※ ダウンロードした語学講座のファイルは著作権法で許されている範囲内でご利用ください。          
-## [［お知らせ］](https://github.com/CSReviser/CaptureStream/wiki/お知らせ)     
- [類似アプリ](https://github.com/CSReviser/CaptureStream/wiki/類似アプリ)への移行をご検討ください。      
+※ 録音した語学講座のファイルは著作権法で許されている範囲内でご利用ください。          
+## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)     
+ [類似アプリ](https://github.com/CSReviser/CS-English/wiki/類似アプリ)への移行をご検討ください。      
 ### ※2020/10/05版は2020年度後期講座に対応しました。
-### 最新リリース GUI版  [2020/10/05版](https://github.com/CSReviser/CaptureStream/releases/tag/20201005)     
+### 最新リリース GUI版  [2021/01/31版](https://github.com/CSReviser/CS-English/releases/tag/20210131)     
 ### Windows版:      
-### [CaptureStream-Windows-20201005.zip](https://github.com/CSReviser/CaptureStream/releases/download/20201005/CaptureStream-Windows-20201005.zip)       
+### [CS-English-Windows-20210131.zip](https://github.com/CSReviser/CaptureStream/releases/download/20201005/CaptureStream-Windows-20201005.zip)       
 ### Ubuntu版: [バイナリビルド手順](https://github.com/CSReviser/CaptureStream/wiki/ubuntuビルド手順)                          
 ### 【qt4】[CaptureStream-Ubuntu-qt4-20201005.zip](https://github.com/CSReviser/CaptureStream/releases/download/20201005/CaptureStream-Ubuntu-qt4-20201005.zip)                                    
 ### 【qt5】[CaptureStream-Ubuntu-qt5-20201005.zip](https://github.com/CSReviser/CaptureStream/releases/download/20201005/CaptureStream-Ubuntu-qt5-20201005.zip)                                 　　　            
