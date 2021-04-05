@@ -475,7 +475,7 @@ QString DownloadThread::formatName( QString format, QString kouza, QString hdate
 	int year1 = QDate::currentDate().year();
 
 	if ( QString::compare(  kouza , QString::fromUtf8( "ボキャブライダー" ) ) ==0 ){
-		if ( month == 3 && ( day == 30 || day == 31) && year == 2020 ) 
+		if ( month == 3 && ( day == 30 || day == 31) && year == 2021 ) 
 		year += 0;
  		else
 		if ( month < 4 )
@@ -559,11 +559,11 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 	int month = hdate.left( 2 ).toInt();
 	int year = nendo.right( 4 ).toInt();
 	int day = hdate.mid( 3, 2 ).toInt();
-	if ( 2020 > year ) return false;
+	if ( 2021 > year ) return false;
 	int year1 = QDate::currentDate().year();
 
 	if ( QString::compare(  kouza , QString::fromUtf8( "ボキャブライダー" ) ) ==0 ){
-		if ( month == 3 && ( day == 30 || day == 31) && year == 2020 ) 
+		if ( month == 3 && ( day == 30 || day == 31) && year == 2021 ) 
 		year += 0; 
  		else
 		if ( month < 4 )
@@ -575,7 +575,7 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 	QDate onair( year, month, day );
 	QString yyyymmdd = onair.toString( "yyyy_MM_dd" );
 
-	QString kon_nendo = "2020"; //QString::number(year1);
+	QString kon_nendo = "2021"; //QString::number(year1);
 
 	if ( QString::compare(  kouza , QString::fromUtf8( "ボキャブライダー" ) ) ==0 ){
 		QDate today;
