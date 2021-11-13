@@ -700,7 +700,7 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 QString DownloadThread::paths[] = {
 	"english/basic0", "english/basic1", "english/basic2", "english/basic3",
 	"english/timetrial", "english/kaiwa", "english/business1",
-	"english/business2", "english/gakusyu", "english/gendai", "english/enjoy", 
+	"english/business2", "english/everybody", "english/gendai", "english/enjoy", 
 	"english/vr-radio"
 };
 
