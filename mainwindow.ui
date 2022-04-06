@@ -178,7 +178,7 @@
        </item>
       </layout>
      </item>
-     <item row="4" column="0">
+     <item row="3" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_19">
        <item>
         <widget class="QToolButton" name="toolButton_business1">
@@ -236,31 +236,6 @@
          </property>
          <property name="checked">
           <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="3" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_21">
-       <item>
-        <widget class="QToolButton" name="toolButton_gakusyu">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>ラジオで！カムカムエヴリバディ</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -378,31 +353,6 @@
        </item>
       </layout>
      </item>
-     <item row="2" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_27">
-       <item>
-        <widget class="QToolButton" name="toolButton_gendai">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>高校生からはじめる「現代英語」</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
      <item row="12" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_10">
        <item>
@@ -442,7 +392,7 @@
        </item>
       </layout>
      </item>
-     <item row="5" column="0">
+     <item row="2" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_29">
        <item>
         <widget class="QToolButton" name="toolButton_enjoy">
@@ -467,7 +417,7 @@
        </item>
       </layout>
      </item>
-     <item row="5" column="1">
+     <item row="4" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_29_1">
        <item>
         <widget class="QToolButton" name="toolButton_vrradio">
@@ -484,31 +434,6 @@
          </property>
          <property name="text">
           <string>ボキャブライダー</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="4" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_20">
-       <item>
-        <widget class="QToolButton" name="toolButton_business2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string></string>
          </property>
          <property name="checkable">
           <bool>true</bool>
@@ -884,12 +809,9 @@
   <tabstop>toolButton_basic2</tabstop>
   <tabstop>toolButton_basic3</tabstop>
   <tabstop>toolButton_timetrial</tabstop>
+  <tabstop>toolButton_enjoy</tabstop>
   <tabstop>toolButton_kaiwa</tabstop>
   <tabstop>toolButton_business1</tabstop>
-  <tabstop>toolButton_business2</tabstop>
-  <tabstop>toolButton_gakusyu</tabstop>
-  <tabstop>toolButton_gendai</tabstop>
-  <tabstop>toolButton_enjoy</tabstop>
   <tabstop>toolButton_vrradio</tabstop>
   <tabstop>toolButton_skip</tabstop>
   <tabstop>comboBox_extension</tabstop>
@@ -1034,54 +956,6 @@
     <hint type="destinationlabel">
      <x>202</x>
      <y>504</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton_business2</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>MainWindowClass</receiver>
-   <slot>toggled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>165</x>
-     <y>270</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>208</x>
-     <y>543</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton_gakusyu</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>MainWindowClass</receiver>
-   <slot>toggled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>206</x>
-     <y>311</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>202</x>
-     <y>569</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton_gendai</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>MainWindowClass</receiver>
-   <slot>toggled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>219</x>
-     <y>343</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>246</x>
-     <y>571</y>
     </hint>
    </hints>
   </connection>
