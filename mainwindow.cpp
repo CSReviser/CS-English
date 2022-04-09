@@ -103,6 +103,7 @@ MainWindow::MainWindow( QWidget *parent )
 	setGeometry( rect );
 #endif
 #ifdef Q_OS_LINUX		// Linuxでは高さが足りなくなるので縦方向に伸ばしておく
+	menuBar()->setNativeMenuBar(false);					// メニューバーが表示されなくなったに対応
 	setMaximumHeight( maximumHeight() + X11_WINDOW_VERTICAL_INCREMENT );
 	setMinimumHeight( maximumHeight() + X11_WINDOW_VERTICAL_INCREMENT );
 	QRect rect = geometry();
