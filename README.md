@@ -23,7 +23,7 @@ Macintosh版: [macOS版について](https://github.com/CSReviser/CS-English/wik
     
 ＜非対応講座＞   
 ボキャブライダー       
-世界へ発信！ニュースで英語術      
+ニュースで学ぶ「現代英語」      
 
 ### 作者  
 [jakago](https://github.com/jakago) 2014年度版以前  
