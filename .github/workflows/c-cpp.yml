@@ -21,6 +21,9 @@ jobs:
       run: qmake -makefile
     - name: make
       run: make
+      
+    - name: Make CS-English executable
+      run: chmod -R 755 ./CS-English
   
     - uses: actions/upload-artifact@v2
       with:
