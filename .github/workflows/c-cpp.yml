@@ -23,7 +23,7 @@ jobs:
       run: make
       
     - name: Make CS-English executable
-      run: chmod -R 755 ./CS-English.app
+      run: sudo chmod -R 755 ./CS-English.app
   
     - uses: actions/upload-artifact@v2
       with:
