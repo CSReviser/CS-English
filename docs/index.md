@@ -29,20 +29,7 @@
    -  [Mac版インストール手順](https://github.com/CSReviser/CS-English/wiki/Mac%E7%89%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86)                          　　　           　　                            
 
 
----
-### ffmpeg最新版入手サイト
-### [For Windows](https://www.gyan.dev/ffmpeg/builds/)               [【ffmpeg Download】](https://www.ffmpeg.org/download.html)        　                
-   * [Windows 32bit版バイナリ](https://github.com/sudo-nautilus/FFmpeg-Builds-Win32/wiki/Latest)         
-   * [Windows 64bit版バイナリ](https://github.com/BtbN/FFmpeg-Builds/wiki/Latest)   
-   * [Linux 32bit版バイナリ](https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-i686-static.tar.xz)           
-   * [Linux 64bit版バイナリ](https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz)              
-   * [Macintosh 64bit版バイナリ](https://evermeet.cx/ffmpeg/)
-### [こちらからご使用のOS環境に合ったファイルをお選び頂くこともできます](https://ffbinaries.com/downloads)
-         
-
-                       
-
-                                
+                               
 ***
 ### [CS-Englishの詳細はこちら](https://github.com/CSReviser/CS-English/wiki/CS-English)                 　　　　
 ### Wikiメニュー     
@@ -57,6 +44,19 @@
 - [作者・改版者](https://github.com/CSReviser/CaptureStream/wiki/作者・改版者)   
 - [リンク](https://github.com/CSReviser/CS-English/wiki/リンク)   
 
+
+---
+### ffmpeg最新版入手サイト
+### [For Windows](https://www.gyan.dev/ffmpeg/builds/)               [【ffmpeg Download】](https://www.ffmpeg.org/download.html)        　                
+   * [Windows 32bit版バイナリ](https://github.com/sudo-nautilus/FFmpeg-Builds-Win32/wiki/Latest)         
+   * [Windows 64bit版バイナリ](https://github.com/BtbN/FFmpeg-Builds/wiki/Latest)   
+   * [Linux 32bit版バイナリ](https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-i686-static.tar.xz)           
+   * [Linux 64bit版バイナリ](https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz)              
+   * [Macintosh 64bit版バイナリ](https://evermeet.cx/ffmpeg/)
+### [こちらからご使用のOS環境に合ったファイルをお選び頂くこともできます](https://ffbinaries.com/downloads)
+         
+
+                       
 
   
 
