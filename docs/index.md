@@ -7,7 +7,7 @@
                                
 らじる★らじる配信講座には対応していません。らじる配信講座をご希望の方はらじる配信に対応したアプリをご利用ください。らじる★らじる非対応の為、今後使用できなくなる可能性があります。[類似アプリ](https://github.com/CSReviser/CS-English/wiki/類似アプリ)への移行をご検討ください。       
 ##### ※ 録音した語学講座のファイルは著作権法で許されている範囲内でご利用ください。            
-### [［NHKゴガクのお知らせ］](https://www2.nhk.or.jp/gogaku/topics.cgi)   
+### [［NHKゴガクのお知らせ］](https://www2.nhk.or.jp/gogaku/topics.cgi)   　
 ### [［放送内容変更のお知らせ］](https://www2.nhk.or.jp/gogaku/topics2.cgi)   
 ##### ※ NHKの語学講座の放送日時やストリーミングの日程変更は[NHKゴガクのお知らせ](https://www2.nhk.or.jp/gogaku/topics.cgi) をご確認下さい。                     
 - #### [NHKテキスト 2022](https://www.nhk-book.co.jp/text/index.html)
