@@ -18,7 +18,7 @@
 * #### [Linux系OSでの使用について](https://github.com/CSReviser/CS-English/wiki/Linux)       
 
 ***
-### CS-English [2022/04/06版](https://github.com/CSReviser/CS-English/releases/tag/20220406)[【対応講座】](https://github.com/CSReviser/CS-English/wiki/%E5%AF%BE%E5%BF%9C%E8%AC%9B%E5%BA%A7)                 
+### 語学講座CS-English [2022/04/06版](https://github.com/CSReviser/CS-English/releases/tag/20220406)[【対応講座】](https://github.com/CSReviser/CS-English/wiki/%E5%AF%BE%E5%BF%9C%E8%AC%9B%E5%BA%A7)                 
 ### 　　　 [macOS版のみ：2022/04/16版](https://github.com/CSReviser/CS-English/releases/tag/20220416)         
 #### ※ 英語講座のみに対応
    - #### Windows版: [2022/04/06版ダウンロード](https://github.com/CSReviser/CS-English/releases/download/20220406/CS-English-Windows-20220406.zip)                          
@@ -29,7 +29,7 @@
 
                                
 ***
-### [CS-Englishの詳細はこちら](https://github.com/CSReviser/CS-English/wiki/CS-English)                 　　　　
+### [語学講座CS-Englishの詳細はこちら](https://github.com/CSReviser/CS-English/wiki/CS-English)                 　　　　
 ### Wikiメニュー     
 - [概要](https://github.com/CSReviser/CS-English/wiki/%E6%A6%82%E8%A6%81)   
 - [対応講座](https://github.com/CSReviser/CS-English/wiki/%E5%AF%BE%E5%BF%9C%E8%AC%9B%E5%BA%A7)    
@@ -47,7 +47,7 @@
  
 
 ---
-### CS-Mult [2022/04/05版](https://github.com/CSReviser/CS-Mult/releases/tag/20220405)[【対応講座】](https://github.com/CSReviser/CS-Mult/wiki/%E5%AF%BE%E5%BF%9C%E8%AC%9B%E5%BA%A7)                  
+### 語学講座CS-Mult [2022/04/05版](https://github.com/CSReviser/CS-Mult/releases/tag/20220405)[【対応講座】](https://github.com/CSReviser/CS-Mult/wiki/%E5%AF%BE%E5%BF%9C%E8%AC%9B%E5%BA%A7)                  
 ### 　　 [macOS版のみ：2022/04/16版](https://github.com/CSReviser/CS-Mult/releases/tag/20220416)                  
 #### ※ 英語以外の語学講座と一部の英語講座に対応。          
 ※ 従来１つのボタンであった欧州系の語学講座を【月/火/水】と【木/金】に分けました。              
