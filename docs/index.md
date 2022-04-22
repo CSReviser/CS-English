@@ -7,13 +7,14 @@
 ##### ※ 録音した語学講座のファイルは著作権法で許されている範囲内でご利用ください。            
 ### [［NHKゴガクのお知らせ］](https://www2.nhk.or.jp/gogaku/topics.cgi)   　
 ### [［放送内容変更のお知らせ］](https://www2.nhk.or.jp/gogaku/topics2.cgi)   
+### [ストリーミング配信期間](https://github.com/CSReviser/CS-English/wiki/%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E9%85%8D%E4%BF%A1%E6%9C%9F%E9%96%93)                                 
 ##### ※ NHKの語学講座の放送日時やストリーミングの日程変更は[NHKゴガクのお知らせ](https://www2.nhk.or.jp/gogaku/topics.cgi) をご確認下さい。                     
 - #### [NHKテキスト 2022](https://www.nhk-book.co.jp/text/index.html)
 - #### [英語力測定テスト 2022](https://eigoryoku.nhk-book.co.jp/?_ga=2.177137829.1000592643.1613186020-1646930887.1611275979)
 - #### [NHK語学テキストのはじめかた](https://www.nhk-book.co.jp/pr/text/hajimekata.html)
 
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)     
-### 多くのMacユーザーの方から動作確認情報と[Twitter](https://twitter.com/Miiaaenglish/status/1515131329112858626?s=20&t=fKw38ZN5fkIG9q911hDAFw)でインストール手順を情報提供して頂きました。ご協力に感謝します。[類似アプリ](https://github.com/CSReviser/CS-English/wiki/類似アプリ)から更新が遅れている一部のアプリを一時的に削除しました。このサイトの2022年度対応になっていない記述は順次更新します。ストリーミングの公開は放送日の翌月曜日10時から1週間です。らじる★らじるの聞き逃しとは公開時期/期間が異なりますのでご注意ください。                     　　           　　       
+##### 多くのMacユーザーの方から動作確認情報と[Twitter](https://twitter.com/Miiaaenglish/status/1515131329112858626?s=20&t=fKw38ZN5fkIG9q911hDAFw)でインストール手順を情報提供して頂きました。ご協力に感謝します。[類似アプリ](https://github.com/CSReviser/CS-English/wiki/類似アプリ)から更新が遅れている一部のアプリを一時的に削除しました。このサイトの2022年度対応になっていない記述は順次更新します。ストリーミングの公開は放送日の翌月曜日10時から1週間です。らじる★らじるの聞き逃しとは公開時期/期間が異なりますのでご注意ください。                     　　           　　       
 
 * #### [Linux系OSでの使用について](https://github.com/CSReviser/CS-English/wiki/Linux)       
 
