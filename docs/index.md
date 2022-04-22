@@ -1,8 +1,7 @@
 ## 語学講座CS (2022年度)      
 #### (CS-English／CS-Mult)
 ##### ※ [名称変更について](https://github.com/CSReviser/CaptureStream/wiki/名称変更について) 　  【[制限事項](https://github.com/CSReviser/CS-English/wiki/%E5%88%B6%E9%99%90%E4%BA%8B%E9%A0%85)】           
-##### こちらは語学講座CSのサイトです。[CaptureStreamの公式サイトはこちら](https://osdn.net/projects/capturestream/)になります。誤解された方には申し訳ありません。          
-##### 語学講座CS（語学講座CS-English）は派生版で[オリジナル作者](https://github.com/CSReviser/CaptureStream/wiki/%E4%BD%9C%E8%80%85%E3%83%BB%E6%94%B9%E7%89%88%E8%80%85)による正規の更新版ではありません。派生版で別のツールであるとをご理解の上ご利用ください。　　　　　　　　
+##### こちらは語学講座CSのサイトです。[CaptureStreamの公式サイトはこちら](https://osdn.net/projects/capturestream/)になります。誤解された方には申し訳ありません。語学講座CS-Englishは派生版であり、[オリジナル作者](https://github.com/CSReviser/CaptureStream/wiki/%E4%BD%9C%E8%80%85%E3%83%BB%E6%94%B9%E7%89%88%E8%80%85)による正規な改版ではありません。派生版で別のツールであるとをご理解の上ご利用ください。　　　　　　　　
                                
 らじる★らじる配信講座には対応していません。らじる配信講座をご希望の方はらじる配信に対応したアプリをご利用ください。らじる★らじる非対応の為、今後使用できなくなる可能性があります。[類似アプリ](https://github.com/CSReviser/CS-English/wiki/類似アプリ)への移行をご検討ください。       
 ##### ※ 録音した語学講座のファイルは著作権法で許されている範囲内でご利用ください。            
@@ -44,18 +43,7 @@
 - [リンク](https://github.com/CSReviser/CS-English/wiki/リンク)   
 
 
----
-### ffmpeg最新版入手サイト
-### [For Windows](https://www.gyan.dev/ffmpeg/builds/)               [【ffmpeg Download】](https://www.ffmpeg.org/download.html)        　                
-   * [Windows 32bit版バイナリ](https://github.com/sudo-nautilus/FFmpeg-Builds-Win32/wiki/Latest)         
-   * [Windows 64bit版バイナリ](https://github.com/BtbN/FFmpeg-Builds/wiki/Latest)   
-   * [Linux 32bit版バイナリ](https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-i686-static.tar.xz)           
-   * [Linux 64bit版バイナリ](https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz)              
-   * [Macintosh 64bit版バイナリ](https://evermeet.cx/ffmpeg/)
-### [こちらからご使用のOS環境に合ったファイルをお選び頂くこともできます](https://ffbinaries.com/downloads)
-         
-
-                       
+                    
  
 
 ---
@@ -67,6 +55,19 @@
    - #### Ubuntu版: [バイナリビルド手順](https://github.com/CSReviser/CS-Mult/wiki/ubuntuビルド手順)                          
    - #### Macintosh版: [2022/04/16版ダウンロード](https://github.com/CSReviser/CS-Mult/releases/download/20220416/CS-Mult-Macintosh-20220417.dmg) 　　※ダウンロードボタンの表示問題対策         
    -  [Mac版インストール手順](https://github.com/CSReviser/CS-English/wiki/Mac%E7%89%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86)                          　　　           　　                            
+
+---
+### ffmpeg最新版入手サイト
+### [For Windows](https://www.gyan.dev/ffmpeg/builds/)               [【ffmpeg Download】](https://www.ffmpeg.org/download.html)        　                
+   * [Windows 32bit版バイナリ](https://github.com/sudo-nautilus/FFmpeg-Builds-Win32/wiki/Latest)         
+   * [Windows 64bit版バイナリ](https://github.com/BtbN/FFmpeg-Builds/wiki/Latest)   
+   * [Linux 32bit版バイナリ](https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-i686-static.tar.xz)           
+   * [Linux 64bit版バイナリ](https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz)              
+   * [Macintosh 64bit版バイナリ](https://evermeet.cx/ffmpeg/)
+### [こちらからご使用のOS環境に合ったファイルをお選び頂くこともできます](https://ffbinaries.com/downloads)
+         
+
+
 
 ---
 ##### 名称を変更した語学講座CS([CS-English](https://github.com/CSReviser/CS-English/wiki/CS-English)/CS-Mult)に移行し、更新を終了する予定です。               
