@@ -1,3 +1,6 @@
+## 語学講座CS(English) (2022年度)      
+## ([CS-English](https://csreviser.github.io/CS-English/)／[CS-Mult](https://csreviser.github.io/CS-Mult/))
+***
 ### 語学講座CS-English [2022/04/06版](https://github.com/CSReviser/CS-English/releases/tag/20220406)                 
 ### 　　　 [macOS版のみ：2022/04/16版](https://github.com/CSReviser/CS-English/releases/tag/20220416)         
 [【対応講座】](https://github.com/CSReviser/CS-English/wiki/%E5%AF%BE%E5%BF%9C%E8%AC%9B%E5%BA%A7)              
