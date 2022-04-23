@@ -67,5 +67,5 @@
 ---
 ##### 名称を変更した語学講座CS([CS-English](https://github.com/CSReviser/CS-English/wiki/CS-English)/CS-Mult)に移行し、更新を終了する予定です。               
 ##### 旧名称の部分は順次訂正していきます。   
-##### 旧名称最終版は[こちら](https://csreviser.github.io/old/)に移動しました。                                           
+##### 旧名称最終版は[こちら](https://csreviser.github.io/CS-English/old/)に移動しました。                                           
 ***
