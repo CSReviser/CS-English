@@ -1,4 +1,4 @@
-## 語学講座CS(English) (2022年度)      
+## 語学講座CS (2022年度)      
 ## ([CS-English](https://csreviser.github.io/CS-English/)／[CS-Mult](https://csreviser.github.io/CS-Mult/))
 ***
 ##### 名称を変更した語学講座CS([CS-English](https://csreviser.github.io/CS-English/)/[CS-Mult](https://csreviser.github.io/CS-Mult/))に移行し、更新を終了する予定です。               
