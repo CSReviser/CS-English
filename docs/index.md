@@ -1,35 +1,28 @@
 ## 語学講座CS (2022年度)      
 ## ([CS-English](https://csreviser.github.io/CS-English/new/)／[CS-Mult](https://csreviser.github.io/CS-Mult/))
+
+## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)     
+#### トップページを修正中です。最新版のダウンロードページを[English](https://csreviser.github.io/CS-English/new/)と[Mult](https://csreviser.github.io/CS-Mult/)で分けました。このサイトの2022年度対応になっていない記述は順次更新します。ストリーミングの公開は放送日の翌月曜日10時から1週間です。らじる★らじるの聞き逃しとは公開時期/期間が異なりますのでご注意ください。[ストリーミング配信期間](https://github.com/CSReviser/CS-English/wiki/%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E9%85%8D%E4%BF%A1%E6%9C%9F%E9%96%93)                        　　           　　       
+
 ##### ※ [名称変更について](https://github.com/CSReviser/CaptureStream/wiki/名称変更について) 　  【[制限事項](https://github.com/CSReviser/CS-English/wiki/%E5%88%B6%E9%99%90%E4%BA%8B%E9%A0%85)】           
 ##### こちらは語学講座CSのサイトです。[CaptureStreamの公式サイトはこちら](https://ja.osdn.net/projects/capturestream/)になりますが、2014年度版を最後に開発が中断しています。語学講座CS-Englishは派生版であり、[オリジナル作者](https://github.com/CSReviser/CaptureStream/wiki/%E4%BD%9C%E8%80%85%E3%83%BB%E6%94%B9%E7%89%88%E8%80%85)による正規な改版ではありません。派生版で別のツールであるとをご理解の上ご利用ください。　　　　　　　　
                                
-らじる★らじる配信講座には対応していません。らじる配信講座をご希望の方はらじる配信に対応したアプリをご利用ください。らじる★らじる非対応の為、今後使用できなくなる可能性があります。[類似アプリ](https://github.com/CSReviser/CS-English/wiki/類似アプリ)への移行をご検討ください。       
+らじる★らじる配信講座には対応していません。らじる配信講座をご希望の方はらじる配信に対応した[類似アプリ](https://github.com/CSReviser/CS-English/wiki/類似アプリ)への移行をご検討ください。       
 ##### ※ 録音した語学講座のファイルは著作権法で許されている範囲内でご利用ください。            
+***
+### 語学講座CS-Englishの実行ファイルダウンロードページは[こちら](https://csreviser.github.io/CS-English/new/) に移動しました。                
+### 語学講座CS-Multの実行ファイルダウンロードページは[こちら](https://csreviser.github.io/CS-Mult/) に移動しました。                
+*** 
+
 ### [［NHKゴガクのお知らせ］](https://www2.nhk.or.jp/gogaku/topics.cgi)   　
 ### [［放送内容変更のお知らせ］](https://www2.nhk.or.jp/gogaku/topics2.cgi)   
-### [ストリーミング配信期間](https://github.com/CSReviser/CS-English/wiki/%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E9%85%8D%E4%BF%A1%E6%9C%9F%E9%96%93)                                 
+                              
 ##### ※ NHKの語学講座の放送日時やストリーミングの日程変更は[NHKゴガクのお知らせ](https://www2.nhk.or.jp/gogaku/topics.cgi) をご確認下さい。                     
 - #### [NHKテキスト 2022](https://www.nhk-book.co.jp/text/index.html)
 - #### [英語力測定テスト 2022](https://eigoryoku.nhk-book.co.jp/?_ga=2.177137829.1000592643.1613186020-1646930887.1611275979)
 - #### [NHK語学テキストのはじめかた](https://www.nhk-book.co.jp/pr/text/hajimekata.html)
 
-## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)     
-##### 多くのMacユーザーの方から動作確認情報と[Twitter](https://twitter.com/Miiaaenglish/status/1515131329112858626?s=20&t=fKw38ZN5fkIG9q911hDAFw)でインストール手順を情報提供して頂きました。ご協力に感謝します。[類似アプリ](https://github.com/CSReviser/CS-English/wiki/類似アプリ)から更新が遅れている一部のアプリを一時的に削除しました。このサイトの2022年度対応になっていない記述は順次更新します。ストリーミングの公開は放送日の翌月曜日10時から1週間です。らじる★らじるの聞き逃しとは公開時期/期間が異なりますのでご注意ください。                     　　           　　       
-
-* #### [Linux系OSでの使用について](https://github.com/CSReviser/CS-English/wiki/Linux)       
-
-***
-### 語学講座CS-English [2022/04/06版](https://github.com/CSReviser/CS-English/releases/tag/20220406)                 
-### 　　　 [macOS版のみ：2022/04/16版](https://github.com/CSReviser/CS-English/releases/tag/20220416)         
-[【対応講座】](https://github.com/CSReviser/CS-English/wiki/%E5%AF%BE%E5%BF%9C%E8%AC%9B%E5%BA%A7)              
-   ※ 英語講座のみに対応
-   - #### Windows版: [2022/04/06版ダウンロード](https://github.com/CSReviser/CS-English/releases/download/20220406/CS-English-Windows-20220406.zip)                          
-   - #### Ubuntu版: [バイナリビルド手順](https://github.com/CSReviser/CS-English/wiki/ubuntuビルド手順) 
-   - #### Macintosh版: [2022/04/16版ダウンロード](https://github.com/CSReviser/CS-English/releases/download/20220416/CS-English-Macintosh-20220416.dmg) 　　※ダウンロードボタンの表示問題対策        
-   -  [Mac版インストール手順](https://github.com/CSReviser/CS-English/wiki/Mac%E7%89%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86)                          　　　           　　                            
-
-
-                               
+                             
 ***
 ### [語学講座CS-Englishの詳細はこちら](https://github.com/CSReviser/CS-English/wiki/CS-English)                 　　　　
 ### Wikiメニュー     
@@ -45,11 +38,7 @@
 - [リンク](https://github.com/CSReviser/CS-English/wiki/リンク)   
 
 
-                    
- 
-
----
-### 語学講座CS-Multは[こちら](https://csreviser.github.io/CS-Mult/) に移動しました。                
+            
 
 ---
 ### ffmpeg最新版入手サイト
