@@ -2,7 +2,7 @@
 ## ([CS-English](https://csreviser.github.io/CS-English/new/)／[CS-Mult](https://csreviser.github.io/CS-Mult/))
 
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)     
-#### トップページを修正中です。最新版のダウンロードページを[English](https://csreviser.github.io/CS-English/new/)と[Mult](https://csreviser.github.io/CS-Mult/)で分けました。このサイトの2022年度対応になっていない記述は順次更新します。ストリーミングの公開は放送日の翌月曜日10時から1週間です。らじる★らじるの聞き逃しとは公開時期/期間が異なりますのでご注意ください。[ストリーミング配信期間](https://github.com/CSReviser/CS-English/wiki/%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E9%85%8D%E4%BF%A1%E6%9C%9F%E9%96%93)                        　　           　　       
+#### 更新が遅れていたツールが5/5(木)に更新されたようです。一時しのぎで利用されていた方は、使い慣れたツールにお戻りください。最新版のダウンロードページを[English](https://csreviser.github.io/CS-English/new/)と[Mult](https://csreviser.github.io/CS-Mult/)で分けました。このサイトの2022年度対応になっていない記述は順次更新します。ストリーミングの公開は放送日の翌月曜日10時から1週間です。らじる★らじるの聞き逃しとは公開時期/期間が異なりますのでご注意ください。[ストリーミング配信期間](https://github.com/CSReviser/CS-English/wiki/%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E9%85%8D%E4%BF%A1%E6%9C%9F%E9%96%93)                        　　           　　       
 
 ##### ※ [名称変更について](https://github.com/CSReviser/CaptureStream/wiki/名称変更について) 　  【[制限事項](https://github.com/CSReviser/CS-English/wiki/%E5%88%B6%E9%99%90%E4%BA%8B%E9%A0%85)】           
 ##### こちらは語学講座CSのサイトです。[CaptureStreamの公式サイト](https://ja.osdn.net/projects/capturestream/)では、2014年度版を最後に開発が中断しています。語学講座CS-Englishは派生版であり、[オリジナル作者](https://github.com/CSReviser/CaptureStream/wiki/%E4%BD%9C%E8%80%85%E3%83%BB%E6%94%B9%E7%89%88%E8%80%85)による正規な改版ではありません。派生版で別のツールであるとをご理解の上ご利用ください。　　　　　　　　
