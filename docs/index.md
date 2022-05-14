@@ -51,7 +51,8 @@
    * [Linux 64bit版バイナリ](https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz)              
    * [Macintosh 64bit版バイナリ](https://evermeet.cx/ffmpeg/)
 ### [こちらからご使用のOS環境に合ったファイルをお選び頂くこともできます](https://ffbinaries.com/downloads)
-         
+   * ffmpegの古いバージョンが必要な場合は、下記リンクから入手できます。  
+### [Download ffmpeg old versions](https://www.videohelp.com/software/ffmpeg/old-versions)          
 
 
 
