@@ -241,6 +241,34 @@
        </item>
       </layout>
      </item>
+     <item row="14" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_32">
+       <item>
+        <widget class="QCheckBox" name="checkBox_next_week2"> 
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font color="black">
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>今週放送分（試行）</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
      <item row="15" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout_28"/>
      </item>
@@ -260,7 +288,7 @@
           </font>
          </property>
          <property name="text">
-          <string>ダウンロード</string>
+          <string>レコーディング</string>
          </property>
         </widget>
        </item>
@@ -818,7 +846,7 @@
   <tabstop>downloadButton</tabstop>
   <tabstop>past_days</tabstop>
   <tabstop>comboBox_enews</tabstop>
-  <tabstop>checkBox_next_week</tabstop>
+  <tabstop>checkBox_next_week2</tabstop>
   <tabstop>checkBox_15</tabstop>
   <tabstop>checkBox_14</tabstop>
   <tabstop>checkBox_this_week</tabstop>

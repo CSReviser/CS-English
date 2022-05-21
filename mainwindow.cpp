@@ -77,7 +77,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( " (2022/05/18)" ); 
+			result = QString( " (2022/05/21)" ); 
 		}
 		return result;
 	}
@@ -173,7 +173,7 @@ MainWindow::~MainWindow() {
 void MainWindow::closeEvent( QCloseEvent *event ) {
 	Q_UNUSED( event )
 	if ( downloadThread ) {
-		messagewindow.appendParagraph( QString::fromUtf8( "ダウンロードをキャンセル中..." ) );
+		messagewindow.appendParagraph( QString::fromUtf8( "レコーディングをキャンセル中..." ) );
 		download();
 	}
 	messagewindow.close();
@@ -228,7 +228,7 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		{ NULL, NULL, false }
 	};
 	ComboBox textComboBoxes[] = {
-		{ ui->comboBox_extension, "audio_extension", "mp3" },
+		{ ui->comboBox_extension, "audio_extension", "m4a" },	// 拡張子のデフォルトを「mp3」から「m4a」に変更。
 		{ NULL, NULL, false }
 	};
 
@@ -315,8 +315,8 @@ void MainWindow::customizeScramble() {
 	scramble = dialog.scramble();
 }
 
-void MainWindow::download() {	//「ダウンロード」または「キャンセル」ボタンが押されると呼び出される
-	if ( !downloadThread ) {	//ダウンロード実行
+void MainWindow::download() {	//「レコーディング」または「キャンセル」ボタンが押されると呼び出される
+	if ( !downloadThread ) {	//レコーディング実行
 		if ( messagewindow.text().length() > 0 )
 			messagewindow.appendParagraph( "\n----------------------------------------" );
 		ui->downloadButton->setEnabled( false );
@@ -354,11 +354,11 @@ void MainWindow::finished() {
 		if ( downloadThread->isRunning() ) {	//キャンセルでMainWindow::downloadから呼ばれた場合
 			downloadThread->cancel();
 			downloadThread->wait();
-			messagewindow.appendParagraph( QString::fromUtf8( "ダウンロードをキャンセルしました。" ) );
+			messagewindow.appendParagraph( QString::fromUtf8( "レコーディングをキャンセルしました。" ) );
 		}
 		delete downloadThread;
 		downloadThread = NULL;
-		ui->downloadButton->setText( QString::fromUtf8( "ダウンロード" ) );
+		ui->downloadButton->setText( QString::fromUtf8( "レコーディング" ) );
 		ui->downloadButton->setEnabled( true );
 	}
 	//ui->label->setText( "" );
