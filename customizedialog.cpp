@@ -24,10 +24,21 @@
 
 #include <QDir>
 #include <QSettings>
+#include <QDesktopWidget>
 
 #define SETTING_GROUP "CustomizeDialog"
 #define DefaultTitle "%k_%Y_%M_%D"
 #define DefaultFileName "%k_%Y_%M_%D"
+
+#ifdef QT4_QT5_WIN
+#define STYLE_SHEET "stylesheet-win.qss"
+#else
+#ifdef QT4_QT5_MAC
+#define STYLE_SHEET "stylesheet-mac.qss"
+#else
+#define STYLE_SHEET "stylesheet-ubu.qss"
+#endif
+#endif
 
 typedef struct LineEdit {
 	QLineEdit* lineEdit;
@@ -36,30 +47,20 @@ typedef struct LineEdit {
 } LineEdit;
 
 QStringList CustomizeDialog::courses = QStringList()
-		<< QString::fromUtf8( "基礎英語0" ) << QString::fromUtf8( "基礎英語1" ) 
-		<< QString::fromUtf8( "基礎英語2" ) << QString::fromUtf8( "基礎英語3" )
+		<< QString::fromUtf8( "小学生の基礎英語" ) << QString::fromUtf8( "中学生の基礎英語【レベル1】" ) 
+		<< QString::fromUtf8( "中学生の基礎英語【レベル2】" ) << QString::fromUtf8( "中高生の基礎英語_in_English" )
 		<< QString::fromUtf8( "英会話タイムトライアル" ) << QString::fromUtf8( "ラジオ英会話" )
-		<< QString::fromUtf8( "入門ビジネス英語" ) << QString::fromUtf8( "実践ビジネス英語" )
-		 << QString::fromUtf8( "遠山顕の英会話楽習" ) << QString::fromUtf8( "高校生からはじめる「現代英語」" ) 
-		<< QString::fromUtf8( "まいにち中国語" ) << QString::fromUtf8( "まいにちフランス語" )
-		<< QString::fromUtf8( "まいにちイタリア語" ) << QString::fromUtf8( "まいにちハングル講座" )
-		<< QString::fromUtf8( "まいにちドイツ語" ) << QString::fromUtf8( "まいにちスペイン語" )
-		<< QString::fromUtf8( "レベルアップ中国語" ) << QString::fromUtf8( "レベルアップハングル講座" )
+		<< QString::fromUtf8( "ラジオビジネス英語" )
 		<< QString::fromUtf8( "エンジョイ・シンプル・イングリッシュ" )
-		<< QString::fromUtf8( "まいにちロシア語" ) << QString::fromUtf8( "ボキャブライダー" );
+		<< QString::fromUtf8( "ボキャブライダー" );
 QStringList CustomizeDialog::titleKeys = QStringList()
 		<< "basic0_title" << "basic1_title" << "basic2_title" << "basic3_title" << "timetrial_title"
-		<< "kaiwa_title" << "business1_title" << "business2_title" << "gakusyu_title" << "gendai_title"
-		<< "chinese_title" << "french_title" << "italian_title" << "hangeul_title"
-		<< "german_title" << "spanish_title" << "levelup-chinese_title" << "levelup-hangeul_title"
-		<< "gendai_title" 
-		<< "enjoy_title" << "russian_title" << "vrradio_title";
+		<< "kaiwa_title" << "business1_title" 
+		<< "enjoy_title" << "vrradio_title";
 QStringList CustomizeDialog::fileNameKeys = QStringList()
 		<< "basic0_file_name" << "basic1_file_name" << "basic2_file_name" << "basic3_file_name" << "timetrial_file_name"
-		<< "kaiwa_file_name" << "business1_file_name" << "business2_file_name" << "gakusyu_file_name" << "gendai_file_name" 
-		<< "chinese_file_name" << "french_file_name" << "italian_file_name" << "hangeul_file_name"
-		<< "german_file_name" << "spanish_file_name" << "levelup-chinese_file_name" << "levelup-hangeul_file_name"
-		<< "enjoy_file_name" << "russian_file_name" << "vrradio_file_name";
+		<< "kaiwa_file_name" << "business1_file_name"
+		<< "enjoy_file_name" << "vrradio_file_name";
 
 void CustomizeDialog::formats( QString course, QString& titleFormat, QString& fileNameFormat ) {
 	int index = courses.indexOf( course );
@@ -88,17 +89,23 @@ CustomizeDialog::CustomizeDialog( Ui::DialogMode mode, QWidget *parent ) :
 
 void CustomizeDialog::settings( bool write ) {
 	QLineEdit* lineEdits[] = {
-		ui.lineEdit_18, ui.lineEdit, ui.lineEdit_2, ui.lineEdit_3, ui.lineEdit_4,
-		ui.lineEdit_5, ui.lineEdit_6, ui.lineEdit_7, ui.lineEdit_8,
-		ui.lineEdit_17, ui.lineEdit_9, ui.lineEdit_10, ui.lineEdit_11, ui.lineEdit_12,
-		ui.lineEdit_13, ui.lineEdit_14, ui.lineEdit_15, ui.lineEdit_16,
-		ui.lineEdit_19, ui.lineEdit_20, ui.lineEdit_21,
+		ui.lineEdit_0, ui.lineEdit, ui.lineEdit_2, ui.lineEdit_3, ui.lineEdit_4,
+		ui.lineEdit_5, ui.lineEdit_6,
+		ui.lineEdit_19, ui.lineEdit_21,
 		NULL
 	};
 
 	QString path = Utility::applicationBundlePath();
 	QSettings settings( path + INI_FILE, QSettings::IniFormat );
 	settings.beginGroup( SETTING_GROUP );
+
+	adjustSize();                             //高DPIディスプレイ対応
+	setFixedSize(size());
+        int dpiX = qApp->desktop()->logicalDpiX();
+	QFont f;
+	int defaultFontSize = f.pointSize() * ( 96.0 / dpiX );
+	f.setPointSize( defaultFontSize );
+	qApp->setFont(f);
 
 	if ( !write ) {
 		for ( int i = 0; lineEdits[i] != NULL; i++ ) {

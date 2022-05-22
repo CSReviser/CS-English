@@ -578,7 +578,7 @@ QString DownloadThread::formatName( QString format, QString kouza, QString hdate
 bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, QString nendo, QString this_week ) {
 	QString outputDir = MainWindow::outputDir + kouza;
 	if ( QString::compare( this_week, "今週放送分" ) ==0 ){
-		outputDir = outputDir + "/" + "今週放送分";
+		outputDir = outputDir + "/" + QString::fromUtf8( "今週放送分" );
 		if ( QString::compare(  kouza , QString::fromUtf8( "ボキャブライダー" ) ) ==0 )
 		return true;
 	}
