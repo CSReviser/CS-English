@@ -11,8 +11,7 @@
    * Windows版: [2022/05/18版ダウンロード](https://github.com/CSReviser/CaptureStream/releases/download/20220518/CaptureStream-Windows-20220518.zip)                          
    * Ubuntu版: [バイナリビルド手順](https://github.com/CSReviser/CaptureStream/wiki/ubuntuビルド手順)                          
    * Macintosh版: [2022/05/18版ダウンロード](https://github.com/CSReviser/CaptureStream/releases/download/20220518/CaptureStream-Macintosh-20220518.dmg) 　　         
-   -  [Mac版インストール手順](https://github.com/CSReviser/CS-English/wiki/Mac%E7%89%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86)                          　　　           　　                                                    
-　　　           　　     
+   -  [Mac版インストール手順](https://github.com/CSReviser/CS-English/wiki/Mac%E7%89%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86(%E3%83%91%E3%83%BC%E3%83%9F%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E6%B8%88))                                                                　　　           　　                            　　　           　　     
 
 ***
 ### [旧アプリの詳細はこちら](https://github.com/CSReviser/CaptureStream/wiki/CaptureStream)                 　　　
