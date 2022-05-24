@@ -24,21 +24,10 @@
 
 #include <QDir>
 #include <QSettings>
-#include <QDesktopWidget>
 
 #define SETTING_GROUP "CustomizeDialog"
 #define DefaultTitle "%k_%Y_%M_%D"
 #define DefaultFileName "%k_%Y_%M_%D"
-
-#ifdef QT4_QT5_WIN
-#define STYLE_SHEET "stylesheet-win.qss"
-#else
-#ifdef QT4_QT5_MAC
-#define STYLE_SHEET "stylesheet-mac.qss"
-#else
-#define STYLE_SHEET "stylesheet-ubu.qss"
-#endif
-#endif
 
 typedef struct LineEdit {
 	QLineEdit* lineEdit;
@@ -98,14 +87,6 @@ void CustomizeDialog::settings( bool write ) {
 	QString path = Utility::applicationBundlePath();
 	QSettings settings( path + INI_FILE, QSettings::IniFormat );
 	settings.beginGroup( SETTING_GROUP );
-
-	adjustSize();                             //高DPIディスプレイ対応
-	setFixedSize(size());
-        int dpiX = qApp->desktop()->logicalDpiX();
-	QFont f;
-	int defaultFontSize = f.pointSize() * ( 96.0 / dpiX );
-	f.setPointSize( defaultFontSize );
-	qApp->setFont(f);
 
 	if ( !write ) {
 		for ( int i = 0; lineEdits[i] != NULL; i++ ) {

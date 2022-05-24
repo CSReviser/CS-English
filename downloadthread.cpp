@@ -554,6 +554,8 @@ QString DownloadThread::formatName( QString format, QString kouza, QString hdate
 			//case 'p': result += QDir::separator(); break;
 			case 'Y': result += QString::number( year ); break;
 			case 'y': result += QString::number( year ).right( 2 ); break;
+			case 'N': result += nendo + QString::fromUtf8( "年度" ); break;
+			case 'n': result += nendo.right( 2 ) + QString::fromUtf8( "年度" ); break;
 			case 'M': result += QString::number( month + 100 ).right( 2 ); break;
 			case 'm': result += QString::number( month ); break;
 			case 'D': result += QString::number( day + 100 ).right( 2 ); break;
@@ -579,7 +581,9 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 	QString outputDir = MainWindow::outputDir + kouza;
 	if ( QString::compare( this_week, "今週放送分" ) ==0 ){
 		outputDir = outputDir + "/" + QString::fromUtf8( "今週放送分" );
-		if ( QString::compare(  kouza , QString::fromUtf8( "ボキャブライダー" ) ) ==0 )
+		QDate today;
+		today.setDate(QDate::currentDate().year(),QDate::currentDate().month(),QDate::currentDate().day());
+		if ( QString::compare(  kouza , QString::fromUtf8( "ボキャブライダー" ) ) ==0 || (today.dayOfWeek() >= 1 && today.dayOfWeek() <= 2))
 		return true;
 	}
 	
@@ -673,8 +677,11 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 			.arg( ffmpeg, filem3u8a, dstPath, id3tagTitle, kouza, QString::number( year ) );
 
 	QString filem3u8b = prefix2 + file + "/master.m3u8";
+	QString filem3u8b3 = prefix1 + file.replace ( QString::fromUtf8( ".mp4" ), QString::fromUtf8( "-re01.mp4" ) )  + "/master.m3u8";
 	QString commandFfmpeg2 = ffmpegHash[extension]
 			.arg( ffmpeg, filem3u8b, dstPath, id3tagTitle, kouza, QString::number( year ) );
+	QString commandFfmpeg3 = ffmpegHash[extension]
+			.arg( ffmpeg, filem3u8b3, dstPath, id3tagTitle, kouza, QString::number( year ) );
 
 	//qDebug() << commandFfmpeg;
 	//DebugLog( commandFfmpeg );
@@ -710,7 +717,12 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 	process.kill();
 	process.close();
 	QProcess process2;
+	     if ( QString::compare( this_week, "今週放送分" ) ==0 ){
+		process2.start( commandFfmpeg3 );
+	     } else {
 		process2.start( commandFfmpeg2 );
+	     }
+
 		if ( !process2.waitForStarted( -1 ) ) {
 			emit critical( QString::fromUtf8( "ffmpeg起動エラー(%3)：　%1　　%2" )
 					.arg( kouza, yyyymmdd,  processError[process.error()] ) );
