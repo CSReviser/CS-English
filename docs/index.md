@@ -3,7 +3,8 @@
 
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)　[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)         
 #### 更新が遅れていた某ツールが5/5(木)に更新されたようなので一時的に削除した[類似アプリ](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)のリンクを戻しました。一時しのぎで利用されていた方は、使い慣れたツールにお戻りください。
-#### [［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)のリンクを[［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)のリンクの右側に設置してみました。アプリ乗り換え、移行の参考にしてください。              
+#### 2022/10/17放送分の「ラジオ英会話」のレコーディングに失敗するようです。この機会に［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。              
+              
 #### このサイトの2022年度対応になっていない記述は順次更新します。ストリーミングの公開は放送日の翌月曜日10時から1週間です。らじる★らじるの聞き逃しとは公開時期/期間が異なりますのでご注意ください。[ストリーミング配信期間](https://github.com/CSReviser/CS-English/wiki/%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E9%85%8D%E4%BF%A1%E6%9C%9F%E9%96%93)                        　　           　　       
 
 ##### ※ [名称変更について](https://github.com/CSReviser/CaptureStream/wiki/名称変更について) 　  【[制限事項](https://github.com/CSReviser/CS-English/wiki/%E5%88%B6%E9%99%90%E4%BA%8B%E9%A0%85)】           
