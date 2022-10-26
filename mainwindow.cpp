@@ -159,10 +159,14 @@ MainWindow::MainWindow( QWidget *parent )
 	}
 	qApp->setStyleSheet( styleSheet );
 
+
+	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling); // DPI support
+	QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps); //HiDPI pixmaps
 	adjustSize();                             //高DPIディスプレイ対応
 	setFixedSize(size());
-        int dpiX = qApp->desktop()->logicalDpiX();
-	QFont f;
+	int dpiX = qApp->desktop()->logicalDpiX();
+	QFont f = qApp->font();
 	int defaultFontSize = f.pointSize() * ( 96.0 / dpiX );
 	f.setPointSize( defaultFontSize );
 	qApp->setFont(f);
