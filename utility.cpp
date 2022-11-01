@@ -41,7 +41,8 @@
 namespace {
 	const QString UPUPUP( "/../../.." );
 	const QString FLARE( "flare" );
-	const QString GNASH( "gnash -r0 -v http://www.nhk.or.jp/gogaku/common/swf/streaming.swf" );
+	const QString GNASH( "gnash" );
+	const QString GNASH_arguments { "-r0 -v http://www.nhk.or.jp/gogaku/common/swf/streaming.swf" };
 	const QUrl STREAMINGSWF( "http://www.nhk.or.jp/gogaku/common/swf/streaming.swf" );
 	const QString TEMPLATE( "streamingXXXXXX.swf" );
 
@@ -50,8 +51,8 @@ namespace {
 	const QRegExp SUFFIX( "CONNECT_DIRECTORY \\+ '(.*)/' \\+ INIT_URI" );
 
 	const QString LISTDATAFLV( "http://www.nhk.or.jp/gogaku/common/swf/(\\w+)/listdataflv.xml" );
-    const QString WIKIXML1( "doc('" );
-    const QString WIKIXML2( "')/flv/scramble[@date=\"" );
+        const QString WIKIXML1( "doc('" );
+        const QString WIKIXML2( "')/flv/scramble[@date=\"" );
 	const QString WIKIXML3( "\"]/@code/string()" );
 }
 
@@ -120,14 +121,16 @@ QString Utility::flare( QString& error ) {
 	return result;
 }
 
+#if 0
 // gnashの出力を利用してスクランブル文字列を解析する
 QString Utility::gnash( QString& error ) {
 	QString result;
+	QStringList arguments = GNASH_arguments.split(" ");
 	QProcess process;
-	process.start( GNASH );
+	process.start( GNASH, arguments );
 	bool started = process.waitForStarted();
     if ( !started ) {
-		process.start( "sdl-" + GNASH );
+		process.start( "sdl-" + GNASH, arguments );
 		started = process.waitForStarted();
 	}
     if ( !started ) {
@@ -155,6 +158,7 @@ QString Utility::gnash( QString& error ) {
 		error = QString::fromUtf8( "gnashが存在しないか実行に失敗しました。" );
 	return result;
 }
+#endif
 
 // ウィキからスクランブル文字列を取得する
 QString Utility::wiki() {
