@@ -2,7 +2,7 @@
 ## ([CS-English](https://csreviser.github.io/CS-English/new/)／[CS-Mult](https://csreviser.github.io/CS-Mult/))
 
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)　[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)         
-#### 「ラジオ英会話」の2022/10/24-25放送分でもの2022/10/17-18放送分の「ラジオ英会話」で発生していたレコーディングに失敗する問題が発生しているようです。「ラジオ英会話」を利用されている方は10月緊急対応版をお試しください。また、この機会に[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。              
+#### 「ラジオ英会話」の2022/10/24-25放送分でも2022/10/17-18放送分の「ラジオ英会話」で発生していたレコーディングに失敗する問題が発生しているようです。「ラジオ英会話」を利用されている方は10月緊急対応版をお試しください。また、この機会に[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。              
               
 #### ストリーミングの公開は放送日の翌月曜日10時から1週間です。らじる★らじるの聞き逃しとは公開時期/期間が異なりますのでご注意ください。[ストリーミング配信期間](https://github.com/CSReviser/CS-English/wiki/%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E9%85%8D%E4%BF%A1%E6%9C%9F%E9%96%93)                        　　           　　       
 #### このサイトの2022年度対応になっていない記述は順次更新します。                            
