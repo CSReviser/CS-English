@@ -47,13 +47,15 @@ signals:
 
 private:
 	QStringList getAttribute( QString url, QString attribute );
+	QStringList getJsonData( QString url, QString attribute );
 	bool checkExecutable( QString path );
 	bool isFfmpegAvailable( QString& path );
 	bool istestAvailable( QString& path );
 	bool checkOutputDir( QString dirPath );
 	void downloadENews( bool re_read );
 	
-	bool captureStream( QString kouza, QString hdate, QString file, QString nendo, QString this_week );
+	bool captureStream( QString kouza, QString hdate, QString file, QString nendo );
+	bool captureStream_json( QString kouza, QString hdate, QString file, QString nendo, QString title, QString this_week );
 	
 	QString formatName( QString format, QString kouza, QString hdate, QString file, QString nendo, bool checkIllegal );
 	QStringList getElements( QString url, QString path );
@@ -66,10 +68,12 @@ private:
 	static QString paths[];
 	static QString paths2[];
 	static QString paths3[];
+	static QString json_paths[];
 	static QString prefix;
 	static QString prefix1;
 	static QString prefix2;
 	static QString suffix;
+	static QString json_prefix;
 
 	static QString flv_host;
 	static QString flv_app;

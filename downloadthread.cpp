@@ -45,12 +45,18 @@
 #include <QDate>
 #include <QLocale>
 #include <QDebug>
-//#include <QtCrypto>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrl>
+#include <QUrlQuery>
+#include <QtNetwork>
 #include <QTemporaryFile>
-//#include <QJsonDocument>
-//#include <QJsonObject>
-//#include <QByteArray>
-//#include <QJsonValue>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QByteArray>
+#include <QJsonValue>
 
 #ifdef QT4_QT5_WIN
 #define TimeOut " -m 10000 "
@@ -68,6 +74,7 @@
 //--------------------------------------------------------------------------------
 QString DownloadThread::prefix = "http://cgi2.nhk.or.jp/gogaku/st/xml/";
 QString DownloadThread::suffix = "listdataflv.xml";
+QString DownloadThread::json_prefix = "https://www.nhk.or.jp/radioondemand/json/";
 
 QString DownloadThread::prefix1 = "https://nhk-vh.akamaihd.net/i/gogaku-stream/mp4/";
 QString DownloadThread::prefix2 = "https://nhks-vh.akamaihd.net/i/gogaku-stream/mp4/";
@@ -91,15 +98,15 @@ QHash<QProcess::ProcessError, QString> DownloadThread::processError;
 DownloadThread::DownloadThread( Ui::MainWindowClass* ui ) : isCanceled(false), failed1935(false) {
 	this->ui = ui;
 	if ( ffmpegHash.empty() ) {
-		ffmpegHash["aac"] = "%1 -vn -acodec copy %2";
-		ffmpegHash["m4a"] = "%1 -id3v2_version 3 -metadata title=%3 -metadata artist=NHK -metadata album=%4 -metadata date=%5 -metadata genre=Speech -vn -bsf aac_adtstoasc -acodec copy %2";
-		ffmpegHash["mp3"] = "%1 -id3v2_version 3 -metadata title=%3 -metadata artist=NHK -metadata album=%4 -metadata date=%5 -metadata genre=Speech -vn -acodec:a libmp3lame -ab 64k -ac 2 %2";
-		ffmpegHash["op0"] = "%1 -id3v2_version 3 -metadata title=%3 -metadata artist=NHK -metadata album=%4 -metadata date=%5 -metadata genre=Speech -vn -acodec:a libmp3lame -ab 64k -ac 1 %2";
-		ffmpegHash["op1"] = "%1 -id3v2_version 3 -metadata title=%3 -metadata artist=NHK -metadata album=%4 -metadata date=%5 -metadata genre=Speech -vn -acodec:a libmp3lame -ab 48k -ar 24000 -ac 1 %2";
-		ffmpegHash["op2"] = "%1 -id3v2_version 3 -metadata title=%3 -metadata artist=NHK -metadata album=%4 -metadata date=%5 -metadata genre=Speech -vn -acodec:a libmp3lame -ab 40k -ac 1 %2";
-		ffmpegHash["op3"] = "%1 -id3v2_version 3 -metadata title=%3 -metadata artist=NHK -metadata album=%4 -metadata date=%5 -metadata genre=Speech -vn -acodec:a libmp3lame -ab 32k -ac 1 %2";
-		ffmpegHash["op4"] = "%1 -id3v2_version 3 -metadata title=%3 -metadata artist=NHK -metadata album=%4 -metadata date=%5 -metadata genre=Speech -vn -acodec:a libmp3lame -ab 24k -ar 22050 -ac 1 %2";
-		ffmpegHash["op5"] = "%1 -id3v2_version 3 -metadata title=%3 -metadata artist=NHK -metadata album=%4 -metadata date=%5 -metadata genre=Speech -vn -acodec:a libmp3lame -ab 16k -ar 22050 -ac 1 %2";
+		ffmpegHash["aac"] = "%1,-vn,-acodec,copy,%2";
+		ffmpegHash["m4a"] = "%1,-id3v2_version,3,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-bsf,aac_adtstoasc,-acodec,copy,%2";
+		ffmpegHash["mp3"] = "%1,-id3v2_version,3,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,64k,-ac,2,%2";
+		ffmpegHash["op0"] = "%1,-id3v2_version,3,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,64k,-ac,1,%2";
+		ffmpegHash["op1"] = "%1,-id3v2_version,3,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,48k,-ar,24000,-ac,1,%2";
+		ffmpegHash["op2"] = "%1,-id3v2_version,3,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,40k,-ac,1,%2";
+		ffmpegHash["op3"] = "%1,-id3v2_version,3,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,32k,-ac,1,%2";
+		ffmpegHash["op4"] = "%1,-id3v2_version,3,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,24k,-ar,22050,-ac,1,%2";
+		ffmpegHash["op5"] = "%1,-id3v2_version,3,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,16k,-ar,22050,-ac,1,%2";
 	}
 
 	if ( processError.empty() ) {
@@ -121,6 +128,64 @@ QStringList DownloadThread::getAttribute( QString url, QString attribute ) {
 		query.evaluateTo( &attributeList );
 	return attributeList;
 }
+
+QStringList DownloadThread::getJsonData( QString url, QString attribute ) {
+	QStringList attributeList;
+	attributeList.clear() ;
+    	QEventLoop eventLoop;
+	QNetworkAccessManager mgr;
+ 	QObject::connect(&mgr, SIGNAL(finished(QNetworkReply*)), &eventLoop, SLOT(quit()));
+	const QString jsonUrl = json_prefix + url + "/bangumi_" + url + "_01.json";
+	QUrl url_json( jsonUrl );
+	QNetworkRequest req;
+	req.setUrl(url_json);
+//    QSslConfiguration config = QSslConfiguration::defaultConfiguration();
+//    config.setPeerVerifyMode(QSslSocket::VerifyNone);
+//    config.setProtocol(QSsl::TlsV1_3);
+//    req.setSslConfiguration(config);
+	QNetworkReply *reply = mgr.get(req);
+	eventLoop.exec(); // blocks stack until "finished()" has been called
+	
+	if (reply->error() == QNetworkReply::NoError) {
+		QString strReply = (QString)reply->readAll();
+		QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
+		QJsonObject jsonObject = jsonResponse.object();
+		QJsonObject jsonObj = jsonResponse.object();
+    
+		QJsonArray jsonArray = jsonObject[ "main" ].toArray();
+		QJsonObject objx2 = jsonObject[ "main" ].toObject();
+		QString program_name = objx2[ "program_name" ].toString();
+		QJsonArray detail_list2 = objx2[ "detail_list" ].toArray();
+		QJsonArray detail_list = objx2[ "detail_list" ].toArray();
+//                emit critical( QString::fromUtf8( "program_name2：(%1) " )
+//					.arg( program_name2 ) );
+		foreach (const QJsonValue & value, detail_list) {
+			QJsonObject objxx = value.toObject();
+			QJsonArray file_list = objxx[ "file_list" ].toArray();					
+			foreach (const QJsonValue & value, file_list) {
+				QJsonObject objxx2 = value.toObject();
+				QString file_title = objxx2[ "file_title" ].toString();
+				QString file_name = objxx2[ "file_name" ].toString();
+				QString onair_date = objxx2[ "onair_date" ].toString();
+				QString open_time = objxx2[ "open_time" ].toString();
+				QString year = open_time.left( 4 );				
+					if ( attribute == "program_name" ) attributeList += program_name;
+					if ( attribute == "file_title" ) attributeList += file_title;
+					if ( attribute == "file_name" ) attributeList += file_name;
+					if ( attribute == "onair_date" ) attributeList += onair_date;
+					if ( attribute == "open_time" ) attributeList += year;
+//                             emit critical( QString::fromUtf8( "file_title：(%1) " )
+//					.arg( file_title ) );
+//                            emit critical( QString::fromUtf8( "file_name：(%1) " )
+//					.arg( file_name ) );
+//                             emit critical( QString::fromUtf8( "onair_date：(%1) " )
+//					.arg( onair_date ) );
+        		}					
+		}
+	}
+	return attributeList;
+}
+
 
 bool DownloadThread::checkExecutable( QString path ) {
 	QFileInfo fileInfo( path );
@@ -571,15 +636,8 @@ QString DownloadThread::formatName( QString format, QString kouza, QString hdate
 
 //--------------------------------------------------------------------------------
 
-bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, QString nendo, QString this_week ) {
+bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, QString nendo ) {
 	QString outputDir = MainWindow::outputDir + kouza;
-	if ( QString::compare( this_week, "今週放送分" ) ==0 ){
-		outputDir = outputDir + "/" + QString::fromUtf8( "今週放送分" );
-		QDate today;
-		today.setDate(QDate::currentDate().year(),QDate::currentDate().month(),QDate::currentDate().day());
-		if ( QString::compare(  kouza , QString::fromUtf8( "ボキャブライダー" ) ) ==0 || (today.dayOfWeek() >= 1 && today.dayOfWeek() <= 2))
-		return true;
-	}
 	
 	if ( !checkOutputDir( outputDir ) )
 		return false;
@@ -666,23 +724,23 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 #else
 	dstPath = outputDir + outFileName;
 #endif
-	QString filem3u8a = prefix1 + file + "/master.m3u8";
-	if ( file.right(3) != "mp4" ) 
+	if ( file.right(4) != ".mp4" ) 
 		 file = file + ".mp4";
+	QString filem3u8a = prefix1 + file + "/master.m3u8";
 		 
 	QString arguments00 = "-y -http_seekable 0 -i";
 	QStringList arguments0 = arguments00.split(" ");
 	QStringList arguments = arguments0 + ffmpegHash[extension]
-			.arg( filem3u8a, dstPath, id3tagTitle, kouza, QString::number( year ) ).split(" ");
-
+			.arg( filem3u8a, dstPath, id3tagTitle, kouza, QString::number( year ) ).split(",");
+			
 	QString filem3u8b = prefix2 + file + "/master.m3u8";
 	QString filem3u8b3 = prefix1 + file.replace ( QString::fromUtf8( ".mp4" ), QString::fromUtf8( "-re01.mp4" ) )  + "/master.m3u8";
 	QString commandFfmpeg2 = ffmpegHash[extension]
 			.arg( filem3u8b, dstPath, id3tagTitle, kouza, QString::number( year ) );
-	QStringList arguments2 = arguments0 + commandFfmpeg2.split(" "); 
+	QStringList arguments2 = arguments0 + commandFfmpeg2.split(","); 
 	QString commandFfmpeg3 = ffmpegHash[extension]
 			.arg( filem3u8b3, dstPath, id3tagTitle, kouza, QString::number( year ) );
-	QStringList arguments3 = arguments0 + commandFfmpeg3.split(" "); 
+	QStringList arguments3 = arguments0 + commandFfmpeg3.split(","); 
 
 	//qDebug() << commandFfmpeg;
 	//DebugLog( commandFfmpeg );
@@ -722,13 +780,8 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 	process.close();
 	QProcess process2;
 	process2.setProgram( ffmpeg );
-	     if ( QString::compare( this_week, "今週放送分" ) ==0 ){
-		process2.setArguments( arguments3 );
-		process2.start();
-	     } else {
-		process2.setArguments( arguments2 );
-		process2.start();
-	     }
+	process2.setArguments( arguments2 );
+	process2.start();
 
 		if ( !process2.waitForStarted( -1 ) ) {
 			emit critical( QString::fromUtf8( "ffmpeg起動エラー(%3)：　%1　　%2" )
@@ -769,13 +822,153 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 }
 
 
+bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString file, QString nendo, QString title, QString this_week ) {
+	QString outputDir = MainWindow::outputDir + kouza;
+	if ( this_week == "R" )
+		outputDir = MainWindow::outputDir + QString::fromUtf8( "[聴逃]" )+ "/" + kouza;
+
+	if ( !checkOutputDir( outputDir ) )
+		return false;
+	outputDir += QDir::separator();	//通常ファイルが存在する場合のチェックのために後から追加する
+
+	QString titleFormat;
+	QString fileNameFormat;
+	CustomizeDialog::formats( kouza, titleFormat, fileNameFormat );
+	QString id3tagTitle = title;
+	QString outFileName = formatName( fileNameFormat, kouza, hdate, file, nendo, true );
+	QFileInfo fileInfo( outFileName );
+	QString outBasename = fileInfo.completeBaseName();
+	
+	// 2013/04/05 オーディオフォーマットの変更に伴って拡張子の指定に対応
+	QString extension = ui->comboBox_extension->currentText();
+	QString extension1 = extension;
+	if ( extension.left( 2 ) == "op" ) extension1 = "mp3";
+	outFileName = outBasename + "." + extension1;
+
+#ifdef QT4_QT5_WIN
+	QString null( "nul" );
+#else
+	QString null( "/dev/null" );
+#endif
+	int month = hdate.left( 2 ).toInt();
+	int year = nendo.right( 4 ).toInt();
+	int day = hdate.mid( 3, 2 ).toInt();
+	if ( 2022 > year ) return false;
+	int year1 = QDate::currentDate().year();
+
+	if ( month <= 4 && QDate::currentDate().year() > year )
+		year = year + (year1 - year);
+
+	QDate onair( year, month, day );
+	QString yyyymmdd = onair.toString( "yyyy_MM_dd" );
+
+	QString kon_nendo = "2022"; //QString::number(year1);
+	
+	if ( ui->toolButton_skip->isChecked() && QFile::exists( outputDir + outFileName ) ) {
+		emit current( QString::fromUtf8( "スキップ：　　　　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
+		return true;
+	}
+  	emit current( QString::fromUtf8( "レコーディング中：　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
+	
+	Q_ASSERT( ffmpegHash.contains( extension ) );
+	QString dstPath;
+#ifdef QT4_QT5_WIN
+	if ( true ) {
+		QTemporaryFile file;
+		if ( file.open() ) {
+			dstPath = file.fileName() + "." + extension1;
+			file.close();
+		} else {
+			emit critical( QString::fromUtf8( "一時ファイルの作成に失敗しました：　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
+			return false;
+		}
+	}
+#else
+	dstPath = outputDir + outFileName;
+#endif
+
+	QString arguments00 = "-y -http_seekable 0 -i";
+	QStringList arguments0 = arguments00.split(" ");
+	QString filem3u8aA = file;
+	QString dstPathA = outputDir + outFileName;
+	QString id3tagTitleA = id3tagTitle;
+	QString kouzaA = kouza;	
+	
+	QStringList argumentsA = arguments0 + ffmpegHash[extension]
+			.arg( filem3u8aA, dstPathA, id3tagTitleA, kouzaA,  nendo ).split(",");
+	QProcess process;
+	process.setProgram( ffmpeg );
+	process.setArguments( argumentsA );
+	process.start();
+	
+//		emit critical( QString::fromUtf8( "this_week：　%1" )
+//				.arg( this_week ));
+//		emit critical( QString::fromUtf8( "outputDir：　%1" )
+//				.arg( outputDir ));
+//		emit critical( QString::fromUtf8( "filem3u8：　%1" )
+//				.arg( filem3u8aA ));	
+//		emit critical( QString::fromUtf8( "dstPathA：　%1" )
+//				.arg( dstPathA ));		
+
+	if ( !process.waitForStarted( -1 ) ) {
+		emit critical( QString::fromUtf8( "ffmpeg起動エラー(%3)：　%1　　%2" )
+				.arg( kouza, yyyymmdd,  processError[process.error()] ) );
+		QFile::remove( dstPath );
+		return false;
+	}
+
+	// ユーザのキャンセルを確認しながらffmpegの終了を待つ
+		while ( !process.waitForFinished( CancelCheckTimeOut ) ) {
+		// キャンセルボタンが押されていたらffmpegをkillし、ファイルを削除してリターン
+			if ( isCanceled ) {
+				process.kill();
+				QFile::remove( dstPath );
+				return false;
+			}
+		// 単なるタイムアウトは継続
+			if ( process.error() == QProcess::Timedout )
+				continue;
+		// エラー発生時はメッセージを表示し、出力ファイルを削除してリターン
+			emit critical( QString::fromUtf8( "ffmpeg実行エラー(%3)：　%1　　%2" )
+					.arg( kouza, yyyymmdd,  processError[process.error()] ) );
+			QFile::remove( dstPath );
+			return false;
+		}
+
+	// ffmpeg終了ステータスに応じた処理をしてリターン
+		if ( process.exitCode() ) {
+			emit critical( QString::fromUtf8( "レコーディング失敗：　%1　　%2" ).arg( kouza, yyyymmdd ) );
+			QFile::remove( dstPath );
+			return false;
+		}
+
+	// ffmpeg終了ステータスに応じた処理をしてリターン
+	if ( process.exitCode() ) {
+	process.kill();
+	process.close();
+	}
+#ifdef QT4_QT5_WIN
+		QFile::rename( dstPath, outputDir + outFileName );
+#endif
+			return true;
+}
+
+
+
 
 QString DownloadThread::paths[] = {
 	"english/basic0", "english/basic1", "english/basic2", "english/basic3",
 	"english/timetrial", "english/kaiwa", "english/business1",
-	"english/enjoy", 
+	"english/enjoy", "null",
 //	"english/business2", "english/everybody", "english/gendai", "english/enjoy", 
 	"english/vr-radio"
+};
+
+QString DownloadThread::json_paths[] = {
+	"0000", "6806", "6807", "6808",
+	"2331", "0916", "6809",
+	"3064", "7512",
+	"4121"
 };
 
 
@@ -783,7 +976,7 @@ void DownloadThread::run() {
 	QAbstractButton* checkbox[] = {
 		ui->toolButton_basic0, ui->toolButton_basic1, ui->toolButton_basic2, ui->toolButton_basic3,
 		ui->toolButton_timetrial, ui->toolButton_kaiwa, ui->toolButton_business1,
-		ui->toolButton_enjoy,
+		ui->toolButton_enjoy, ui->toolButton_gendai,
 //		ui->toolButton_business2, ui->toolButton_gakusyu, ui->toolButton_gendai, ui->toolButton_enjoy,
 		ui->toolButton_vrradio,
 		NULL
@@ -796,9 +989,11 @@ void DownloadThread::run() {
 	//emit information( QString::fromUtf8( "ニュースで英会話とABCニュースシャワーは未対応です。" ) );
 	//emit information( QString::fromUtf8( "----------------------------------------" ) );
 
-	for ( int i = 0; checkbox[i] && !isCanceled; i++ ) {
+
+       for ( int i = 0; checkbox[i] && !isCanceled; i++ ) {
 
 		if ( checkbox[i]->isChecked() ) {
+		   if ( (paths[i] != "null" && !(ui->checkBox_next_week2->isChecked())) || json_paths[i] == "0000" ) {
 			QStringList fileList = getAttribute( prefix + paths[i] + "/" + suffix, "@file" );
 			QStringList kouzaList = getAttribute( prefix + paths[i] + "/" + suffix, "@kouza" );
 			QStringList hdateList = one2two( getAttribute( prefix + paths[i] + "/" + suffix, "@hdate" ) );
@@ -807,22 +1002,41 @@ void DownloadThread::run() {
 			if ( fileList.count() && fileList.count() == kouzaList.count() && fileList.count() == hdateList.count() ) {
 				if ( true /*ui->checkBox_this_week->isChecked()*/ ) {
 					for ( int j = 0; j < fileList.count() && !isCanceled; j++ ){
-						captureStream( kouzaList[j], hdateList[j], fileList[j], nendoList[j], "今週公開分" );
+						captureStream( kouzaList[j], hdateList[j], fileList[j], nendoList[j] );
 					}
 				}
 			}
-//			if ( ui->checkBox_next_week2->isChecked() ) {
-//				QStringList fileList2 = thisweekfile( getAttribute( prefix + paths[i] + "/" + suffix, "@file" ) , getAttribute( prefix + paths[i] + "/" + suffix, "@code" ) );
-//				QStringList kouzaList2 = getAttribute( prefix + paths[i] + "/" + suffix, "@kouza" );
-//				QStringList hdateList2 = one2two2( getAttribute( prefix + paths[i] + "/" + suffix, "@hdate" ) );
-//				QStringList nendoList2 = getAttribute( prefix + paths[i] + "/" + suffix, "@nendo" );
-//	
-//				for ( int j = 0; j < fileList.count() && !isCanceled; j++ ){
-//						captureStream( kouzaList2[j], hdateList2[j], fileList2[j], nendoList2[j], "今週放送分" );
-//				}
-//			}
-		}
-	     }
+		   }
+		   if (paths[i] != "null" &&  ui->checkBox_next_week2->isChecked() ) {
+		   		QStringList fileList2 = getJsonData( json_paths[i], "file_name" );
+//				QStringList kouzaList2 = getJsonData( json_paths[i], "program_name" );
+				QStringList file_titleList = getJsonData( json_paths[i], "file_title" );
+				QStringList hdateList2 = one2two( getJsonData( json_paths[i], "onair_date" ));
+				QStringList yearList = getJsonData( json_paths[i], "open_time" );
+				QStringList kouzaList = getAttribute( prefix + paths[i] + "/" + suffix, "@kouza" );
+				QStringList kouzaList2;
+				for ( int k = 0; k < fileList2.count(); k++ )  kouzaList2 += kouzaList[0];
+
+				if ( fileList2.count() && fileList2.count() == kouzaList2.count() && fileList2.count() == hdateList2.count() ) {
+					for ( int j = 0; j < fileList2.count() && !isCanceled; j++ ){
+						captureStream_json( kouzaList2[j], hdateList2[j], fileList2[j], yearList[j], file_titleList[j], "R" );
+					}
+				}
+		   }
+		   if ( paths[i] == "null" ) {
+		   	QStringList fileList2 = getJsonData( json_paths[i], "file_name" );
+			QStringList kouzaList2 = getJsonData( json_paths[i], "program_name" );
+			QStringList file_titleList = getJsonData( json_paths[i], "file_title" );
+			QStringList hdateList2 = one2two( getJsonData( json_paths[i], "onair_date" ));
+			QStringList yearList = getJsonData( json_paths[i], "open_time" );
+			
+			if ( fileList2.count() && fileList2.count() == kouzaList2.count() && fileList2.count() == hdateList2.count() ) {
+					for ( int j = 0; j < fileList2.count() && !isCanceled; j++ ){
+						captureStream_json( kouzaList2[j], hdateList2[j], fileList2[j], yearList[j], file_titleList[j], "" );
+					}
+			}
+		   }		   
+	  }}
 	
 	//if ( !isCanceled && ui->checkBox_shower->isChecked() )
 		//downloadShower();
