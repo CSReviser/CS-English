@@ -728,7 +728,20 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 		 file = file + ".mp4";
 	QString filem3u8a = prefix1 + file + "/master.m3u8";
 		 
+	QStringList arguments_v = { "-http_seekable", "0", "-version", "0" };
+	QProcess process_v;
+	process_v.setProgram( ffmpeg );
+	process_v.setArguments( arguments_v );
+	process_v.start();
+	process_v.waitForFinished();
+	QString str_v = process_v.readAllStandardError();
+	process_v.kill();
+	process_v.close();	 
 	QString arguments00 = "-y -http_seekable 0 -i";
+	if (str_v.contains( "Option not found" )) {
+	                     arguments00 = "-y -i";
+	}
+
 	QStringList arguments0 = arguments00.split(" ");
 	QStringList arguments = arguments0 + ffmpegHash[extension]
 			.arg( filem3u8a, dstPath, id3tagTitle, kouza, QString::number( year ) ).split(",");
@@ -865,10 +878,19 @@ bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString f
 	QString kon_nendo = "2022"; //QString::number(year1);
 	
 	if ( ui->toolButton_skip->isChecked() && QFile::exists( outputDir + outFileName ) ) {
+	   if ( this_week == "R" ) {
+		emit current( QString::fromUtf8( "スキップ：[聴逃]　　　　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
+	   } else {
 		emit current( QString::fromUtf8( "スキップ：　　　　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
+	   }
 		return true;
 	}
-  	emit current( QString::fromUtf8( "レコーディング中：　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
+	
+	if ( this_week == "R" ) {
+	  	emit current( QString::fromUtf8( "レコーディング中：[聴逃]　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
+	} else {
+  		emit current( QString::fromUtf8( "レコーディング中：　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
+	}
 	
 	Q_ASSERT( ffmpegHash.contains( extension ) );
 	QString dstPath;
@@ -887,7 +909,20 @@ bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString f
 	dstPath = outputDir + outFileName;
 #endif
 
+	QStringList arguments_v = { "-http_seekable", "0", "-version", "0" };
+	QProcess process_v;
+	process_v.setProgram( ffmpeg );
+	process_v.setArguments( arguments_v );
+	process_v.start();
+	process_v.waitForFinished();
+	QString str_v = process_v.readAllStandardError();
+	process_v.kill();
+	process_v.close();	 
 	QString arguments00 = "-y -http_seekable 0 -i";
+	if (str_v.contains( "Option not found" )) {
+	                     arguments00 = "-y -i";
+	}
+				
 	QStringList arguments0 = arguments00.split(" ");
 	QString filem3u8aA = file;
 	QString dstPathA = outputDir + outFileName;
