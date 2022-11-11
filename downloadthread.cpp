@@ -787,8 +787,11 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 		return false;
 	}
 
+	QString ffmpeg_Error;
+	ffmpeg_Error.append(process.readAllStandardError());
+
 	// ffmpeg終了ステータスに応じた処理をしてリターン
-	if ( process.exitCode() ) {
+	if ( process.exitCode() || ffmpeg_Error.contains("HTTP error") || ffmpeg_Error.contains("Unable to open resource:") ) {
 	process.kill();
 	process.close();
 	QProcess process2;
@@ -823,6 +826,17 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 
 	// ffmpeg終了ステータスに応じた処理をしてリターン
 		if ( process2.exitCode() ) {
+			emit critical( QString::fromUtf8( "レコーディング失敗：　%1　　%2" ).arg( kouza, yyyymmdd ) );
+			QFile::remove( dstPath );
+			return false;
+		}
+
+		ffmpeg_Error.append(process2.readAllStandardError());		
+		if ( ffmpeg_Error.contains("HTTP error") ) 
+			emit critical( QString::fromUtf8( "HTTP error" ));
+		if ( ffmpeg_Error.contains("Unable to open resource:") ) 
+			emit critical( QString::fromUtf8( "Unable to open resource:" ));
+		if ( ffmpeg_Error.contains("HTTP error") || ffmpeg_Error.contains("Unable to open resource:") ) {
 			emit critical( QString::fromUtf8( "レコーディング失敗：　%1　　%2" ).arg( kouza, yyyymmdd ) );
 			QFile::remove( dstPath );
 			return false;
@@ -925,25 +939,15 @@ bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString f
 				
 	QStringList arguments0 = arguments00.split(" ");
 	QString filem3u8aA = file;
-	QString dstPathA = outputDir + outFileName;
 	QString id3tagTitleA = id3tagTitle;
 	QString kouzaA = kouza;	
 	
 	QStringList argumentsA = arguments0 + ffmpegHash[extension]
-			.arg( filem3u8aA, dstPathA, id3tagTitleA, kouzaA,  nendo ).split(",");
+			.arg( filem3u8aA, dstPath, id3tagTitleA, kouzaA,  nendo ).split(",");
 	QProcess process;
 	process.setProgram( ffmpeg );
 	process.setArguments( argumentsA );
 	process.start();
-	
-//		emit critical( QString::fromUtf8( "this_week：　%1" )
-//				.arg( this_week ));
-//		emit critical( QString::fromUtf8( "outputDir：　%1" )
-//				.arg( outputDir ));
-//		emit critical( QString::fromUtf8( "filem3u8：　%1" )
-//				.arg( filem3u8aA ));	
-//		emit critical( QString::fromUtf8( "dstPathA：　%1" )
-//				.arg( dstPathA ));		
 
 	if ( !process.waitForStarted( -1 ) ) {
 		emit critical( QString::fromUtf8( "ffmpeg起動エラー(%3)：　%1　　%2" )
@@ -976,6 +980,21 @@ bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString f
 			QFile::remove( dstPath );
 			return false;
 		}
+
+		QString ffmpeg_Error;
+		 ffmpeg_Error.append(process.readAllStandardError());
+				
+		if ( ffmpeg_Error.contains("HTTP error") ) 
+			emit critical( QString::fromUtf8( "HTTP error" ));
+		if ( ffmpeg_Error.contains("Unable to open resource:") ) 
+			emit critical( QString::fromUtf8( "Unable to open resource:" ));
+				
+		if ( ffmpeg_Error.contains("HTTP error") || ffmpeg_Error.contains("Unable to open resource:") ) {
+			emit critical( QString::fromUtf8( "レコーディング失敗：　%1　　%2" ).arg( kouza, yyyymmdd ) );
+			QFile::remove( dstPath );
+			return false;
+		}
+
 
 	// ffmpeg終了ステータスに応じた処理をしてリターン
 	if ( process.exitCode() ) {
