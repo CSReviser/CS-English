@@ -2,7 +2,7 @@
 ## ([CS【English】](https://csreviser.github.io/CS-English/new/)／[CS【Mult】](https://csreviser.github.io/CS-Mult/))
 
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)　[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)         
-#### 旧バージョンのffmpegに対応したバージョンをリリースしました。最新のffmpegが動作しないなど、4.2.x以前の古いバージョンのffmpegでも動作するようにしました。不具合がなければ、ffmpegの差し替えは必要ありません。また【Mult】版については次回改版で英語関連の講座は非対応にする予定です。らじる★らじるの聴き逃し配信の講座に入替えを考えています。この機会に[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。              
+#### 【English】版について、らじる★らじるの聴き逃し配信の講座対応関連でバグがあったので修正版をリリースしました。らじる★らじるの聴き逃し配信の講座を利用される方は更新をお願い致します。また【Mult】版については次回改版で、らじる★らじるの聴き逃し配信の講座に対応し、英語関連の講座のボタン入替えを考えています。この機会に[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。              
               
 #### ストリーミングの公開は放送日の翌月曜日10時から1週間です。らじる★らじるの聴き逃しとは公開時期/期間が異なりますのでご注意ください。らじる★らじるの聴き逃し配信に一部講座で対応しています。このサイトには古い情報の記述が残っています。順次更新予定です。[ストリーミング配信期間](https://github.com/CSReviser/CS-English/wiki/%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E9%85%8D%E4%BF%A1%E6%9C%9F%E9%96%93)                        　　           　　       
                             
