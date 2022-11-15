@@ -1,16 +1,16 @@
 ## 語学講座CS (2022年度)      
-## ([CS-English](https://csreviser.github.io/CS-English/)／[CS-Mult](https://csreviser.github.io/CS-Mult/))
+## ([CS【English】](https://csreviser.github.io/CS-English/)／[CS【Mult】](https://csreviser.github.io/CS-Mult/))
 ***
-##### 名称を変更した語学講座CS([CS-English](https://csreviser.github.io/CS-English/)/[CS-Mult](https://csreviser.github.io/CS-Mult/))に移行し、更新を終了する予定です。               
+##### 名称を変更した語学講座CS([CS【English】](https://csreviser.github.io/CS-English/)/[CS【Mult】](https://csreviser.github.io/CS-Mult/))に移行し、更新を終了する予定です。               
 ##### 旧名称の部分は順次訂正していきます。   
                                    
 ***
-### 旧名称最終版 [2022/10/26版](https://github.com/CSReviser/CaptureStream/releases/tag/20221026)              
+### 旧名称最終版 [2022/11/15版](https://github.com/CSReviser/CaptureStream/releases/tag/20221026)              
               
 #### ※ オリジナルアプリの名称で更新した最終版です。                  
-   * Windows版: [2022/10/26版ダウンロード](https://github.com/CSReviser/CaptureStream/releases/download/20221026/CaptureStream-Windows-20221026.zip)                          
+   * Windows版: [2022/11/15版ダウンロード](https://github.com/CSReviser/CaptureStream/releases/download/20221115/CaptureStream-Windows-20221115.zip)                          
    * Ubuntu版: [バイナリビルド手順](https://github.com/CSReviser/CaptureStream/wiki/ubuntuビルド手順)                          
-   * Macintosh版: [2022/10/26版ダウンロード](https://github.com/CSReviser/CaptureStream/releases/download/20221026/CaptureStream-Macintosh-20221026.dmg) 　　         
+   * Macintosh版: [2022/11/15版ダウンロード](https://github.com/CSReviser/CaptureStream/releases/download/20221115/CaptureStream-Macintosh-20221115.dmg) 　　         
    -  [Mac版インストール手順](https://github.com/CSReviser/CS-English/wiki/Mac%E7%89%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86(%E3%83%91%E3%83%BC%E3%83%9F%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E6%B8%88))                                                                　　　           　　                            　　　           　　     
 
 ***
