@@ -13,8 +13,8 @@
 らじる★らじる配信講座には対応していません。らじる配信講座をご希望の方はらじる配信に対応した[類似アプリ](https://github.com/CSReviser/CS-English/wiki/類似アプリ)への移行をご検討ください。       
 ##### ※ 録音した語学講座のファイルは著作権法で許されている範囲内でご利用ください。            
 ***
-### 語学講座CS-Englishの実行ファイルダウンロードページは[こちら](https://csreviser.github.io/CS-English/new/) に移動しました。                
-### 語学講座CS-Multの実行ファイルダウンロードページは[こちら](https://csreviser.github.io/CS-Mult/) に移動しました。                
+### 語学講座CS【English】の実行ファイルダウンロードページは[こちら](https://csreviser.github.io/CS-English/new/) に移動しました。                
+### 語学講座CS【Mult】の実行ファイルダウンロードページは[こちら](https://csreviser.github.io/CS-Mult/) に移動しました。                
 *** 
 
 ### [［NHKゴガクのお知らせ］](https://www2.nhk.or.jp/gogaku/topics.cgi)   　
