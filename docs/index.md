@@ -27,7 +27,7 @@
 
                              
 ***
-### [語学講座CS-Englishの詳細はこちら](https://github.com/CSReviser/CS-English/wiki/CS-English)                 　　　　
+### [語学講座CS【English】の詳細はこちら](https://github.com/CSReviser/CS-English/wiki/CS-English)                 　　　　
 ### Wikiメニュー     
 - [概要](https://github.com/CSReviser/CS-English/wiki/%E6%A6%82%E8%A6%81)   
 - [対応講座](https://github.com/CSReviser/CS-English/wiki/%E5%AF%BE%E5%BF%9C%E8%AC%9B%E5%BA%A7)    
