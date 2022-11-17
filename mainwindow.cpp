@@ -41,6 +41,17 @@
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrl>
+#include <QUrlQuery>
+#include <QtNetwork>
+#include <QTemporaryFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QJsonValue>
 
 #define SETTING_GROUP "MainWindow"
 #define SETTING_GEOMETRY "geometry"
@@ -51,6 +62,23 @@
 #define SCRAMBLE_URL1 "http://www47.atwiki.jp/jakago/pub/scramble.xml"
 #define SCRAMBLE_URL2 "http://cdn47.atwikiimg.com/jakago/pub/scramble.xml"
 #define X11_WINDOW_VERTICAL_INCREMENT 5
+
+#define SETTING_OPTIONAL1 "optional1"
+#define SETTING_OPTIONAL2 "optional2"
+#define SETTING_OPTIONAL3 "optional3"
+#define SETTING_OPTIONAL4 "optional4"
+#define SETTING_OPT_TITLE1 "opt_title1"
+#define SETTING_OPT_TITLE2 "opt_title2"
+#define SETTING_OPT_TITLE3 "opt_title3"
+#define SETTING_OPT_TITLE4 "opt_title4"
+#define OPTIONAL1 "0953"	// まいにちフランス語 入門編
+#define OPTIONAL2 "0943"	// まいにちドイツ語 入門編／初級編
+#define OPTIONAL3 "0946"	// まいにちイタリア語 入門編
+#define OPTIONAL4 "0948"	// まいにちスペイン語 入門編／初級編
+#define Program_TITLE1 "任意らじる聴き逃し番組１"
+#define Program_TITLE2 "任意らじる聴き逃し番組２"
+#define Program_TITLE3 "任意らじる聴き逃し番組３"
+#define Program_TITLE4 "任意らじる聴き逃し番組４"
 
 #ifdef QT4_QT5_WIN
 #define STYLE_SHEET "stylesheet-win.qss"
@@ -77,7 +105,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( " (2022/11/11)" ); 
+			result = QString( " (2022/11/18)" ); 
 		}
 		return result;
 	}
@@ -87,6 +115,17 @@ QString MainWindow::outputDir;
 QString MainWindow::scramble;
 QString MainWindow::scrambleUrl1;
 QString MainWindow::scrambleUrl2;
+QString MainWindow::optional1;
+QString MainWindow::optional2;
+QString MainWindow::optional3;
+QString MainWindow::optional4;
+QString MainWindow::program_title1;
+QString MainWindow::program_title2;
+QString MainWindow::program_title3;
+QString MainWindow::program_title4;
+QString MainWindow::prefix = "http://cgi2.nhk.or.jp/gogaku/st/xml/";
+QString MainWindow::suffix = "listdataflv.xml";
+QString MainWindow::json_prefix = "https://www.nhk.or.jp/radioondemand/json/";
 
 MainWindow::MainWindow( QWidget *parent )
 		: QMainWindow( parent ), ui( new Ui::MainWindowClass ), downloadThread( NULL ) {
@@ -143,6 +182,10 @@ MainWindow::MainWindow( QWidget *parent )
 	connect( action, SIGNAL( triggered() ), this, SLOT( customizeTitle() ) );
 	customizeMenu->addAction( action );
 
+	action = new QAction( QString::fromUtf8( "任意番組設定..." ), this );
+	connect( action, SIGNAL( triggered() ), this, SLOT( customizeScramble() ) );
+	customizeMenu->addAction( action );
+	
 	//action = new QAction( QString::fromUtf8( "スクランブル文字列..." ), this );
 	//connect( action, SIGNAL( triggered() ), this, SLOT( customizeScramble() ) );
 	//customizeMenu->addAction( action );
@@ -217,6 +260,10 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		{ ui->toolButton_gendai, "gendai", false, "gendai_title", DefaultTitle, "gendai_file_name", DefaultFileName },
 		{ ui->toolButton_enjoy, "enjoy", false, "enjoy_title", DefaultTitle, "enjoy_file_name", DefaultFileName },
 		{ ui->toolButton_vrradio, "vrradio", false, "vrradio_title", DefaultTitle, "vrradio_file_name", DefaultFileName },
+		{ ui->toolButton_optional1, "optional_1", false, "optional1_title", DefaultTitle, "optional1_file_name", DefaultFileName },
+		{ ui->toolButton_optional2, "optional_2", false, "optional2_title", DefaultTitle, "optional2_file_name", DefaultFileName },
+		{ ui->toolButton_optional3, "optional_3", false, "optional3_title", DefaultTitle, "optional3_file_name", DefaultFileName },
+		{ ui->toolButton_optional4, "optional_4", false, "optional4_title", DefaultTitle, "optional4_file_name", DefaultFileName },
 		{ ui->checkBox_13, "charo", false, "charo_title", DefaultTitle, "charo_file_name", DefaultFileName },
 		{ ui->checkBox_14, "e-news", false, "e-news_title", DefaultTitle, "e-news_file_name", DefaultFileName },
 		{ ui->checkBox_shower, "shower", false, "shower_title", DefaultTitle, "shower_file_name", DefaultFileName },
@@ -272,6 +319,44 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		scrambleUrl1 = saved.type() == QVariant::Invalid ? SCRAMBLE_URL1 : saved.toString();
 		saved = settings.value( SETTING_SCRAMBLE_URL2 );
 		scrambleUrl2 = saved.type() == QVariant::Invalid ? SCRAMBLE_URL2 : saved.toString();
+		
+		saved = settings.value( SETTING_OPTIONAL1 );
+		optional1 = saved.type() == QVariant::Invalid ? OPTIONAL1 : saved.toString();
+		saved = settings.value( SETTING_OPTIONAL2 );
+		optional2 = saved.type() == QVariant::Invalid ? OPTIONAL2 : saved.toString();
+		saved = settings.value( SETTING_OPTIONAL3 );
+		optional3 = saved.type() == QVariant::Invalid ? OPTIONAL3 : saved.toString();
+		saved = settings.value( SETTING_OPTIONAL4 );
+		optional4 = saved.type() == QVariant::Invalid ? OPTIONAL4 : saved.toString();
+
+		saved = settings.value( SETTING_OPT_TITLE1 );
+		program_title1 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE1 ) : saved.toString();
+		saved = settings.value( SETTING_OPT_TITLE2 );
+		program_title2 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE2 ) : saved.toString();
+		saved = settings.value( SETTING_OPT_TITLE3 );
+		program_title3 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE3 ) : saved.toString();
+		saved = settings.value( SETTING_OPT_TITLE4 );
+		program_title4 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE4 ) : saved.toString();
+
+		ui->toolButton_optional1->setText( QString( program_title1 ) );
+		ui->toolButton_optional2->setText( QString( program_title2 ) );
+		ui->toolButton_optional3->setText( QString( program_title3 ) );
+		ui->toolButton_optional4->setText( QString( program_title4 ) );
+
+//		QString opt_TITLE1 = getJsonData( optional1 );
+//		QString opt_TITLE2 = getJsonData( optional2 );
+//		QString opt_TITLE3 = getJsonData( optional3 );
+//		QString opt_TITLE4 = getJsonData( optional4 );
+		
+//		program_title1 = opt_TITLE1;
+//		program_title2 = opt_TITLE2;
+//		program_title3 = opt_TITLE3;
+//		program_title4 = opt_TITLE4;
+//		
+		ui->toolButton_optional1->setText( QString( program_title1 ) );
+		ui->toolButton_optional2->setText( QString( program_title2 ) );
+		ui->toolButton_optional3->setText( QString( program_title3 ) );
+		ui->toolButton_optional4->setText( QString( program_title4 ) );
 
 		for ( int i = 0; checkBoxes[i].checkBox != NULL; i++ ) {
 			checkBoxes[i].checkBox->setChecked( settings.value( checkBoxes[i].key, checkBoxes[i].defaultValue ).toBool() );
@@ -291,6 +376,16 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		settings.setValue( SETTING_SCRAMBLE, scramble );
 		settings.setValue( SETTING_SCRAMBLE_URL1, scrambleUrl1 );
 		settings.setValue( SETTING_SCRAMBLE_URL2, scrambleUrl2 );
+		
+		settings.setValue( SETTING_OPTIONAL1, optional1 );
+		settings.setValue( SETTING_OPTIONAL2, optional2 );
+		settings.setValue( SETTING_OPTIONAL3, optional3 );
+		settings.setValue( SETTING_OPTIONAL4, optional4 );
+		settings.setValue( SETTING_OPT_TITLE1, program_title1 );
+		settings.setValue( SETTING_OPT_TITLE2, program_title2 );
+		settings.setValue( SETTING_OPT_TITLE3, program_title3 );
+		settings.setValue( SETTING_OPT_TITLE4, program_title4 );
+		
 		for ( int i = 0; checkBoxes[i].checkBox != NULL; i++ ) {
 			settings.setValue( checkBoxes[i].key, checkBoxes[i].checkBox->isChecked() );
 		}
@@ -323,9 +418,30 @@ void MainWindow::customizeSaveFolder() {
 }
 
 void MainWindow::customizeScramble() {
-	ScrambleDialog dialog( scramble );
+//	ScrambleDialog dialog( scramble );
+//	dialog.exec();
+//	scramble = dialog.scramble();
+
+	ScrambleDialog dialog( optional1, optional2, optional3, optional4 );
 	dialog.exec();
-	scramble = dialog.scramble();
+	optional1 = dialog.scramble1();
+	optional2 = dialog.scramble2();
+	optional3 = dialog.scramble3();
+	optional4 = dialog.scramble4();
+
+	QString opt_TITLE1 = getJsonData( optional1.left(4) );
+	QString opt_TITLE2 = getJsonData( optional2.left(4) );
+	QString opt_TITLE3 = getJsonData( optional3.left(4) );
+	QString opt_TITLE4 = getJsonData( optional4.left(4) );
+
+	program_title1 = opt_TITLE1;
+	ui->toolButton_optional1->setText( QString( program_title1 ) );
+	program_title2 = opt_TITLE2;
+	ui->toolButton_optional2->setText( QString( program_title2 ) );
+	program_title3 = opt_TITLE3;
+	ui->toolButton_optional3->setText( QString( program_title3 ) );
+	program_title4 = opt_TITLE4;
+	ui->toolButton_optional4->setText( QString( program_title4 ) );
 }
 
 void MainWindow::download() {	//「レコーディング」または「キャンセル」ボタンが押されると呼び出される
@@ -346,6 +462,32 @@ void MainWindow::download() {	//「レコーディング」または「キャン
 		downloadThread->disconnect();	//wait中にSIGNALが発生するとデッドロックするためすべてdisconnect
 		finished();
 	}
+}
+
+QString MainWindow::getJsonData( QString url ) {
+	QString attribute;
+	attribute.clear() ;
+    	QEventLoop eventLoop;
+	QNetworkAccessManager mgr;
+ 	QObject::connect(&mgr, SIGNAL(finished(QNetworkReply*)), &eventLoop, SLOT(quit()));
+	const QString jsonUrl = json_prefix + url + "/bangumi_" + url + "_01.json";
+	QUrl url_json( jsonUrl );
+	QNetworkRequest req;
+	req.setUrl(url_json);
+	QNetworkReply *reply = mgr.get(req);
+	eventLoop.exec(); 
+	
+	if (reply->error() == QNetworkReply::NoError) {
+		QString strReply = (QString)reply->readAll();
+		QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
+		QJsonObject jsonObject = jsonResponse.object();
+		QJsonObject jsonObj = jsonResponse.object();
+    
+		QJsonArray jsonArray = jsonObject[ "main" ].toArray();
+		QJsonObject objx2 = jsonObject[ "main" ].toObject();
+		attribute = objx2[ "program_name" ].toString();
+	}
+	return attribute;
 }
 
 void MainWindow::toggled( bool checked ) {

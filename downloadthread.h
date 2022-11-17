@@ -35,6 +35,11 @@ public:
 	DownloadThread( Ui::MainWindowClass* ui );
 	~DownloadThread() {}
 	void cancel() { isCanceled = true; }
+	
+	static QString opt_title1;
+	static QString opt_title2;
+	static QString opt_title3;
+	static QString opt_title4;
 
 protected:
 	void run();
@@ -72,7 +77,11 @@ private:
 	static QString prefix;
 	static QString prefix1;
 	static QString prefix2;
+	static QString prefix3;
 	static QString suffix;
+	static QString suffix1;
+	static QString suffix2;
+	static QString suffix3;
 	static QString json_prefix;
 
 	static QString flv_host;
@@ -84,6 +93,11 @@ private:
 	static QString test;
 	static QString scramble;
 	static QStringList malformed;
+	
+	static QString optional1;
+	static QString optional2;
+	static QString optional3;
+	static QString optional4;
 
 	static QHash<QString, QString> ffmpegHash;
 	static QHash<QProcess::ProcessError, QString>processError;
