@@ -1,5 +1,5 @@
 ## 語学講座CS (2022年度)      
-## ([CS【English】](https://csreviser.github.io/CS-English/new/)／[CS【Mult】](https://csreviser.github.io/CS-Mult/))
+## ([【English】版](https://csreviser.github.io/CS-English/new/)／[【Mult】版](https://csreviser.github.io/CS-Mult/))
 
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)　[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)         
 #### 2022/11/14公開分（前週放送分）で旧バージョンが使用出来ない状況となりました。継続して使用する場合は最新版に更新して下さい。この機会に[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。              
