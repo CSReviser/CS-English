@@ -485,7 +485,13 @@ QString MainWindow::getJsonData( QString url ) {
     
 		QJsonArray jsonArray = jsonObject[ "main" ].toArray();
 		QJsonObject objx2 = jsonObject[ "main" ].toObject();
-		attribute = objx2[ "program_name" ].toString();
+		attribute = objx2[ "program_name" ].toString().replace( "　", " " );
+		    for (ushort i = 0xFF1A; i < 0xFF5F; ++i) {
+		        attribute = attribute.replace(QChar(i), QChar(i - 0xFEE0));
+		    }
+		    for (ushort i = 0xFF10; i < 0xFF1A; ++i) {
+		        attribute = attribute.replace( QChar(i - 0xFEE0), QChar(i) );
+		    }
 	}
 	return attribute;
 }

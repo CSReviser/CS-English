@@ -162,11 +162,16 @@ QStringList DownloadThread::getJsonData( QString url, QString attribute ) {
     
 		QJsonArray jsonArray = jsonObject[ "main" ].toArray();
 		QJsonObject objx2 = jsonObject[ "main" ].toObject();
-		QString program_name = objx2[ "program_name" ].toString();
+		QString program_name = objx2[ "program_name" ].toString().replace( "　", " " );
+		    for (ushort i = 0xFF1A; i < 0xFF5F; ++i) {
+		        program_name = program_name.replace(QChar(i), QChar(i - 0xFEE0));
+		    }
+		    for (ushort i = 0xFF10; i < 0xFF1A; ++i) {
+		        program_name = program_name.replace( QChar(i - 0xFEE0), QChar(i) );
+		    }
 		QJsonArray detail_list2 = objx2[ "detail_list" ].toArray();
 		QJsonArray detail_list = objx2[ "detail_list" ].toArray();
-//                emit critical( QString::fromUtf8( "program_name2：(%1) " )
-//					.arg( program_name2 ) );
+
 		foreach (const QJsonValue & value, detail_list) {
 			QJsonObject objxx = value.toObject();
 			QJsonArray file_list = objxx[ "file_list" ].toArray();					
