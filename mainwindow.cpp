@@ -105,7 +105,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( " (2022/11/18)" ); 
+			result = QString( " (2022/11/23)" ); 
 		}
 		return result;
 	}
@@ -423,7 +423,7 @@ void MainWindow::customizeScramble() {
 //	scramble = dialog.scramble();
 
 	ScrambleDialog dialog( optional1, optional2, optional3, optional4 );
-	dialog.exec();
+    if (dialog.exec() ) {
 	optional1 = dialog.scramble1();
 	optional2 = dialog.scramble2();
 	optional3 = dialog.scramble3();
@@ -442,6 +442,7 @@ void MainWindow::customizeScramble() {
 	ui->toolButton_optional3->setText( QString( program_title3 ) );
 	program_title4 = opt_TITLE4;
 	ui->toolButton_optional4->setText( QString( program_title4 ) );
+    }
 }
 
 void MainWindow::download() {	//「レコーディング」または「キャンセル」ボタンが押されると呼び出される

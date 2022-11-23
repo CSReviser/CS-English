@@ -884,7 +884,7 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 	ffmpeg_Error3.append(process3.readAllStandardError());
 	
 	// ffmpeg終了ステータスに応じた処理をしてリターン
-	if ( process3.exitCode() || ffmpeg_Error3.contains("HTTP error") || ffmpeg_Error3.contains("Unable to open resource:") ) {	
+	if ( process3.exitCode() || ffmpeg_Error3.contains("HTTP error") || ffmpeg_Error3.contains("Unable to open resource:") || ffmpeg_Error.contains("parse_playlist error") ) {	
 				emit critical( QString::fromUtf8( "レコーディング失敗：　%1　　%2" ).arg( kouza, yyyymmdd ) );
 			QFile::remove( dstPath );
 			return false;
