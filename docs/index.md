@@ -2,6 +2,7 @@
 ## ([【English】版](https://csreviser.github.io/CS-English/new/)／[【Mult】版](https://csreviser.github.io/CS-Mult/))
 
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)　[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)         
+## [［任意らじる番組設定手順］](https://github.com/CSReviser/CS-English/wiki/任意らじる番組設定手順)                   
 #### 2022/11/28公開分で発生した不具合（仕様変更）に対応した緊急対応版をリリースしました。全てのユーザーは最新版への更新をお願いします。            
 #### 語学講座CS【English】/【Mult】版のアップデートは2022年度末(2023/3末)で終了します。2023年度は現在の語学講座CS【English】をベースに、らじる★らじる（聴き逃し）配信の全語学講座に対応した１つのアプリに統合するつもりです。英語の講座は固定ボタン、英語以外の語学講座は任意設定ボタンで設定するアプリになる想定です。2023年度もNHK語学講座を受講予定の方は、この機会に[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。              
               
@@ -10,7 +11,7 @@
 
 ##### ※ [名称変更について](https://github.com/CSReviser/CaptureStream/wiki/名称変更について) 　  【[制限事項](https://github.com/CSReviser/CS-English/wiki/%E5%88%B6%E9%99%90%E4%BA%8B%E9%A0%85)】           
 ##### こちらは語学講座CSのサイトです。[CaptureStreamの公式サイト](https://ja.osdn.net/projects/capturestream/)では、2014年度版を最後に開発が中断しています。語学講座CS【English】は派生版であり、[オリジナル作者](https://github.com/CSReviser/CaptureStream/wiki/%E4%BD%9C%E8%80%85%E3%83%BB%E6%94%B9%E7%89%88%E8%80%85)による正規な改版ではありません。派生版で別のツールであるとをご理解の上ご利用ください。　　　　　　　　
-                               
+                               pop
 らじる★らじる配信講座には対応していません。らじる配信講座をご希望の方はらじる配信に対応した[類似アプリ](https://github.com/CSReviser/CS-English/wiki/類似アプリ)への移行をご検討ください。       
 ##### ※ 録音した語学講座のファイルは著作権法で許されている範囲内でご利用ください。            
 ***
