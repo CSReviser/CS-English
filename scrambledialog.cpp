@@ -107,7 +107,7 @@ QString ScrambleDialog::scramble2() {
 	}
 	if (ui->radioButton_2->isChecked()) {
 		optional2 = italian2;
-		ui->optional2->setText( optional1 );
+		ui->optional2->setText( optional2 );
 	}
 	if (ui->radioButton_3->isChecked()) {
 		optional2 = chinese2;

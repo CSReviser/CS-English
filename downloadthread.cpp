@@ -649,7 +649,7 @@ QString DownloadThread::formatName( QString format, QString kouza, QString hdate
 
 //--------------------------------------------------------------------------------
 
-bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, QString nendo ) {
+bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, QString nendo, QString dir ) {
 	QString outputDir = MainWindow::outputDir + kouza;
 	
 	if ( !checkOutputDir( outputDir ) )
@@ -738,14 +738,16 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 	dstPath = outputDir + outFileName;
 #endif
 	QString filem3u8a; QString filem3u8b;
+	if ( dir == "") {prefix1 = prefix1.remove("/mp4"); prefix2 = prefix2.remove("/mp4"); prefix3 = prefix3.remove("/mp4");
+	} else {prefix1 = prefix1.replace( "mp4", dir ); prefix2 = prefix2.replace( "mp4", dir ); prefix3 = prefix3.replace( "mp4", dir ); };
 	if ( file.right(4) != ".mp4" ) {
-		filem3u8a = prefix1 + file + ".mp4/master.m3u8";
-		filem3u8b = prefix2 + file + ".mp4/master.m3u8";
+		filem3u8a = prefix1 + file + suffix2;
+		filem3u8b = prefix2 + file + suffix2;
 	} else {
-		filem3u8a = prefix1 + file + "/master.m3u8";
-		filem3u8b = prefix2 + file + "/master.m3u8";
+		filem3u8a = prefix1 + file + suffix1;
+		filem3u8b = prefix2 + file + suffix1;
 	}
-	QString filem3u8c = prefix3 + file  + "/index.m3u8";	
+	QString filem3u8c = prefix3 + file  + suffix3;	
 	QStringList arguments_v = { "-http_seekable", "0", "-version", "0" };
 	QProcess process_v;
 	process_v.setProgram( ffmpeg );
@@ -942,7 +944,7 @@ bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString f
 	
 	if ( ui->toolButton_skip->isChecked() && QFile::exists( outputDir + outFileName ) ) {
 	   if ( this_week == "R" ) {
-		emit current( QString::fromUtf8( "スキップ：[聴逃]　　　　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
+		emit current( QString::fromUtf8( "スキップ：[聴逃]　　　 " ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
 	   } else {
 		emit current( QString::fromUtf8( "スキップ：　　　　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
 	   }
@@ -950,7 +952,7 @@ bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString f
 	}
 	
 	if ( this_week == "R" ) {
-	  	emit current( QString::fromUtf8( "レコーディング中：[聴逃]　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
+	  	emit current( QString::fromUtf8( "レコーディング中：[聴逃] " ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
 	} else {
   		emit current( QString::fromUtf8( "レコーディング中：　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
 	}
@@ -1061,8 +1063,8 @@ bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString f
 
 QString DownloadThread::paths[] = {
 	"english/basic0", "english/basic1", "english/basic2", "english/basic3",
-	"english/timetrial", "english/kaiwa", "english/business1",
-	"english/enjoy", "null",
+	"english/timetrial", "english/enjoy", "english/kaiwa", "english/business1",
+	"null",
 //	"english/business2", "english/everybody", "english/gendai", "english/enjoy", 
 	"english/vr-radio",
 	"null_optional1", "null_optional2", "null_optional3", "null_optional4"
@@ -1070,8 +1072,8 @@ QString DownloadThread::paths[] = {
 
 QString DownloadThread::json_paths[] = {
 	"0000", "6806", "6807", "6808",
-	"2331", "0916", "6809",
-	"3064", "7512",
+	"2331", "3064", "0916", "6809",
+	"7512",
 	"4121",
 	"0953", "0943", "0946", "0948"
 };
@@ -1080,8 +1082,8 @@ QString DownloadThread::json_paths[] = {
 void DownloadThread::run() {
 	QAbstractButton* checkbox[] = {
 		ui->toolButton_basic0, ui->toolButton_basic1, ui->toolButton_basic2, ui->toolButton_basic3,
-		ui->toolButton_timetrial, ui->toolButton_kaiwa, ui->toolButton_business1,
-		ui->toolButton_enjoy, ui->toolButton_gendai,
+		ui->toolButton_timetrial, ui->toolButton_enjoy, ui->toolButton_kaiwa, ui->toolButton_business1,
+		ui->toolButton_gendai,
 //		ui->toolButton_business2, ui->toolButton_gakusyu, ui->toolButton_gendai, ui->toolButton_enjoy,
 		ui->toolButton_vrradio,
 		ui->toolButton_optional1, ui->toolButton_optional2, 
@@ -1115,11 +1117,12 @@ void DownloadThread::run() {
 			QStringList kouzaList = getAttribute( prefix + paths[i] + "/" + suffix, "@kouza" );
 			QStringList hdateList = one2two( getAttribute( prefix + paths[i] + "/" + suffix, "@hdate" ) );
 			QStringList nendoList = getAttribute( prefix + paths[i] + "/" + suffix, "@nendo" );
+			QStringList dirList = getAttribute( prefix + paths[i] + "/" + suffix, "@dir" );
 
 			if ( fileList.count() && fileList.count() == kouzaList.count() && fileList.count() == hdateList.count() ) {
 				if ( true /*ui->checkBox_this_week->isChecked()*/ ) {
 					for ( int j = 0; j < fileList.count() && !isCanceled; j++ ){
-						captureStream( kouzaList[j], hdateList[j], fileList[j], nendoList[j] );
+						captureStream( kouzaList[j], hdateList[j], fileList[j], nendoList[j], dirList[j] );
 					}
 				}
 			}
