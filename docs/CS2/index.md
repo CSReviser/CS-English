@@ -26,6 +26,8 @@
 ### [CaptureStream2-Windows-20221201.zip](https://github.com/CSReviser/CaptureStream/releases/download/20221128/CaptureStream2-Windows-20221201.zip)
 ### Ubuntu用
 ### [CaptureStream2-Ubuntu-qt5-20221201.zip](https://github.com/CSReviser/CaptureStream/releases/download/20221128/CaptureStream2-Ubuntu-qt5-20221201.zip)
+
+### ※バグ報告などは[こちら](https://github.com/CSReviser/CS-English/discussions/18)に投稿してください。
 ***
 ### ＜語学講座ＣＳ２ (仮称) イメージ＞
 ![Screenshot from 2022-12-01 17-04-11](https://user-images.githubusercontent.com/46049273/204998600-0588a130-0c18-48c9-a07d-af87f2f15a4f.png)
