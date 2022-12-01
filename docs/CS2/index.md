@@ -7,6 +7,7 @@
 ## [［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。        
 ## また、語学講座ＣＳ２（仮称）を準備中です。現在の語学講座ＣＳ【English】/【Mult】のアップデートは終了し、語学講座ＣＳ２（仮称）に移行予定です。
 
+***
 ### ＜従来との主な違い＞
 ### １．ストリーミングの違い
 ### 　　　語学講座ＣＳ２（仮称）：らじる★らじる（聴き逃し）配信のストリーミングに対応
@@ -19,12 +20,16 @@
 ### 　　　語学講座ＣＳ２（仮称）：ニュースで学ぶ「現代英語」、ポルトガル語、アラビア語、など
 ### 　　　従来の語学講座ＣＳ：非対応
 ###    　　　　　　　        
+***
+### ＜語学講座ＣＳ２ (仮称) ベータテスト用バイナリ（実行ファイル）＞
+### Windows用
+### [CaptureStream2-Windows-20221201.zip](https://github.com/CSReviser/CaptureStream/releases/download/20221128/CaptureStream2-Windows-20221201.zip)
+### Ubuntu用
+### [CaptureStream2-Ubuntu-qt5-20221201.zip](https://github.com/CSReviser/CaptureStream/releases/download/20221128/CaptureStream2-Ubuntu-qt5-20221201.zip)
+***
 ### ＜語学講座ＣＳ２ (仮称) イメージ＞
 ![Screenshot from 2022-12-01 17-04-11](https://user-images.githubusercontent.com/46049273/204998600-0588a130-0c18-48c9-a07d-af87f2f15a4f.png)
 
-### ＜語学講座ＣＳ２ (仮称) ベータテスト用バイナリ（実行ファイル）＞
-### Windows用
-### Ubuntu用
 ***
 ##### ※ 録音した語学講座のファイルは著作権法で許されている範囲内でご利用ください。                     
 *** 
