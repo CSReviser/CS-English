@@ -40,6 +40,10 @@ public:
 	static QString opt_title2;
 	static QString opt_title3;
 	static QString opt_title4;
+	static QString opt_title5;
+	static QString opt_title6;
+	static QString opt_title7;
+	static QString opt_title8;
 
 protected:
 	void run();
@@ -59,8 +63,8 @@ private:
 	bool checkOutputDir( QString dirPath );
 	void downloadENews( bool re_read );
 	
-	bool captureStream( QString kouza, QString hdate, QString file, QString nendo );
-	bool captureStream_json( QString kouza, QString hdate, QString file, QString nendo, QString title, QString this_week );
+	bool captureStream( QString kouza, QString hdate, QString file, QString nendo, QString dir, QString this_week );
+	bool captureStream_json( QString kouza, QString hdate, QString file, QString nendo, QString title );
 	
 	QString formatName( QString format, QString kouza, QString hdate, QString file, QString nendo, bool checkIllegal );
 	QStringList getElements( QString url, QString path );
@@ -74,6 +78,7 @@ private:
 	static QString paths2[];
 	static QString paths3[];
 	static QString json_paths[];
+	static QString json_paths2[];
 	static QString prefix;
 	static QString prefix1;
 	static QString prefix2;
@@ -83,6 +88,7 @@ private:
 	static QString suffix2;
 	static QString suffix3;
 	static QString json_prefix;
+	static QString Json_url;
 
 	static QString flv_host;
 	static QString flv_app;
@@ -98,6 +104,10 @@ private:
 	static QString optional2;
 	static QString optional3;
 	static QString optional4;
+	static QString optional5;
+	static QString optional6;
+	static QString optional7;
+	static QString optional8;
 
 	static QHash<QString, QString> ffmpegHash;
 	static QHash<QProcess::ProcessError, QString>processError;

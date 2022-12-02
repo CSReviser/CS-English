@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>540</width>
-    <height>450</height>
+    <height>500</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,13 +19,13 @@
   <property name="minimumSize">
    <size>
     <width>540</width>
-    <height>450</height>
+    <height>500</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>540</width>
-    <height>450</height>
+    <height>500</height>
    </size>
   </property>
   <property name="font">
@@ -34,7 +34,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>語学講座CS【English】</string>
+   <string>語学講座ＣＳ２</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="sizePolicy">
@@ -49,7 +49,7 @@
       <x>10</x>
       <y>10</y>
       <width>521</width>
-      <height>390</height>
+      <height>437</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
@@ -257,7 +257,7 @@
           </font>
          </property>
          <property name="text">
-          <string>今週放送分 [聴逃] 放送後１週間</string>
+          <string>[前週]放送翌週月曜(10時)から１週間</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
@@ -341,36 +341,36 @@
          </item>
          <item>
           <property name="text">
-           <string>mp3</string>
+           <string>mp3-128k-S</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>op0</string>
+           <string>mp3-64k-S</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>op1</string>
+           <string>mp3-48k-S</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>op2</string>
+           <string>mp3-40k-M</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>op3</string>
+           <string>mp3-32k-M</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>op4</string>
+           <string>mp3-24k-M</string>
           </property>
          </item>         <item>
           <property name="text">
-           <string>op5</string>
+           <string>mp3-16k-M</string>
           </property>
          </item>
          </widget>
@@ -562,7 +562,7 @@
       </layout>
      </item>
      <item row="7" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout_421">
+      <layout class="QHBoxLayout" name="horizontalLayout_423">
        <item>
         <widget class="QToolButton" name="toolButton_optional3">
          <property name="sizePolicy">
@@ -587,7 +587,7 @@
       </layout>
      </item>
      <item row="7" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_432">
+      <layout class="QHBoxLayout" name="horizontalLayout_434">
        <item>
         <widget class="QToolButton" name="toolButton_optional4">
          <property name="sizePolicy">
@@ -603,6 +603,106 @@
          </property>
          <property name="text">
           <string>任意らじる聴き逃し番組４</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="8" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_435">
+       <item>
+        <widget class="QToolButton" name="toolButton_optional5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>任意らじる聴き逃し番組５</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="8" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_436">
+       <item>
+        <widget class="QToolButton" name="toolButton_optional6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>任意らじる聴き逃し番組６</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="9" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_437">
+       <item>
+        <widget class="QToolButton" name="toolButton_optional7">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>任意らじる聴き逃し番組７</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="9" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_438">
+       <item>
+        <widget class="QToolButton" name="toolButton_optional8">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>任意らじる聴き逃し番組８</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
@@ -987,6 +1087,10 @@
   <tabstop>toolButton_optional2</tabstop>
   <tabstop>toolButton_optional3</tabstop>
   <tabstop>toolButton_optional4</tabstop>
+  <tabstop>toolButton_optional5</tabstop>
+  <tabstop>toolButton_optional6</tabstop>
+  <tabstop>toolButton_optional7</tabstop>
+  <tabstop>toolButton_optional8</tabstop>
   <tabstop>toolButton_skip</tabstop>
   <tabstop>comboBox_extension</tabstop>
   <tabstop>downloadButton</tabstop>
@@ -1231,6 +1335,70 @@
   </connection>
   <connection>
    <sender>toolButton_optional4</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindowClass</receiver>
+   <slot>toggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>387</x>
+     <y>587</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_optional5</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindowClass</receiver>
+   <slot>toggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>387</x>
+     <y>587</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_optional6</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindowClass</receiver>
+   <slot>toggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>387</x>
+     <y>587</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_optional7</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindowClass</receiver>
+   <slot>toggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>387</x>
+     <y>587</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_optional8</sender>
    <signal>toggled(bool)</signal>
    <receiver>MainWindowClass</receiver>
    <slot>toggled(bool)</slot>

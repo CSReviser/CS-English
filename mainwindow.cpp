@@ -59,6 +59,14 @@
 #define SETTING_SCRAMBLE "scramble"
 #define SETTING_SCRAMBLE_URL1 "scramble_url1"
 #define SETTING_SCRAMBLE_URL2 "scramble_url2"
+#define SETTING_FILE_NAME1 "FILE_NAME1"
+#define SETTING_FILE_NAME2 "FILE_NAME2"
+#define SETTING_TITLE1 "FILE_TITLE1"
+#define SETTING_TITLE2 "FILE_TITLE2"
+#define FILE_NAME1 "%k_%Y_%M_%D"
+#define FILE_NAME2 "%k_%Y_%M_%D"
+#define FILE_TITLE1 "%f"
+#define FILE_TITLE2 "%k_%Y_%M_%D"
 #define SCRAMBLE_URL1 "http://www47.atwiki.jp/jakago/pub/scramble.xml"
 #define SCRAMBLE_URL2 "http://cdn47.atwikiimg.com/jakago/pub/scramble.xml"
 #define X11_WINDOW_VERTICAL_INCREMENT 5
@@ -67,18 +75,34 @@
 #define SETTING_OPTIONAL2 "optional2"
 #define SETTING_OPTIONAL3 "optional3"
 #define SETTING_OPTIONAL4 "optional4"
+#define SETTING_OPTIONAL5 "optional5"
+#define SETTING_OPTIONAL6 "optional6"
+#define SETTING_OPTIONAL7 "optional7"
+#define SETTING_OPTIONAL8 "optional8"
 #define SETTING_OPT_TITLE1 "opt_title1"
 #define SETTING_OPT_TITLE2 "opt_title2"
 #define SETTING_OPT_TITLE3 "opt_title3"
 #define SETTING_OPT_TITLE4 "opt_title4"
+#define SETTING_OPT_TITLE5 "opt_title5"
+#define SETTING_OPT_TITLE6 "opt_title6"
+#define SETTING_OPT_TITLE7 "opt_title7"
+#define SETTING_OPT_TITLE8 "opt_title8"
 #define OPTIONAL1 "0953"	// まいにちフランス語 入門編
-#define OPTIONAL2 "0943"	// まいにちドイツ語 入門編／初級編
-#define OPTIONAL3 "0946"	// まいにちイタリア語 入門編
-#define OPTIONAL4 "0948"	// まいにちスペイン語 入門編／初級編
+#define OPTIONAL2 "4412"	// まいにちフランス語 応用編
+#define OPTIONAL3 "0943"	// まいにちドイツ語 入門編／初級編
+#define OPTIONAL4 "4410"	// まいにちドイツ語 応用編
+#define OPTIONAL5 "0946"	// まいにちイタリア語 入門編
+#define OPTIONAL6 "4411"	// まいにちイタリア語 応用編
+#define OPTIONAL7 "0948"	// まいにちスペイン語 入門編／初級編
+#define OPTIONAL8 "4413"	// まいにちスペイン語 中級編／応用編
 #define Program_TITLE1 "任意らじる聴き逃し番組１"
 #define Program_TITLE2 "任意らじる聴き逃し番組２"
 #define Program_TITLE3 "任意らじる聴き逃し番組３"
 #define Program_TITLE4 "任意らじる聴き逃し番組４"
+#define Program_TITLE5 "任意らじる聴き逃し番組５"
+#define Program_TITLE6 "任意らじる聴き逃し番組６"
+#define Program_TITLE7 "任意らじる聴き逃し番組７"
+#define Program_TITLE8 "任意らじる聴き逃し番組８"
 
 #ifdef QT4_QT5_WIN
 #define STYLE_SHEET "stylesheet-win.qss"
@@ -105,7 +129,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( " (2022/11/18)" ); 
+			result = QString( "  (2022/12/01) -β０-" ); 
 		}
 		return result;
 	}
@@ -115,14 +139,33 @@ QString MainWindow::outputDir;
 QString MainWindow::scramble;
 QString MainWindow::scrambleUrl1;
 QString MainWindow::scrambleUrl2;
+QString MainWindow::customized_title1;
+QString MainWindow::customized_title2;
+QString MainWindow::customized_file_name1;
+QString MainWindow::customized_file_name2;
+QString MainWindow::OPTIONAL[] = { "0953", "0943", "0946", "0948" };
+QString MainWindow::optional[] = { "0953", "0943", "0946", "0948" };
 QString MainWindow::optional1;
 QString MainWindow::optional2;
 QString MainWindow::optional3;
 QString MainWindow::optional4;
+QString MainWindow::optional5;
+QString MainWindow::optional6;
+QString MainWindow::optional7;
+QString MainWindow::optional8;
+
+QString MainWindow::SETTING_OPTIONAL[] = { "optional1", "optional2", "optional3", "optional4" };
+QString MainWindow::SETTING_OPT_TITLE[] = { "opt_title1", "opt_title2", "opt_title3", "opt_title4" };
+QString MainWindow::program_title[] = { "任意らじる聴き逃し番組１", "任意らじる聴き逃し番組２", "任意らじる聴き逃し番組３", "任意らじる聴き逃し番組４" };
+QString MainWindow::Program_TITLE[] = { "任意らじる聴き逃し番組１", "任意らじる聴き逃し番組２", "任意らじる聴き逃し番組３", "任意らじる聴き逃し番組４" };
 QString MainWindow::program_title1;
 QString MainWindow::program_title2;
 QString MainWindow::program_title3;
 QString MainWindow::program_title4;
+QString MainWindow::program_title5;
+QString MainWindow::program_title6;
+QString MainWindow::program_title7;
+QString MainWindow::program_title8;
 QString MainWindow::prefix = "http://cgi2.nhk.or.jp/gogaku/st/xml/";
 QString MainWindow::suffix = "listdataflv.xml";
 QString MainWindow::json_prefix = "https://www.nhk.or.jp/radioondemand/json/";
@@ -162,14 +205,6 @@ MainWindow::MainWindow( QWidget *parent )
 	// 「カスタマイズ」メニューの構築
 	customizeMenu = menuBar()->addMenu( QString::fromUtf8( "カスタマイズ" ) );
 
-//	QAction* action = new QAction( QString::fromUtf8( "ファイル名設定..." ), this );
-//	connect( action, SIGNAL( triggered() ), this, SLOT( customizeFileName() ) );
-//	customizeMenu->addAction( action );
-
-//	action = new QAction( QString::fromUtf8( "タイトルタグ設定..." ), this );
-//	connect( action, SIGNAL( triggered() ), this, SLOT( customizeTitle() ) );
-//	customizeMenu->addAction( action );
-
 	QAction* action = new QAction( QString::fromUtf8( "保存フォルダ..." ), this );
 	connect( action, SIGNAL( triggered() ), this, SLOT( customizeSaveFolder() ) );
 	customizeMenu->addAction( action );
@@ -185,7 +220,7 @@ MainWindow::MainWindow( QWidget *parent )
 	action = new QAction( QString::fromUtf8( "任意番組設定..." ), this );
 	connect( action, SIGNAL( triggered() ), this, SLOT( customizeScramble() ) );
 	customizeMenu->addAction( action );
-	
+
 	//action = new QAction( QString::fromUtf8( "スクランブル文字列..." ), this );
 	//connect( action, SIGNAL( triggered() ), this, SLOT( customizeScramble() ) );
 	//customizeMenu->addAction( action );
@@ -240,13 +275,44 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		QAbstractButton* checkBox;
 		QString key;
 		QVariant defaultValue;
-		QString titleKey;
-		QVariant titleFormat;
-		QString fileNameKey;
-		QVariant fileNameFormat;
+//		QString titleKey;
+//		QVariant titleFormat;
+//		QString fileNameKey;
+//		QVariant fileNameFormat;
 	} CheckBox;
 #define DefaultTitle "%k_%Y_%M_%D"
+//#define DefaultTitle1 "%f"
+//#define DefaultTitle2 "%k_%Y_%M_%D"
 #define DefaultFileName "%k_%Y_%M_%D.m4a"
+//#define DefaultFileName1 "%k_%Y_%M_%D"
+//#define DefaultFileName2 "%k_%Y_%M_%D"
+//#define DefaultFileName3 "%h"
+//#define DefaultFileName4 "%f"
+	CheckBox checkBoxes[] = {
+		{ ui->toolButton_basic0, "basic0", false },
+		{ ui->toolButton_basic1, "basic1", false },
+		{ ui->toolButton_basic2, "basic2", false },
+		{ ui->toolButton_basic3, "basic3", false },
+		{ ui->toolButton_timetrial, "timetrial", false },
+		{ ui->toolButton_enjoy, "enjoy", false },
+		{ ui->toolButton_kaiwa, "kaiwa", false },
+		{ ui->toolButton_business1, "business1", false },
+		{ ui->toolButton_gendai, "gendai", false },
+		{ ui->toolButton_vrradio, "vrradio", false },
+		{ ui->toolButton_optional1, "optional_1", false },
+		{ ui->toolButton_optional2, "optional_2", false },
+		{ ui->toolButton_optional3, "optional_3", false },
+		{ ui->toolButton_optional4, "optional_4", false },
+		{ ui->toolButton_optional5, "optional_5", false },
+		{ ui->toolButton_optional6, "optional_6", false },
+		{ ui->toolButton_optional7, "optional_7", false },
+		{ ui->toolButton_optional8, "optional_8", false },
+		{ ui->toolButton_skip, "skip", true },
+		{ ui->checkBox_this_week, "this_week", true },
+		{ ui->toolButton_detailed_message, "detailed_message", false },
+		{ NULL, NULL, false }
+	};
+#if 0
 	CheckBox checkBoxes[] = {
 		{ ui->toolButton_basic0, "basic0", false, "basic0_title", DefaultTitle, "basic0_file_name", DefaultFileName },
 		{ ui->toolButton_basic1, "basic1", false, "basic1_title", DefaultTitle, "basic1_file_name", DefaultFileName },
@@ -264,32 +330,42 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		{ ui->toolButton_optional2, "optional_2", false, "optional2_title", DefaultTitle, "optional2_file_name", DefaultFileName },
 		{ ui->toolButton_optional3, "optional_3", false, "optional3_title", DefaultTitle, "optional3_file_name", DefaultFileName },
 		{ ui->toolButton_optional4, "optional_4", false, "optional4_title", DefaultTitle, "optional4_file_name", DefaultFileName },
-		{ ui->checkBox_13, "charo", false, "charo_title", DefaultTitle, "charo_file_name", DefaultFileName },
-		{ ui->checkBox_14, "e-news", false, "e-news_title", DefaultTitle, "e-news_file_name", DefaultFileName },
-		{ ui->checkBox_shower, "shower", false, "shower_title", DefaultTitle, "shower_file_name", DefaultFileName },
-		{ ui->checkBox_15, "e-news-reread", false, "e-news-reread_title", DefaultTitle, "e-news-reread_file_name", DefaultFileName },
+		{ ui->toolButton_optional5, "optional_5", false, "optional5_title", DefaultTitle, "optional5_file_name", DefaultFileName },
+		{ ui->toolButton_optional6, "optional_6", false, "optional6_title", DefaultTitle, "optional6_file_name", DefaultFileName },
+		{ ui->toolButton_optional7, "optional_7", false, "optional7_title", DefaultTitle, "optional7_file_name", DefaultFileName },
+		{ ui->toolButton_optional8, "optional_8", false, "optional8_title", DefaultTitle, "optional8_file_name", DefaultFileName },
+//		{ ui->checkBox_13, "charo", false, "charo_title", DefaultTitle, "charo_file_name", DefaultFileName },
+//		{ ui->checkBox_14, "e-news", false, "e-news_title", DefaultTitle, "e-news_file_name", DefaultFileName },
+//		{ ui->checkBox_shower, "shower", false, "shower_title", DefaultTitle, "shower_file_name", DefaultFileName },
+//		{ ui->checkBox_15, "e-news-reread", false, "e-news-reread_title", DefaultTitle, "e-news-reread_file_name", DefaultFileName },
 		{ ui->toolButton_skip, "skip", true, "", "", "", "" },
 		{ ui->checkBox_keep_on_error, "keep_on_error", false, "", "", "", "" },
 		{ ui->checkBox_this_week, "this_week", true, "", "", "", "" },
-		{ ui->checkBox_next_week2, "next_week", false, "", "", "", "" },
+//		{ ui->checkBox_next_week2, "next_week", false, "", "", "", "" },
 		{ ui->checkBox_past_week, "past_week", false, "", "", "", "" },
 		{ ui->toolButton_detailed_message, "detailed_message", false, "", "", "", "" },
 		{ NULL, NULL, false, "", "", "", "" }
 	};
+#endif
 	typedef struct ComboBox {
 		QComboBox* comboBox;
 		QString key;
 		QVariant defaultValue;
 	} ComboBox;
 	ComboBox comboBoxes[] = {
-		{ ui->comboBox_enews, "e-news-index", ENewsSaveBoth },
-		{ ui->comboBox_shower, "shower_index", ENewsSaveBoth },
+//		{ ui->comboBox_enews, "e-news-index", ENewsSaveBoth },
+//		{ ui->comboBox_shower, "shower_index", ENewsSaveBoth },
 		{ NULL, NULL, false }
 	};
 	ComboBox textComboBoxes[] = {
 		{ ui->comboBox_extension, "audio_extension", "m4a" },	// 拡張子のデフォルトを「mp3」から「m4a」に変更。
 		{ NULL, NULL, false }
 	};
+	
+//	customized_title1 = DefaultTitle1;
+//	customized_title2 = DefaultTitle2;
+//	customized_file_name1 = DefaultFileName1;
+//	customized_file_name2 = DefaultFileName2;
 
 	QSettings settings( Utility::applicationBundlePath() + INI_FILE, QSettings::IniFormat );
 	settings.beginGroup( SETTING_GROUP );
@@ -312,13 +388,22 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		saved = settings.value( SETTING_SAVE_FOLDER );
 		outputDir = saved.type() == QVariant::Invalid ? Utility::applicationBundlePath() : saved.toString();
 
-		saved = settings.value( SETTING_SCRAMBLE );
-		scramble = saved.type() == QVariant::Invalid ? "" : saved.toString();
+//		saved = settings.value( SETTING_SCRAMBLE );
+//		scramble = saved.type() == QVariant::Invalid ? "" : saved.toString();
 
-		saved = settings.value( SETTING_SCRAMBLE_URL1 );
-		scrambleUrl1 = saved.type() == QVariant::Invalid ? SCRAMBLE_URL1 : saved.toString();
-		saved = settings.value( SETTING_SCRAMBLE_URL2 );
-		scrambleUrl2 = saved.type() == QVariant::Invalid ? SCRAMBLE_URL2 : saved.toString();
+//		saved = settings.value( SETTING_SCRAMBLE_URL1 );
+//		scrambleUrl1 = saved.type() == QVariant::Invalid ? SCRAMBLE_URL1 : saved.toString();
+//		saved = settings.value( SETTING_SCRAMBLE_URL2 );
+//		scrambleUrl2 = saved.type() == QVariant::Invalid ? SCRAMBLE_URL2 : saved.toString();
+		
+//		saved = settings.value( SETTING_FILE_NAME1 );
+//		customized_file_name1 = saved.type() == QVariant::Invalid ? FILE_NAME1 : saved.toString();
+//		saved = settings.value( SETTING_FILE_NAME2 );
+//		customized_file_name2 = saved.type() == QVariant::Invalid ? FILE_NAME2 : saved.toString();
+//		saved = settings.value( SETTING_TITLE1 );
+//		customized_title1 = saved.type() == QVariant::Invalid ? FILE_TITLE1 : saved.toString();
+//		saved = settings.value( SETTING_TITLE2 );
+//		customized_title2 = saved.type() == QVariant::Invalid ? FILE_TITLE2 : saved.toString();
 		
 		saved = settings.value( SETTING_OPTIONAL1 );
 		optional1 = saved.type() == QVariant::Invalid ? OPTIONAL1 : saved.toString();
@@ -328,6 +413,23 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		optional3 = saved.type() == QVariant::Invalid ? OPTIONAL3 : saved.toString();
 		saved = settings.value( SETTING_OPTIONAL4 );
 		optional4 = saved.type() == QVariant::Invalid ? OPTIONAL4 : saved.toString();
+		saved = settings.value( SETTING_OPTIONAL5 );
+		optional5 = saved.type() == QVariant::Invalid ? OPTIONAL5 : saved.toString();
+		saved = settings.value( SETTING_OPTIONAL6 );
+		optional6 = saved.type() == QVariant::Invalid ? OPTIONAL6 : saved.toString();
+		saved = settings.value( SETTING_OPTIONAL7 );
+		optional7 = saved.type() == QVariant::Invalid ? OPTIONAL7 : saved.toString();
+		saved = settings.value( SETTING_OPTIONAL8 );
+		optional8 = saved.type() == QVariant::Invalid ? OPTIONAL8 : saved.toString();
+
+//		for ( int ii = 0; ii < 4; ii++) {
+//			saved = settings.value( SETTING_OPTIONAL[ii] );
+//			optional[ii] = saved.type() == QVariant::Invalid ? OPTIONAL[ii] : saved.toString();
+//			saved = settings.value( SETTING_OPT_TITLE[ii] );
+//			program_title[ii] = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE[ii] ) : saved.toString();
+//		}
+//		optional1 = optional[0]; optional2 = optional[1]; optional3 = optional[2]; optional4 = optional[3];
+//		program_title1 = program_title[0]; program_title2 = program_title[1]; program_title3 = program_title[2]; program_title4 = program_title[3];
 
 		saved = settings.value( SETTING_OPT_TITLE1 );
 		program_title1 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE1 ) : saved.toString();
@@ -337,11 +439,23 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		program_title3 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE3 ) : saved.toString();
 		saved = settings.value( SETTING_OPT_TITLE4 );
 		program_title4 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE4 ) : saved.toString();
+		saved = settings.value( SETTING_OPT_TITLE5 );
+		program_title5 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE5 ) : saved.toString();
+		saved = settings.value( SETTING_OPT_TITLE6 );
+		program_title6 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE6 ) : saved.toString();
+		saved = settings.value( SETTING_OPT_TITLE7 );
+		program_title7 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE7 ) : saved.toString();
+		saved = settings.value( SETTING_OPT_TITLE8 );
+		program_title8 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE8 ) : saved.toString();
 
 		ui->toolButton_optional1->setText( QString( program_title1 ) );
 		ui->toolButton_optional2->setText( QString( program_title2 ) );
 		ui->toolButton_optional3->setText( QString( program_title3 ) );
 		ui->toolButton_optional4->setText( QString( program_title4 ) );
+		ui->toolButton_optional5->setText( QString( program_title5 ) );
+		ui->toolButton_optional6->setText( QString( program_title6 ) );
+		ui->toolButton_optional7->setText( QString( program_title7 ) );
+		ui->toolButton_optional8->setText( QString( program_title8 ) );
 
 //		QString opt_TITLE1 = getJsonData( optional1 );
 //		QString opt_TITLE2 = getJsonData( optional2 );
@@ -357,6 +471,10 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		ui->toolButton_optional2->setText( QString( program_title2 ) );
 		ui->toolButton_optional3->setText( QString( program_title3 ) );
 		ui->toolButton_optional4->setText( QString( program_title4 ) );
+		ui->toolButton_optional5->setText( QString( program_title5 ) );
+		ui->toolButton_optional6->setText( QString( program_title6 ) );
+		ui->toolButton_optional7->setText( QString( program_title7 ) );
+		ui->toolButton_optional8->setText( QString( program_title8 ) );
 
 		for ( int i = 0; checkBoxes[i].checkBox != NULL; i++ ) {
 			checkBoxes[i].checkBox->setChecked( settings.value( checkBoxes[i].key, checkBoxes[i].defaultValue ).toBool() );
@@ -373,18 +491,31 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 //#endif                                              　//(2022/11/01:Linux向けに変更）
 		if ( outputDirSpecified )
 			settings.setValue( SETTING_SAVE_FOLDER, outputDir );
-		settings.setValue( SETTING_SCRAMBLE, scramble );
-		settings.setValue( SETTING_SCRAMBLE_URL1, scrambleUrl1 );
-		settings.setValue( SETTING_SCRAMBLE_URL2, scrambleUrl2 );
+//		settings.setValue( SETTING_SCRAMBLE, scramble );
+//		settings.setValue( SETTING_SCRAMBLE_URL1, scrambleUrl1 );
+//		settings.setValue( SETTING_SCRAMBLE_URL2, scrambleUrl2 );
+		
+//		settings.setValue( SETTING_FILE_NAME1, customized_file_name1 );
+//		settings.setValue( SETTING_FILE_NAME2, customized_file_name2 );
+//		settings.setValue( SETTING_TITLE1, customized_title1 );
+//		settings.setValue( SETTING_TITLE2, customized_title2 );
 		
 		settings.setValue( SETTING_OPTIONAL1, optional1 );
 		settings.setValue( SETTING_OPTIONAL2, optional2 );
 		settings.setValue( SETTING_OPTIONAL3, optional3 );
 		settings.setValue( SETTING_OPTIONAL4, optional4 );
+		settings.setValue( SETTING_OPTIONAL5, optional5 );
+		settings.setValue( SETTING_OPTIONAL6, optional6 );
+		settings.setValue( SETTING_OPTIONAL7, optional7 );
+		settings.setValue( SETTING_OPTIONAL8, optional8 );
 		settings.setValue( SETTING_OPT_TITLE1, program_title1 );
 		settings.setValue( SETTING_OPT_TITLE2, program_title2 );
 		settings.setValue( SETTING_OPT_TITLE3, program_title3 );
 		settings.setValue( SETTING_OPT_TITLE4, program_title4 );
+		settings.setValue( SETTING_OPT_TITLE5, program_title5 );
+		settings.setValue( SETTING_OPT_TITLE6, program_title6 );
+		settings.setValue( SETTING_OPT_TITLE7, program_title7 );
+		settings.setValue( SETTING_OPT_TITLE8, program_title8 );
 		
 		for ( int i = 0; checkBoxes[i].checkBox != NULL; i++ ) {
 			settings.setValue( checkBoxes[i].key, checkBoxes[i].checkBox->isChecked() );
@@ -422,26 +553,73 @@ void MainWindow::customizeScramble() {
 //	dialog.exec();
 //	scramble = dialog.scramble();
 
-	ScrambleDialog dialog( optional1, optional2, optional3, optional4 );
-	dialog.exec();
+	ScrambleDialog dialog( optional1, optional2, optional3, optional4, optional5, optional6, optional7, optional8 );
+    if (dialog.exec() ) {
 	optional1 = dialog.scramble1();
 	optional2 = dialog.scramble2();
 	optional3 = dialog.scramble3();
 	optional4 = dialog.scramble4();
+	optional5 = dialog.scramble5();
+	optional6 = dialog.scramble6();
+	optional7 = dialog.scramble7();
+	optional8 = dialog.scramble8();
 
 	QString opt_TITLE1 = getJsonData( optional1.left(4) );
 	QString opt_TITLE2 = getJsonData( optional2.left(4) );
 	QString opt_TITLE3 = getJsonData( optional3.left(4) );
 	QString opt_TITLE4 = getJsonData( optional4.left(4) );
-
+	QString opt_TITLE5 = getJsonData( optional5.left(4) );
+	QString opt_TITLE6 = getJsonData( optional6.left(4) );
+	QString opt_TITLE7 = getJsonData( optional7.left(4) );
+	QString opt_TITLE8 = getJsonData( optional8.left(4) );
+	
 	program_title1 = opt_TITLE1;
 	ui->toolButton_optional1->setText( QString( program_title1 ) );
+	ui->toolButton_optional1->setChecked(false);
 	program_title2 = opt_TITLE2;
 	ui->toolButton_optional2->setText( QString( program_title2 ) );
+	ui->toolButton_optional2->setChecked(false);
 	program_title3 = opt_TITLE3;
 	ui->toolButton_optional3->setText( QString( program_title3 ) );
+	ui->toolButton_optional3->setChecked(false);
 	program_title4 = opt_TITLE4;
 	ui->toolButton_optional4->setText( QString( program_title4 ) );
+	ui->toolButton_optional4->setChecked(false);
+	program_title5 = opt_TITLE5;
+	ui->toolButton_optional5->setText( QString( program_title5 ) );
+	ui->toolButton_optional5->setChecked(false);
+	program_title6 = opt_TITLE6;
+	ui->toolButton_optional6->setText( QString( program_title6 ) );
+	ui->toolButton_optional6->setChecked(false);
+	program_title7 = opt_TITLE7;
+	ui->toolButton_optional7->setText( QString( program_title7 ) );
+	ui->toolButton_optional7->setChecked(false);
+	program_title8 = opt_TITLE8;
+	ui->toolButton_optional8->setText( QString( program_title8 ) );
+	ui->toolButton_optional8->setChecked(false);
+
+	QSettings settings( Utility::applicationBundlePath() + INI_FILE, QSettings::IniFormat );
+	settings.beginGroup( SETTING_GROUP );
+
+		settings.setValue( SETTING_OPTIONAL1, optional1 );
+		settings.setValue( SETTING_OPTIONAL2, optional2 );
+		settings.setValue( SETTING_OPTIONAL3, optional3 );
+		settings.setValue( SETTING_OPTIONAL4, optional4 );
+		settings.setValue( SETTING_OPTIONAL5, optional5 );
+		settings.setValue( SETTING_OPTIONAL6, optional6 );
+		settings.setValue( SETTING_OPTIONAL7, optional7 );
+		settings.setValue( SETTING_OPTIONAL8, optional8 );
+		settings.setValue( SETTING_OPT_TITLE1, program_title1 );
+		settings.setValue( SETTING_OPT_TITLE2, program_title2 );
+		settings.setValue( SETTING_OPT_TITLE3, program_title3 );
+		settings.setValue( SETTING_OPT_TITLE4, program_title4 );
+		settings.setValue( SETTING_OPT_TITLE5, program_title5 );
+		settings.setValue( SETTING_OPT_TITLE6, program_title6 );
+		settings.setValue( SETTING_OPT_TITLE7, program_title7 );
+		settings.setValue( SETTING_OPT_TITLE8, program_title8 );
+
+	settings.endGroup();
+    }
 }
 
 void MainWindow::download() {	//「レコーディング」または「キャンセル」ボタンが押されると呼び出される
