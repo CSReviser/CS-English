@@ -16,7 +16,7 @@ jobs:
       with:
         modules: 'qtcharts qtscript qtwebengine'
         
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: qmake
       run: qmake -makefile CaptureStream2.pro
     - name: make
