@@ -53,7 +53,7 @@ macx {
 	}
 
 	release {
-		QMAKE_POST_LINK += macdeployqt CS-English.app
+		QMAKE_POST_LINK += macdeployqt CaptureStream2.app
 	}
 }
 
