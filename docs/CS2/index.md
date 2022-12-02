@@ -23,9 +23,11 @@
 ***
 ### ＜語学講座ＣＳ２ (仮称) ベータテスト用バイナリ（実行ファイル）＞
 ### Windows用
-### [CaptureStream2-Windows-20221201.zip](https://github.com/CSReviser/CaptureStream/releases/download/20221128/CaptureStream2-Windows-20221201.zip)
+### [CaptureStream2-Windows-20221201.zip](https://github.com/CSReviser/CS-English/releases/download/20221201/CaptureStream2-Windows-20221201.zip)
 ### Ubuntu用
-### [CaptureStream2-Ubuntu-qt5-20221201.zip](https://github.com/CSReviser/CaptureStream/releases/download/20221128/CaptureStream2-Ubuntu-qt5-20221201.zip)
+### [CaptureStream2-Ubuntu-qt5-20221201.zip](https://github.com/CSReviser/CS-English/releases/download/20221201/CaptureStream2-Ubuntu-qt5-20221201.zip)
+### Macintosh用
+### [CaptureStream2-Macintosh-20221201.dmg](https://github.com/CSReviser/CS-English/releases/download/20221201/CaptureStream2-Macintosh-20221201.dmg)
 
 ### ※バグ報告などは[こちら](https://github.com/CSReviser/CS-English/discussions/18)に投稿してください。
 ***
