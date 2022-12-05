@@ -12,11 +12,11 @@ jobs:
 
     steps:
     - name: Install Qt
-      uses: jurplel/install-qt-action@v2
+      uses: jurplel/install-qt-action@v3
       with:
         modules: 'qtcharts qtscript qtwebengine'
         
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: qmake
       run: qmake -makefile
     - name: make
@@ -25,8 +25,8 @@ jobs:
     - name: Make CS-English executable
       run: sudo chmod -R 755 ./CS-English.app
   
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: CS-English
-        path: ./
+        path: ./CS-English.app
 
