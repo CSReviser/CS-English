@@ -23,10 +23,10 @@ jobs:
       run: make
       
     - name: Make CaptureStream2 executable
-      run: sudo chmod -R 755 ./CaptureStream2.app
+      run: chmod -R 755 ./CaptureStream2.app
   
     - uses: actions/upload-artifact@v3
       with:
         name: CaptureStream2
-        path: ./
+        path: ./CaptureStream2.app
 
