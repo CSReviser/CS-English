@@ -31,8 +31,9 @@
 
 ### ※バグ報告などは[こちら](https://github.com/CSReviser/CS-English/discussions/18)に投稿してください。
 ***
-　[任意らじる聴き逃し番組設定](https://csreviser.github.io/CS-English/CS2/SETTING_COURSES) 　　　　　　[拡張子の選択](https://csreviser.github.io/CS-English/CS2/SETTING_extension) 
-***
+* [任意らじる聴き逃し番組設定](https://csreviser.github.io/CS-English/CS2/SETTING_COURSES) 　　　　　　
+* [拡張子の選択](https://csreviser.github.io/CS-English/CS2/SETTING_extension) 
+
 ### ＜語学講座ＣＳ２ (仮称) イメージ＞
 ![Screenshot from 2022-12-01 17-04-11](https://user-images.githubusercontent.com/46049273/204998600-0588a130-0c18-48c9-a07d-af87f2f15a4f.png)
 
