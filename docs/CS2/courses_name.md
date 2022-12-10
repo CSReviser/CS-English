@@ -1,4 +1,10 @@
 ### 対象講座と番組ＩＤ一覧
+<style>
+.tablelines table, .tablelines td, .tablelines th {
+        border: 1px solid black;
+        }
+</style>
+
 |番組名|ID|
 |:-------------:|:-------------:|
 |中学生の基礎英語 レベル1|6806|
@@ -30,7 +36,7 @@
 | Living in Japan | 7155 |
 | やさしい日本語  | 0701 |
 | Learn Japanese from the News  | 7629 |
-
+{: .tablelines}
 
 ***
 
