@@ -41,6 +41,11 @@
 ***
 
 ### らじる★らじる番組ＩＤ一覧＜ジャンル：ドラマ＞
+<style>
+.tablelines table, .tablelines td, .tablelines th {
+        border: 1px solid black;
+        }
+</style>
 | 番組名  |	ID |
 | ------------- | ------------- |
 |青春アドベンチャー | 0164 |
