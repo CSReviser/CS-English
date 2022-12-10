@@ -32,6 +32,7 @@
 
 ### ※バグ報告などは[こちら](https://github.com/CSReviser/CS-English/discussions/18)に投稿してください。
 ***
+* [対象講座と番組ID一覧](https://csreviser.github.io/CS-English/CS2/courses_name) 
 * [任意らじる聴き逃し番組設定](https://csreviser.github.io/CS-English/CS2/SETTING_COURSES) 　　　　　　
 * [拡張子の選択](https://csreviser.github.io/CS-English/CS2/SETTING_extension) 
 * [［前週］チェックボックス](https://csreviser.github.io/CS-English/CS2/last_week)
