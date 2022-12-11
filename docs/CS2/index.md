@@ -1,11 +1,11 @@
 ## 語学講座ＣＳ２ (仮称)   〘仮設サイト〙     
-## ([TOP Page](https://csreviser.github.io/CS-English/)/[【English】](https://csreviser.github.io/CS-English/new/)/[【Mult】](https://csreviser.github.io/CS-Mult/))[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)          
+## ([TOP Page](https://csreviser.github.io/CS-English/)/[【English】](https://csreviser.github.io/CS-English/new/)/[【Mult】](https://csreviser.github.io/CS-Mult/))[［類似アプリ］](https://csreviser.github.io/CS-English/CS2/applicatio)          
 ##### 語学講座ＣＳ２ (仮称) は、語学講座ダウンローダCaptureStreamの派生版である『語学講座CS【English】』をベースに、らじる★らじる(聴き逃し)のストリーミング配信に対応した、録音を自動化するためのアプリです。NHKゴガクのサイトで公開されているストリーミングは2020年度に従来の独自方式から、らじる★らじる(聴き逃し)のストリーミングに移行しています。CaptureStream(2014年4月版)は独自方式用に作られ、らじる★らじる(聴き逃し)のストリーミングに対応していないため、2022年11月現在使用できません。
 ##### 語学講座ＣＳ２ (仮称) は、下記のような方が、新しいアプリに移行するまでのツナギや一時しのぎで利用されることを想定しています。             
 ##### １．CaptureStream(2014年4月版)を利用し続けていた方が、他のアプリに移行するまでのツナギ利用。
 ##### ２．他の使いなれたアプリ（某有名アプリなど）のアップデートが停滞して、お困りの方の一時しのぎ利用。
 ##### ３．現在の語学講座ＣＳ【English】/【Mult】を利用中の方が、他のアプリに移行するまでのツナギ利用。
-##### 現在の語学講座ＣＳ【English】/【Mult】のアップデートは終了し、語学講座ＣＳ２（仮称）に移行します。[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。   
+##### 現在の語学講座ＣＳ【English】/【Mult】のアップデートは終了し、語学講座ＣＳ２（仮称）に移行します。[［類似アプリ］](https://csreviser.github.io/CS-English/CS2/application)など、他のアプリに乗り換え、移行をご検討ください。   
 
 ***
 ### ＜従来との主な違い＞
