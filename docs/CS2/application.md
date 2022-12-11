@@ -3,11 +3,12 @@
 新規の方は他の類似アプリの利用をご検討ください。一時しのぎで利用される方も、派生版であり、機能が限定されているとご理解の上ご利用いただくと共に、元のアプリや他のアプリへの移行も並行してご検討ください。特に制限されて利用できない機能をご希望の方は類似アプリをご利用ください。             
 
 ***
-《らじる★らじる対応：有償アプリ》                           
+《らじる★らじる対応：汎用有償アプリ》                           
 * [ネットラジオ録音](https://netradio-rokuon.com/?amp)     
 * [ネットラジオレコーダー]( https://ging.co.jp/product/music/netradio.html)     
 * [ラジ録](http://www.magnolia.co.jp/products/utility/rdorec/12/w/index.htm)  
-* [ネットラジオハンター](https://freecs.ne.jp/product/netradio2/)
+* [ネットラジオハンター](https://freecs.ne.jp/product/netradio2/)          
+    
 ##### ※ 特定の有償アプリの購入を推奨するものではありません。購入／利用する際はご自身で判断してください。      
 
 ***
