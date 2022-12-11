@@ -8,7 +8,8 @@
 * [ネットラジオレコーダー]( https://ging.co.jp/product/music/netradio.html)     
 * [ラジ録](http://www.magnolia.co.jp/products/utility/rdorec/12/w/index.htm)  
 * [ネットラジオハンター](https://freecs.ne.jp/product/netradio2/)
-##### ※ 特定の有償アプリの購入を推奨するものではありません。購入／利用する際はご自身で判断してください。
+##### ※ 特定の有償アプリの購入を推奨するものではありません。購入／利用する際はご自身で判断してください。      
+
 ***
 《らじる★らじる対応：NHKゴガク専用》          
 * [NHK_hta(OS:Windows)](https://wiki3.jp/NHK_hta)    
