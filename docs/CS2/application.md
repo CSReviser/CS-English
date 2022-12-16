@@ -14,6 +14,8 @@
 ***
 《らじる★らじる対応：NHKゴガク専用》          
 * [NHK_hta(OS:Windows)](https://wiki3.jp/NHK_hta)    
+* [ラジリンガル(OS:Windows/Macintosh)](http://www.radilingual.com/)       
+[ブログ](https://www.radilingual.com/blog/)         
 * [「radirudegogaku0.rb」NHK語学講座のラジオ番組ストリーミングを取得するRubyスクリプト(OS:Macintosh/Windows/Linux)](https://riocampos-tech.hatenablog.com/entry/20200402/radirudegogaku)                    
 * [radio-gogaku-downloader(Python 3.xの走る環境)](https://github.com/ikakunsan/radio-gogaku-downloader)           
 * [試作ダウンローダー1号(Rubyが動作する環境)](https://wiki3.jp/NHKdl_rb)           
