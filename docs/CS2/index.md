@@ -40,6 +40,9 @@
 * [ファイル名のカスタマイズ設定](https://csreviser.github.io/CS-English/CS2/file_name)
 
 ### ＜語学講座ＣＳ２ (仮称) イメージ＞
+## ［Windows版］
+![無題1](https://user-images.githubusercontent.com/46049273/208038239-f4ef280e-92f5-4e10-98f3-46d7765acaf3.png)
+## ［Ubuntu版］
 ![Screenshot from 2022-12-01 17-04-11](https://user-images.githubusercontent.com/46049273/204998600-0588a130-0c18-48c9-a07d-af87f2f15a4f.png)
 
 ***
