@@ -37,6 +37,7 @@
 * [拡張子の選択](https://csreviser.github.io/CS-English/CS2/SETTING_extension) 
 * [［前週］チェックボックス](https://csreviser.github.io/CS-English/CS2/last_week)
 * [ファイル名のカスタマイズ設定](https://csreviser.github.io/CS-English/CS2/file_name)
+* [タスクスケジューラの設定方法(Windows)](https://csreviser.github.io/CS-English/CS2/scheduler-win)
 
 ### ＜語学講座ＣＳ２ (仮称) イメージ＞
 ## ［Windows版］
