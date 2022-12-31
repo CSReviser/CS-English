@@ -40,7 +40,7 @@
 * [［前週］チェックボックス](https://csreviser.github.io/CS-English/CS2/last_week)
 * [ファイル名のカスタマイズ設定](https://csreviser.github.io/CS-English/CS2/file_name)
 * [タスクスケジューラの設定方法(Windows)](https://csreviser.github.io/CS-English/CS2/scheduler-win)
-* [スケージュール録音の設定方法(Ubuntu)](https://csreviser.github.io/CS-English/CS2/scheduler-win)
+* [スケージュール録音の設定方法(Ubuntu)](https://csreviser.github.io/CS-English/CS2/scheduler-linux)
 
 ### ＜語学講座ＣＳ２ (仮称) イメージ＞
 ## ［Windows版］
