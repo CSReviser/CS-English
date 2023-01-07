@@ -120,13 +120,13 @@ DownloadThread::DownloadThread( Ui::MainWindowClass* ui ) : isCanceled(false), f
 	if ( ffmpegHash.empty() ) {
 		ffmpegHash["aac"] = "%1,-vn,-acodec,copy,%2";
 		ffmpegHash["m4a"] = "%1,-id3v2_version,3,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-bsf,aac_adtstoasc,-acodec,copy,%2";
-		ffmpegHash["mp3-64k-S"] = "%1,-id3v2_version,3,-write_xing,0,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,64k,-ac,2,%2";
-		ffmpegHash["mp3-128k-S"] = "%1,-id3v2_version,3,-write_xing,0,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,128k,-ac,2,%2";
-		ffmpegHash["mp3-48k-S"] = "%1,-id3v2_version,3,-write_xing,0,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,48k,-ac,2,-%2";
-		ffmpegHash["mp3-40k-M"] = "%1,-id3v2_version,3,-write_xing,0,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,40k,-ar,32k,-ac,1,%2";
-		ffmpegHash["mp3-32k-M"] = "%1,-id3v2_version,3,-write_xing,0,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,32k,-ar,32k,-ac,1,%2";
-		ffmpegHash["mp3-24k-M"] = "%1,-id3v2_version,3,-write_xing,0,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,24k,-ar,22.05k,-ac,1,%2";
-		ffmpegHash["mp3-16k-M"] = "%1,-id3v2_version,3,-write_xing,0,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,16k,-ar,22.05k,-ac,1,%2";
+		ffmpegHash["mp3-64k-S"] = "%1,-id3v2_version,3,-write_xing,0,-write_id3v1,1,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,64k,-ac,2,%2";
+		ffmpegHash["mp3-128k-S"] = "%1,-id3v2_version,3,-write_xing,0,-write_id3v1,1,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,128k,-ac,2,%2";
+		ffmpegHash["mp3-48k-S"] = "%1,-id3v2_version,3,-write_xing,0,-write_id3v1,1,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,48k,-ac,2,%2";
+		ffmpegHash["mp3-40k-M"] = "%1,-id3v2_version,3,-write_xing,0,-write_id3v1,1,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,40k,-ar,32k,-ac,1,%2";
+		ffmpegHash["mp3-32k-M"] = "%1,-id3v2_version,3,-write_xing,0,-write_id3v1,1,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,32k,-ar,32k,-ac,1,%2";
+		ffmpegHash["mp3-24k-M"] = "%1,-id3v2_version,3,-write_xing,0,-write_id3v1,1,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,24k,-ar,22.05k,-ac,1,%2";
+		ffmpegHash["mp3-16k-M"] = "%1,-id3v2_version,3,-write_xing,0,-write_id3v1,1,-metadata,title=%3,-metadata,artist=NHK,-metadata,album=%4,-metadata,date=%5,-metadata,genre=Speech,-vn,-acodec:a,libmp3lame,-ab,16k,-ar,22.05k,-ac,1,%2";
 	}
 
 	if ( processError.empty() ) {
@@ -820,17 +820,25 @@ bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString f
 QString DownloadThread::paths[] = {
 	"english/basic0", "english/basic1", "english/basic2", "english/basic3",
 	"english/timetrial",  "english/enjoy", "english/kaiwa", "english/business1",
-	"null", "english/vr-radio",
+	"null", // "english/vr-radio",
+	"french/kouza", "french/kouza2", "german/kouza", "german/kouza2",
+	"spanish/kouza", "spanish/kouza2", "italian/kouza", "italian/kouza2",
+	"russian/kouza","russian/kouza2", "chinese/kouza", "chinese/stepup",
+	"hangeul/kouza", "hangeul/stepup",
 //	"english/business2", "english/everybody", "english/gendai", "english/enjoy", 
 	"null_optional1", "null_optional2", "null_optional3", "null_optional4",
-	"null_optional5", "null_optional6", "null_optional7", "null_optional8"
+//	"null_optional5", "null_optional6", "null_optional7", "null_optional8"
 };
 
 QString DownloadThread::json_paths[] = {
 	"0000", "6806", "6807", "6808",
 	"2331", "3064", "0916", "6809", 
-	"7512", "4121",
-	"0953", "0943", "0946", "0948",
+	"7512", //"4121",
+	"0953", "4412", "0943", "4410",
+	"0948", "4413", "0946", "4411",
+	"0956", "4414",	"0915", "6581",
+	"0951", "6810",
+//	"0953", "0943", "0946", "0948",
 	"0953", "0943", "0946", "0948"
 };
 
@@ -860,11 +868,18 @@ void DownloadThread::run() {
 	QAbstractButton* checkbox[] = {
 		ui->toolButton_basic0, ui->toolButton_basic1, ui->toolButton_basic2, ui->toolButton_basic3,
 		ui->toolButton_timetrial, ui->toolButton_enjoy, ui->toolButton_kaiwa, ui->toolButton_business1,
-		ui->toolButton_gendai, ui->toolButton_vrradio,
+		ui->toolButton_gendai, // ui->toolButton_vrradio,
+		ui->toolButton_french, ui->toolButton_french2, 
+		ui->toolButton_german, ui->toolButton_german2,
+		ui->toolButton_spanish, ui->toolButton_spanish2,
+		ui->toolButton_italian, ui->toolButton_italian2,
+		ui->toolButton_russian, ui->toolButton_russian2,
+		ui->toolButton_chinese, ui->toolButton_stepup_chinese, 
+		ui->toolButton_hangeul, ui->toolButton_stepup_hangeul, 
 		ui->toolButton_optional1, ui->toolButton_optional2, 
 		ui->toolButton_optional3, ui->toolButton_optional4,
-		ui->toolButton_optional5, ui->toolButton_optional6, 
-		ui->toolButton_optional7, ui->toolButton_optional8, 
+//		ui->toolButton_optional5, ui->toolButton_optional6, 
+//		ui->toolButton_optional7, ui->toolButton_optional8, 
 		NULL
 	};
 
@@ -882,18 +897,18 @@ void DownloadThread::run() {
 		optional2 = MainWindow::optional2;
 		optional3 = MainWindow::optional3;
 		optional4 = MainWindow::optional4;
-		optional5 = MainWindow::optional5;
-		optional6 = MainWindow::optional6;
-		optional7 = MainWindow::optional7;
-		optional8 = MainWindow::optional8;
+//		optional5 = MainWindow::optional5;
+//		optional6 = MainWindow::optional6;
+//		optional7 = MainWindow::optional7;
+//		optional8 = MainWindow::optional8;
 		if ( paths[i].right( 9 ).startsWith("optional1") ) json_paths[i] = optional1;
 		if ( paths[i].right( 9 ).startsWith("optional2") ) json_paths[i] = optional2;
 		if ( paths[i].right( 9 ).startsWith("optional3") ) json_paths[i] = optional3;
 		if ( paths[i].right( 9 ).startsWith("optional4") ) json_paths[i] = optional4;
-		if ( paths[i].right( 9 ).startsWith("optional5") ) json_paths[i] = optional5;
-		if ( paths[i].right( 9 ).startsWith("optional6") ) json_paths[i] = optional6;
-		if ( paths[i].right( 9 ).startsWith("optional7") ) json_paths[i] = optional7;
-		if ( paths[i].right( 9 ).startsWith("optional8") ) json_paths[i] = optional8;
+//		if ( paths[i].right( 9 ).startsWith("optional5") ) json_paths[i] = optional5;
+//		if ( paths[i].right( 9 ).startsWith("optional6") ) json_paths[i] = optional6;
+//		if ( paths[i].right( 9 ).startsWith("optional7") ) json_paths[i] = optional7;
+//		if ( paths[i].right( 9 ).startsWith("optional8") ) json_paths[i] = optional8;
 
 		if ( checkbox[i]->isChecked()) {
 		     QString Xml_koza = "NULL";
@@ -902,6 +917,7 @@ void DownloadThread::run() {
 		     }
 		
 		   if ( (ui->checkBox_next_week2->isChecked()) || json_paths[i] == "0000" ) {
+		        Xml_koza = paths[i]; 
 			QStringList fileList = getAttribute( prefix + Xml_koza + "/" + suffix, "@file" );
 			QStringList kouzaList = getAttribute( prefix + Xml_koza + "/" + suffix, "@kouza" );
 			QStringList hdateList = one2two( getAttribute( prefix + Xml_koza + "/" + suffix, "@hdate" ) );

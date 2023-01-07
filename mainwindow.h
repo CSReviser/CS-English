@@ -34,7 +34,7 @@
 #include <QStringList>
 #include "messagewindow.h"
 
-#define INI_FILE "CaptureStream2.ini"
+#define INI_FILE "CaptureStream2-ext.ini"
 
 //ニュースで英会話「音声と動画」「音声のみ」「動画のみ」
 #define ENewsSaveBoth	0

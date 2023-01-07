@@ -87,18 +87,18 @@
 #define SETTING_OPT_TITLE6 "opt_title6"
 #define SETTING_OPT_TITLE7 "opt_title7"
 #define SETTING_OPT_TITLE8 "opt_title8"
-#define OPTIONAL1 "0953"	// まいにちフランス語 入門編
-#define OPTIONAL2 "4412"	// まいにちフランス語 応用編
-#define OPTIONAL3 "0943"	// まいにちドイツ語 入門編／初級編
-#define OPTIONAL4 "4410"	// まいにちドイツ語 応用編
+#define OPTIONAL1 "1893"	// ポルトガル語講座 入門
+#define OPTIONAL2 "2769"	// ポルトガル語ステップアップ
+#define OPTIONAL3 "4121"	// ボキャブライダー
+#define OPTIONAL4 "0937"	// アラビア語講座
 #define OPTIONAL5 "0946"	// まいにちイタリア語 入門編
 #define OPTIONAL6 "4411"	// まいにちイタリア語 応用編
 #define OPTIONAL7 "0948"	// まいにちスペイン語 入門編／初級編
 #define OPTIONAL8 "4413"	// まいにちスペイン語 中級編／応用編
-#define Program_TITLE1 "任意らじる聴き逃し番組１"
-#define Program_TITLE2 "任意らじる聴き逃し番組２"
-#define Program_TITLE3 "任意らじる聴き逃し番組３"
-#define Program_TITLE4 "任意らじる聴き逃し番組４"
+#define Program_TITLE1 "ポルトガル語講座 入門"
+#define Program_TITLE2 "ポルトガル語ステップアップ"
+#define Program_TITLE3 "ボキャブライダー"
+#define Program_TITLE4 "アラビア語講座"
 #define Program_TITLE5 "任意らじる聴き逃し番組５"
 #define Program_TITLE6 "任意らじる聴き逃し番組６"
 #define Program_TITLE7 "任意らじる聴き逃し番組７"
@@ -129,7 +129,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( "  (2023/01/06) -β１-" ); 
+			result = QString( "  (2023/01/05) -β１-" ); 
 		}
 		return result;
 	}
@@ -298,7 +298,21 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		{ ui->toolButton_kaiwa, "kaiwa", false },
 		{ ui->toolButton_business1, "business1", false },
 		{ ui->toolButton_gendai, "gendai", false },
-		{ ui->toolButton_vrradio, "vrradio", false },
+//		{ ui->toolButton_vrradio, "vrradio", false },
+		{ ui->toolButton_chinese, "chinese", false },
+		{ ui->toolButton_french, "french", false },
+		{ ui->toolButton_french2, "french2", false },
+		{ ui->toolButton_italian, "italian", false },
+		{ ui->toolButton_italian2, "italian2", false },
+		{ ui->toolButton_hangeul, "hangeul", false },
+		{ ui->toolButton_german, "german", false },
+		{ ui->toolButton_german2, "german2", false },
+		{ ui->toolButton_spanish, "spanish", false },
+		{ ui->toolButton_spanish2, "spanish2", false },
+		{ ui->toolButton_russian, "russian", false },
+		{ ui->toolButton_russian2, "russian2", false },
+		{ ui->toolButton_stepup_chinese, "stepup-chinese", false },
+		{ ui->toolButton_stepup_hangeul, "stepup-hangeul", false },
 		{ ui->toolButton_optional1, "optional_1", false },
 		{ ui->toolButton_optional2, "optional_2", false },
 		{ ui->toolButton_optional3, "optional_3", false },
@@ -330,10 +344,10 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		{ ui->toolButton_optional2, "optional_2", false, "optional2_title", DefaultTitle, "optional2_file_name", DefaultFileName },
 		{ ui->toolButton_optional3, "optional_3", false, "optional3_title", DefaultTitle, "optional3_file_name", DefaultFileName },
 		{ ui->toolButton_optional4, "optional_4", false, "optional4_title", DefaultTitle, "optional4_file_name", DefaultFileName },
-		{ ui->toolButton_optional5, "optional_5", false, "optional5_title", DefaultTitle, "optional5_file_name", DefaultFileName },
-		{ ui->toolButton_optional6, "optional_6", false, "optional6_title", DefaultTitle, "optional6_file_name", DefaultFileName },
-		{ ui->toolButton_optional7, "optional_7", false, "optional7_title", DefaultTitle, "optional7_file_name", DefaultFileName },
-		{ ui->toolButton_optional8, "optional_8", false, "optional8_title", DefaultTitle, "optional8_file_name", DefaultFileName },
+//		{ ui->toolButton_optional5, "optional_5", false, "optional5_title", DefaultTitle, "optional5_file_name", DefaultFileName },
+//		{ ui->toolButton_optional6, "optional_6", false, "optional6_title", DefaultTitle, "optional6_file_name", DefaultFileName },
+//		{ ui->toolButton_optional7, "optional_7", false, "optional7_title", DefaultTitle, "optional7_file_name", DefaultFileName },
+//		{ ui->toolButton_optional8, "optional_8", false, "optional8_title", DefaultTitle, "optional8_file_name", DefaultFileName },
 //		{ ui->checkBox_13, "charo", false, "charo_title", DefaultTitle, "charo_file_name", DefaultFileName },
 //		{ ui->checkBox_14, "e-news", false, "e-news_title", DefaultTitle, "e-news_file_name", DefaultFileName },
 //		{ ui->checkBox_shower, "shower", false, "shower_title", DefaultTitle, "shower_file_name", DefaultFileName },
@@ -414,13 +428,13 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		saved = settings.value( SETTING_OPTIONAL4 );
 		optional4 = saved.type() == QVariant::Invalid ? OPTIONAL4 : saved.toString();
 		saved = settings.value( SETTING_OPTIONAL5 );
-		optional5 = saved.type() == QVariant::Invalid ? OPTIONAL5 : saved.toString();
-		saved = settings.value( SETTING_OPTIONAL6 );
-		optional6 = saved.type() == QVariant::Invalid ? OPTIONAL6 : saved.toString();
-		saved = settings.value( SETTING_OPTIONAL7 );
-		optional7 = saved.type() == QVariant::Invalid ? OPTIONAL7 : saved.toString();
-		saved = settings.value( SETTING_OPTIONAL8 );
-		optional8 = saved.type() == QVariant::Invalid ? OPTIONAL8 : saved.toString();
+//		optional5 = saved.type() == QVariant::Invalid ? OPTIONAL5 : saved.toString();
+//		saved = settings.value( SETTING_OPTIONAL6 );
+//		optional6 = saved.type() == QVariant::Invalid ? OPTIONAL6 : saved.toString();
+//		saved = settings.value( SETTING_OPTIONAL7 );
+//		optional7 = saved.type() == QVariant::Invalid ? OPTIONAL7 : saved.toString();
+//		saved = settings.value( SETTING_OPTIONAL8 );
+//		optional8 = saved.type() == QVariant::Invalid ? OPTIONAL8 : saved.toString();
 
 //		for ( int ii = 0; ii < 4; ii++) {
 //			saved = settings.value( SETTING_OPTIONAL[ii] );
@@ -439,23 +453,23 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		program_title3 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE3 ) : saved.toString();
 		saved = settings.value( SETTING_OPT_TITLE4 );
 		program_title4 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE4 ) : saved.toString();
-		saved = settings.value( SETTING_OPT_TITLE5 );
-		program_title5 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE5 ) : saved.toString();
-		saved = settings.value( SETTING_OPT_TITLE6 );
-		program_title6 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE6 ) : saved.toString();
-		saved = settings.value( SETTING_OPT_TITLE7 );
-		program_title7 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE7 ) : saved.toString();
-		saved = settings.value( SETTING_OPT_TITLE8 );
-		program_title8 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE8 ) : saved.toString();
+//		saved = settings.value( SETTING_OPT_TITLE5 );
+//		program_title5 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE5 ) : saved.toString();
+//		saved = settings.value( SETTING_OPT_TITLE6 );
+//		program_title6 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE6 ) : saved.toString();
+//		saved = settings.value( SETTING_OPT_TITLE7 );
+//		program_title7 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE7 ) : saved.toString();
+//		saved = settings.value( SETTING_OPT_TITLE8 );
+//		program_title8 = saved.type() == QVariant::Invalid ? QString::fromUtf8( Program_TITLE8 ) : saved.toString();
 
 		ui->toolButton_optional1->setText( QString( program_title1 ) );
 		ui->toolButton_optional2->setText( QString( program_title2 ) );
 		ui->toolButton_optional3->setText( QString( program_title3 ) );
 		ui->toolButton_optional4->setText( QString( program_title4 ) );
-		ui->toolButton_optional5->setText( QString( program_title5 ) );
-		ui->toolButton_optional6->setText( QString( program_title6 ) );
-		ui->toolButton_optional7->setText( QString( program_title7 ) );
-		ui->toolButton_optional8->setText( QString( program_title8 ) );
+//		ui->toolButton_optional5->setText( QString( program_title5 ) );
+//		ui->toolButton_optional6->setText( QString( program_title6 ) );
+//		ui->toolButton_optional7->setText( QString( program_title7 ) );
+//		ui->toolButton_optional8->setText( QString( program_title8 ) );
 
 //		QString opt_TITLE1 = getJsonData( optional1 );
 //		QString opt_TITLE2 = getJsonData( optional2 );
@@ -471,10 +485,10 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		ui->toolButton_optional2->setText( QString( program_title2 ) );
 		ui->toolButton_optional3->setText( QString( program_title3 ) );
 		ui->toolButton_optional4->setText( QString( program_title4 ) );
-		ui->toolButton_optional5->setText( QString( program_title5 ) );
-		ui->toolButton_optional6->setText( QString( program_title6 ) );
-		ui->toolButton_optional7->setText( QString( program_title7 ) );
-		ui->toolButton_optional8->setText( QString( program_title8 ) );
+//		ui->toolButton_optional5->setText( QString( program_title5 ) );
+//		ui->toolButton_optional6->setText( QString( program_title6 ) );
+//		ui->toolButton_optional7->setText( QString( program_title7 ) );
+//		ui->toolButton_optional8->setText( QString( program_title8 ) );
 
 		for ( int i = 0; checkBoxes[i].checkBox != NULL; i++ ) {
 			checkBoxes[i].checkBox->setChecked( settings.value( checkBoxes[i].key, checkBoxes[i].defaultValue ).toBool() );
@@ -504,18 +518,18 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		settings.setValue( SETTING_OPTIONAL2, optional2 );
 		settings.setValue( SETTING_OPTIONAL3, optional3 );
 		settings.setValue( SETTING_OPTIONAL4, optional4 );
-		settings.setValue( SETTING_OPTIONAL5, optional5 );
-		settings.setValue( SETTING_OPTIONAL6, optional6 );
-		settings.setValue( SETTING_OPTIONAL7, optional7 );
-		settings.setValue( SETTING_OPTIONAL8, optional8 );
+//		settings.setValue( SETTING_OPTIONAL5, optional5 );
+//		settings.setValue( SETTING_OPTIONAL6, optional6 );
+//		settings.setValue( SETTING_OPTIONAL7, optional7 );
+//		settings.setValue( SETTING_OPTIONAL8, optional8 );
 		settings.setValue( SETTING_OPT_TITLE1, program_title1 );
 		settings.setValue( SETTING_OPT_TITLE2, program_title2 );
 		settings.setValue( SETTING_OPT_TITLE3, program_title3 );
 		settings.setValue( SETTING_OPT_TITLE4, program_title4 );
-		settings.setValue( SETTING_OPT_TITLE5, program_title5 );
-		settings.setValue( SETTING_OPT_TITLE6, program_title6 );
-		settings.setValue( SETTING_OPT_TITLE7, program_title7 );
-		settings.setValue( SETTING_OPT_TITLE8, program_title8 );
+//		settings.setValue( SETTING_OPT_TITLE5, program_title5 );
+//		settings.setValue( SETTING_OPT_TITLE6, program_title6 );
+//		settings.setValue( SETTING_OPT_TITLE7, program_title7 );
+//		settings.setValue( SETTING_OPT_TITLE8, program_title8 );
 		
 		for ( int i = 0; checkBoxes[i].checkBox != NULL; i++ ) {
 			settings.setValue( checkBoxes[i].key, checkBoxes[i].checkBox->isChecked() );
@@ -553,25 +567,26 @@ void MainWindow::customizeScramble() {
 //	dialog.exec();
 //	scramble = dialog.scramble();
 
-	ScrambleDialog dialog( optional1, optional2, optional3, optional4, optional5, optional6, optional7, optional8 );
+//	ScrambleDialog dialog( optional1, optional2, optional3, optional4, optional5, optional6, optional7, optional8 );
+	ScrambleDialog dialog( optional1, optional2, optional3, optional4 );
     if (dialog.exec() ) {
 	optional1 = dialog.scramble1();
 	optional2 = dialog.scramble2();
 	optional3 = dialog.scramble3();
 	optional4 = dialog.scramble4();
-	optional5 = dialog.scramble5();
-	optional6 = dialog.scramble6();
-	optional7 = dialog.scramble7();
-	optional8 = dialog.scramble8();
+//	optional5 = dialog.scramble5();
+//	optional6 = dialog.scramble6();
+//	optional7 = dialog.scramble7();
+//	optional8 = dialog.scramble8();
 
 	QString opt_TITLE1 = getJsonData( optional1.left(4) );
 	QString opt_TITLE2 = getJsonData( optional2.left(4) );
 	QString opt_TITLE3 = getJsonData( optional3.left(4) );
 	QString opt_TITLE4 = getJsonData( optional4.left(4) );
-	QString opt_TITLE5 = getJsonData( optional5.left(4) );
-	QString opt_TITLE6 = getJsonData( optional6.left(4) );
-	QString opt_TITLE7 = getJsonData( optional7.left(4) );
-	QString opt_TITLE8 = getJsonData( optional8.left(4) );
+//	QString opt_TITLE5 = getJsonData( optional5.left(4) );
+//	QString opt_TITLE6 = getJsonData( optional6.left(4) );
+//	QString opt_TITLE7 = getJsonData( optional7.left(4) );
+//	QString opt_TITLE8 = getJsonData( optional8.left(4) );
 	
 	program_title1 = opt_TITLE1;
 	ui->toolButton_optional1->setText( QString( program_title1 ) );
@@ -585,18 +600,18 @@ void MainWindow::customizeScramble() {
 	program_title4 = opt_TITLE4;
 	ui->toolButton_optional4->setText( QString( program_title4 ) );
 	ui->toolButton_optional4->setChecked(false);
-	program_title5 = opt_TITLE5;
-	ui->toolButton_optional5->setText( QString( program_title5 ) );
-	ui->toolButton_optional5->setChecked(false);
-	program_title6 = opt_TITLE6;
-	ui->toolButton_optional6->setText( QString( program_title6 ) );
-	ui->toolButton_optional6->setChecked(false);
-	program_title7 = opt_TITLE7;
-	ui->toolButton_optional7->setText( QString( program_title7 ) );
-	ui->toolButton_optional7->setChecked(false);
-	program_title8 = opt_TITLE8;
-	ui->toolButton_optional8->setText( QString( program_title8 ) );
-	ui->toolButton_optional8->setChecked(false);
+//	program_title5 = opt_TITLE5;
+//	ui->toolButton_optional5->setText( QString( program_title5 ) );
+//	ui->toolButton_optional5->setChecked(false);
+//	program_title6 = opt_TITLE6;
+//	ui->toolButton_optional6->setText( QString( program_title6 ) );
+//	ui->toolButton_optional6->setChecked(false);
+//	program_title7 = opt_TITLE7;
+//	ui->toolButton_optional7->setText( QString( program_title7 ) );
+//	ui->toolButton_optional7->setChecked(false);
+//	program_title8 = opt_TITLE8;
+//	ui->toolButton_optional8->setText( QString( program_title8 ) );
+//	ui->toolButton_optional8->setChecked(false);
 
 	QSettings settings( Utility::applicationBundlePath() + INI_FILE, QSettings::IniFormat );
 	settings.beginGroup( SETTING_GROUP );
@@ -605,18 +620,18 @@ void MainWindow::customizeScramble() {
 		settings.setValue( SETTING_OPTIONAL2, optional2 );
 		settings.setValue( SETTING_OPTIONAL3, optional3 );
 		settings.setValue( SETTING_OPTIONAL4, optional4 );
-		settings.setValue( SETTING_OPTIONAL5, optional5 );
-		settings.setValue( SETTING_OPTIONAL6, optional6 );
-		settings.setValue( SETTING_OPTIONAL7, optional7 );
-		settings.setValue( SETTING_OPTIONAL8, optional8 );
+//		settings.setValue( SETTING_OPTIONAL5, optional5 );
+//		settings.setValue( SETTING_OPTIONAL6, optional6 );
+//		settings.setValue( SETTING_OPTIONAL7, optional7 );
+//		settings.setValue( SETTING_OPTIONAL8, optional8 );
 		settings.setValue( SETTING_OPT_TITLE1, program_title1 );
 		settings.setValue( SETTING_OPT_TITLE2, program_title2 );
 		settings.setValue( SETTING_OPT_TITLE3, program_title3 );
 		settings.setValue( SETTING_OPT_TITLE4, program_title4 );
-		settings.setValue( SETTING_OPT_TITLE5, program_title5 );
-		settings.setValue( SETTING_OPT_TITLE6, program_title6 );
-		settings.setValue( SETTING_OPT_TITLE7, program_title7 );
-		settings.setValue( SETTING_OPT_TITLE8, program_title8 );
+//		settings.setValue( SETTING_OPT_TITLE5, program_title5 );
+//		settings.setValue( SETTING_OPT_TITLE6, program_title6 );
+//		settings.setValue( SETTING_OPT_TITLE7, program_title7 );
+//		settings.setValue( SETTING_OPT_TITLE8, program_title8 );
 
 	settings.endGroup();
     }

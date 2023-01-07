@@ -8,7 +8,7 @@ QT += network \
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = CaptureStream2
+TARGET = CaptureStream2-ext
 TEMPLATE = app
 SOURCES += main.cpp \
 	mainwindow.cpp \
@@ -53,7 +53,7 @@ macx {
 	}
 
 	release {
-		QMAKE_POST_LINK += macdeployqt CaptureStream2.app
+		QMAKE_POST_LINK += macdeployqt CaptureStream2-ext.app
 	}
 }
 
