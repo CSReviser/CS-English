@@ -11,7 +11,7 @@
 
    - #### Windows版: [2023/01/05版ダウンロード](https://github.com/CSReviser/CS-English/releases/download/20230105/CS-English-Windows-20230105.zip)                          
    - #### Ubuntu版: [2023/01/05版ダウンロード](https://github.com/CSReviser/CS-English/releases/download/20230105/CS-English-Ubuntu-qt5-20230105.zip)           　 [バイナリビルド手順](https://github.com/CSReviser/CS-English/wiki/ubuntuビルド手順) 
-   - #### Macintosh版: [2023/01/05版ダウンロード](https://github.com/CSReviser/CS-English/releases/download/20230105/CS-English-Macintosh-20230105.dmg) 　　     
+   - #### Macintosh版: [2023/01/05版ダウンロード](https://github.com/CSReviser/CS-English/releases/download/20230105/CS-English-Macintosh-20230105-1.dmg) 　　     
    -  [Mac版インストール手順](https://github.com/CSReviser/CS-English/wiki/Mac%E7%89%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86(%E3%83%91%E3%83%BC%E3%83%9F%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E6%B8%88))
                                
 ***
