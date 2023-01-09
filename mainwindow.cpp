@@ -105,7 +105,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( " (2023/01/05)" ); 
+			result = QString( " (2023/01/10)" ); 
 		}
 		return result;
 	}
@@ -292,6 +292,10 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 	};
 
 	QSettings settings( Utility::applicationBundlePath() + INI_FILE, QSettings::IniFormat );
+#ifdef QT4_QT5_MAC
+	QString path = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+	settings( path + INI_FILE, QSettings::IniFormat );
+#endif
 	settings.beginGroup( SETTING_GROUP );
 
 	if ( mode == ReadMode ) {	// 設定読み込み
