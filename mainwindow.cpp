@@ -291,10 +291,12 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		{ NULL, NULL, false }
 	};
 
+#if !defined( QT4_QT5_MAC )
 	QSettings settings( Utility::applicationBundlePath() + INI_FILE, QSettings::IniFormat );
+#endif
 #ifdef QT4_QT5_MAC
 	QString path = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
-	settings( path + INI_FILE, QSettings::IniFormat );
+	QSettings settings( path + INI_FILE, QSettings::IniFormat );
 #endif
 	settings.beginGroup( SETTING_GROUP );
 
