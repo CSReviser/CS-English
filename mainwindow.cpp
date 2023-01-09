@@ -129,7 +129,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( "  (2023/01/08) -β１.1-" ); 
+			result = QString( "  (2023/01/09) -β１.2-" ); 
 		}
 		return result;
 	}
@@ -303,10 +303,10 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		{ ui->toolButton_optional2, "optional_2", false },
 		{ ui->toolButton_optional3, "optional_3", false },
 		{ ui->toolButton_optional4, "optional_4", false },
-//		{ ui->toolButton_optional5, "optional_5", false },
-//		{ ui->toolButton_optional6, "optional_6", false },
-//		{ ui->toolButton_optional7, "optional_7", false },
-//		{ ui->toolButton_optional8, "optional_8", false },
+		{ ui->toolButton_optional5, "optional_5", false },
+		{ ui->toolButton_optional6, "optional_6", false },
+		{ ui->toolButton_optional7, "optional_7", false },
+		{ ui->toolButton_optional8, "optional_8", false },
 		{ ui->toolButton_skip, "skip", true },
 		{ ui->checkBox_this_week, "this_week", true },
 		{ ui->toolButton_detailed_message, "detailed_message", false },
