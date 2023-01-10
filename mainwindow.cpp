@@ -315,7 +315,7 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 //#endif
 
 		saved = settings.value( SETTING_SAVE_FOLDER );
-/if !defined( QT4_QT5_MAC )
+#if !defined( QT4_QT5_MAC )
 		outputDir = saved.type() == QVariant::Invalid ? Utility::applicationBundlePath() : saved.toString();
 #endif
 #ifdef QT4_QT5_MAC
