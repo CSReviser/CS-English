@@ -105,7 +105,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( " (2023/01/10)" ); 
+			result = QString( " (2023/01/10)mac_test" ); 
 		}
 		return result;
 	}
@@ -295,8 +295,7 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 	QSettings settings( Utility::applicationBundlePath() + INI_FILE, QSettings::IniFormat );
 #endif
 #ifdef QT4_QT5_MAC
-	QString path = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
-	QSettings settings( path + INI_FILE, QSettings::IniFormat );
+	QSettings settings( Utility::appConfigLocationPath() + INI_FILE, QSettings::IniFormat );
 #endif
 	settings.beginGroup( SETTING_GROUP );
 
@@ -316,8 +315,12 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 //#endif
 
 		saved = settings.value( SETTING_SAVE_FOLDER );
+/if !defined( QT4_QT5_MAC )
 		outputDir = saved.type() == QVariant::Invalid ? Utility::applicationBundlePath() : saved.toString();
-
+#endif
+#ifdef QT4_QT5_MAC
+		outputDir = saved.type() == QVariant::Invalid ? Utility::appLocaldataLocationPath() : saved.toString();
+#endif
 		saved = settings.value( SETTING_SCRAMBLE );
 		scramble = saved.type() == QVariant::Invalid ? "" : saved.toString();
 
@@ -378,7 +381,7 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		settings.setValue( SETTING_GEOMETRY, saveGeometry() );
 //#endif                                              　//(2022/11/01:Linux向けに変更）
 		if ( outputDirSpecified )
-			settings.setValue( SETTING_SAVE_FOLDER, outputDir );
+		settings.setValue( SETTING_SAVE_FOLDER, outputDir );
 		settings.setValue( SETTING_SCRAMBLE, scramble );
 		settings.setValue( SETTING_SCRAMBLE_URL1, scrambleUrl1 );
 		settings.setValue( SETTING_SCRAMBLE_URL2, scrambleUrl2 );

@@ -57,6 +57,7 @@
 #include <QJsonArray>
 #include <QByteArray>
 #include <QJsonValue>
+#include <QStandardPaths>
 
 #ifdef QT4_QT5_WIN
 #define TimeOut " -m 10000 "
