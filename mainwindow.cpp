@@ -105,7 +105,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( " (2023/01/10)mac_test" ); 
+			result = QString( " (2023/01/11)mac_test2" ); 
 		}
 		return result;
 	}
@@ -295,7 +295,7 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 	QSettings settings( Utility::applicationBundlePath() + INI_FILE, QSettings::IniFormat );
 #endif
 #ifdef QT4_QT5_MAC
-	QSettings settings( Utility::appConfigLocationPath() + INI_FILE, QSettings::IniFormat );
+	QSettings settings( Utility::ConfigLocationPath() + INI_FILE, QSettings::IniFormat );
 #endif
 	settings.beginGroup( SETTING_GROUP );
 
@@ -319,7 +319,7 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		outputDir = saved.type() == QVariant::Invalid ? Utility::applicationBundlePath() : saved.toString();
 #endif
 #ifdef QT4_QT5_MAC
-		outputDir = saved.type() == QVariant::Invalid ? Utility::appLocaldataLocationPath() : saved.toString();
+		outputDir = saved.type() == QVariant::Invalid ? Utility::DownloadLocationPath() : saved.toString();
 #endif
 		saved = settings.value( SETTING_SCRAMBLE );
 		scramble = saved.type() == QVariant::Invalid ? "" : saved.toString();

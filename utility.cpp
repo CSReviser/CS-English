@@ -80,6 +80,18 @@ QString Utility::appConfigLocationPath() {
 	return result;
 }
 
+QString Utility::ConfigLocationPath() {
+	QString result = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/";
+	result += QDir::separator();
+	return result;
+}
+
+QString Utility::DownloadLocationPath() {
+	QString result = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + "/";
+	result += QDir::separator();
+	return result;
+}
+
 QString Utility::HomeLocationPath() {
 	QString result = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/" + APPNAME + "/";
 	result += QDir::separator();

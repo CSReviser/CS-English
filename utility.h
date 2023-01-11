@@ -27,6 +27,8 @@ namespace Utility {
 	QString applicationBundlePath();
 	QString appLocaldataLocationPath();
 	QString appConfigLocationPath();
+	QString ConfigLocationPath();
+	QString DownloadLocationPath();	
 	QString HomeLocationPath();
 	QString flare( QString& error );
 	QString gnash( QString& error );
