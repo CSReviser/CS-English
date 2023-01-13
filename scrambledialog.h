@@ -46,6 +46,14 @@ public:
 	static QString optional3;
 	static QString optional4;
 
+	static QString opt1[];
+	static QString opt2[];
+	static QString opt3[];
+	static QString opt4[];
+	static QString opt5[];
+	static QString opt6[];
+
+
 private:
     Ui::ScrambleDialog *ui;
 };
