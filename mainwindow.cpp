@@ -129,7 +129,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( "  (2023/01/09) -β１.2-" ); 
+			result = QString( "  (2023/01/13) -β１.3-" ); 
 		}
 		return result;
 	}
@@ -169,13 +169,15 @@ QString MainWindow::program_title8;
 QString MainWindow::prefix = "http://cgi2.nhk.or.jp/gogaku/st/xml/";
 QString MainWindow::suffix = "listdataflv.xml";
 QString MainWindow::json_prefix = "https://www.nhk.or.jp/radioondemand/json/";
+QString MainWindow::no_write_ini;
 
 MainWindow::MainWindow( QWidget *parent )
 		: QMainWindow( parent ), ui( new Ui::MainWindowClass ), downloadThread( NULL ) {
 	ui->setupUi( this );
 	settings( ReadMode );
 	this->setWindowTitle( this->windowTitle() + version() );
-
+	no_write_ini = "yes";
+	
 #ifdef QT4_QT5_MAC		// Macのウィンドウにはメニューが出ないので縦方向に縮める
 //	setMaximumHeight( maximumHeight() - menuBar()->height() );
 //	setMinimumHeight( maximumHeight() - menuBar()->height() );
@@ -208,7 +210,7 @@ MainWindow::MainWindow( QWidget *parent )
 	QAction* action = new QAction( QString::fromUtf8( "保存フォルダ..." ), this );
 	connect( action, SIGNAL( triggered() ), this, SLOT( customizeSaveFolder() ) );
 	customizeMenu->addAction( action );
-
+	customizeMenu->addSeparator();
 	action = new QAction( QString::fromUtf8( "ファイル名設定..." ), this );
 	connect( action, SIGNAL( triggered() ), this, SLOT( customizeFileName() ) );
 	customizeMenu->addAction( action );
@@ -216,11 +218,17 @@ MainWindow::MainWindow( QWidget *parent )
 	action = new QAction( QString::fromUtf8( "タイトルタグ設定..." ), this );
 	connect( action, SIGNAL( triggered() ), this, SLOT( customizeTitle() ) );
 	customizeMenu->addAction( action );
-
+	customizeMenu->addSeparator();
 	action = new QAction( QString::fromUtf8( "任意番組設定..." ), this );
 	connect( action, SIGNAL( triggered() ), this, SLOT( customizeScramble() ) );
 	customizeMenu->addAction( action );
 
+	customizeMenu->addSeparator();
+	action = new QAction( QString::fromUtf8( "設定削除（終了）..." ), this );
+	connect( action, SIGNAL( triggered() ), this, SLOT( closeEvent2() ) );
+	customizeMenu->addAction( action );
+
+	
 	//action = new QAction( QString::fromUtf8( "スクランブル文字列..." ), this );
 	//connect( action, SIGNAL( triggered() ), this, SLOT( customizeScramble() ) );
 	//customizeMenu->addAction( action );
@@ -255,7 +263,7 @@ MainWindow::~MainWindow() {
 		downloadThread->terminate();
 		delete downloadThread;
 	}
-	if ( !Utility::nogui() )
+	if ( !Utility::nogui() && no_write_ini == "yes" )
 		settings( WriteMode );
 	delete ui;
 }
@@ -367,7 +375,12 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 //	customized_file_name1 = DefaultFileName1;
 //	customized_file_name2 = DefaultFileName2;
 
+#if !defined( QT4_QT5_MAC )
 	QSettings settings( Utility::applicationBundlePath() + INI_FILE, QSettings::IniFormat );
+#endif
+#ifdef QT4_QT5_MAC
+	QSettings settings( Utility::ConfigLocationPath() + INI_FILE, QSettings::IniFormat );
+#endif
 	settings.beginGroup( SETTING_GROUP );
 
 	if ( mode == ReadMode ) {	// 設定読み込み
@@ -386,7 +399,15 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 //#endif
 
 		saved = settings.value( SETTING_SAVE_FOLDER );
+#if !defined( QT4_QT5_MAC )
 		outputDir = saved.type() == QVariant::Invalid ? Utility::applicationBundlePath() : saved.toString();
+#endif
+#ifdef QT4_QT5_MAC
+		if ( saved.type() == QVariant::Invalid )
+			MainWindow::customizeSaveFolder();
+		else
+			outputDir = saved.toString();
+#endif
 
 //		saved = settings.value( SETTING_SCRAMBLE );
 //		scramble = saved.type() == QVariant::Invalid ? "" : saved.toString();
@@ -540,8 +561,14 @@ void MainWindow::customizeFileName() {
 }
 
 void MainWindow::customizeSaveFolder() {
-	QString dir = QFileDialog::getExistingDirectory( 0, QString::fromUtf8( "保存フォルダを指定してください" ),
+#if !defined( QT4_QT5_MAC )
+	QString dir = QFileDialog::getExistingDirectory( 0, QString::fromUtf8( "書き込み可能な保存フォルダを指定してください" ),
 									   outputDir, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
+#endif
+#ifdef QT4_QT5_MAC
+	QString dir = QFileDialog::getExistingDirectory( 0, QString::fromUtf8( "書き込み可能な保存フォルダを指定してください" ),
+									   QStandardPaths::writableLocation(QStandardPaths::HomeLocation), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
+#endif
 	if ( dir.length() ) {
 		outputDir = dir + QDir::separator();
 		outputDirSpecified = true;
@@ -574,51 +601,29 @@ void MainWindow::customizeScramble() {
 	QString opt_TITLE8 = getJsonData( optional8.left(4) );
 	
 	program_title1 = opt_TITLE1;
-	ui->toolButton_optional1->setText( QString( program_title1 ) );
 	ui->toolButton_optional1->setChecked(false);
+	ui->toolButton_optional1->setText( QString( program_title1 ) );
 	program_title2 = opt_TITLE2;
-	ui->toolButton_optional2->setText( QString( program_title2 ) );
 	ui->toolButton_optional2->setChecked(false);
+	ui->toolButton_optional2->setText( QString( program_title2 ) );
 	program_title3 = opt_TITLE3;
-	ui->toolButton_optional3->setText( QString( program_title3 ) );
 	ui->toolButton_optional3->setChecked(false);
+	ui->toolButton_optional3->setText( QString( program_title3 ) );
 	program_title4 = opt_TITLE4;
-	ui->toolButton_optional4->setText( QString( program_title4 ) );
 	ui->toolButton_optional4->setChecked(false);
+	ui->toolButton_optional4->setText( QString( program_title4 ) );
 	program_title5 = opt_TITLE5;
-	ui->toolButton_optional5->setText( QString( program_title5 ) );
 	ui->toolButton_optional5->setChecked(false);
+	ui->toolButton_optional5->setText( QString( program_title5 ) );
 	program_title6 = opt_TITLE6;
-	ui->toolButton_optional6->setText( QString( program_title6 ) );
 	ui->toolButton_optional6->setChecked(false);
+	ui->toolButton_optional6->setText( QString( program_title6 ) );
 	program_title7 = opt_TITLE7;
-	ui->toolButton_optional7->setText( QString( program_title7 ) );
 	ui->toolButton_optional7->setChecked(false);
+	ui->toolButton_optional7->setText( QString( program_title7 ) );
 	program_title8 = opt_TITLE8;
-	ui->toolButton_optional8->setText( QString( program_title8 ) );
 	ui->toolButton_optional8->setChecked(false);
-
-	QSettings settings( Utility::applicationBundlePath() + INI_FILE, QSettings::IniFormat );
-	settings.beginGroup( SETTING_GROUP );
-
-		settings.setValue( SETTING_OPTIONAL1, optional1 );
-		settings.setValue( SETTING_OPTIONAL2, optional2 );
-		settings.setValue( SETTING_OPTIONAL3, optional3 );
-		settings.setValue( SETTING_OPTIONAL4, optional4 );
-		settings.setValue( SETTING_OPTIONAL5, optional5 );
-		settings.setValue( SETTING_OPTIONAL6, optional6 );
-		settings.setValue( SETTING_OPTIONAL7, optional7 );
-		settings.setValue( SETTING_OPTIONAL8, optional8 );
-		settings.setValue( SETTING_OPT_TITLE1, program_title1 );
-		settings.setValue( SETTING_OPT_TITLE2, program_title2 );
-		settings.setValue( SETTING_OPT_TITLE3, program_title3 );
-		settings.setValue( SETTING_OPT_TITLE4, program_title4 );
-		settings.setValue( SETTING_OPT_TITLE5, program_title5 );
-		settings.setValue( SETTING_OPT_TITLE6, program_title6 );
-		settings.setValue( SETTING_OPT_TITLE7, program_title7 );
-		settings.setValue( SETTING_OPT_TITLE8, program_title8 );
-
-	settings.endGroup();
+	ui->toolButton_optional8->setText( QString( program_title8 ) );
     }
 }
 
@@ -704,3 +709,23 @@ void MainWindow::finished() {
 	if ( Utility::nogui() )
 		QCoreApplication::exit();
 }
+
+void MainWindow::closeEvent2( ) {
+	int res = QMessageBox::question(this, tr("設定削除"), tr("削除しますか？"));
+	if (res == QMessageBox::Yes) {
+	no_write_ini = "no";
+#if !defined( QT4_QT5_MAC )
+	QFile::remove( Utility::applicationBundlePath() + INI_FILE );
+#endif
+#ifdef QT4_QT5_MAC
+	QFile::remove( Utility::ConfigLocationPath() + INI_FILE );
+#endif
+	if ( downloadThread ) {
+		messagewindow.appendParagraph( QString::fromUtf8( "レコーディングをキャンセル中..." ) );
+		download();
+	}
+	messagewindow.close();
+	QCoreApplication::exit();
+	}
+}
+

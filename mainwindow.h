@@ -88,6 +88,7 @@ public:
 	static QString program_title6;
 	static QString program_title7;
 	static QString program_title8;
+	static QString no_write_ini;
 
 protected:
 	virtual void closeEvent( QCloseEvent *event );
@@ -102,6 +103,7 @@ private slots:
 	void customizeFileName();
 	void customizeSaveFolder();
 	void customizeScramble();
+	void closeEvent2( );
 
 private:
 	QStringList getAttribute( QString url, QString attribute );
