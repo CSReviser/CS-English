@@ -1,6 +1,6 @@
 ## 語学講座CS (2022年度)      
 ## ([【English】](https://csreviser.github.io/CS-English/new/)/[【Mult】](https://csreviser.github.io/CS-Mult/)/[【CS2】](https://csreviser.github.io/CS-English/CS2/))
-
+## [【初めての方へ】](https://csreviser.github.io/CS-English/CS2/introduction)
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)　[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)         
 ## [［任意らじる番組設定手順］](https://github.com/CSReviser/CS-English/wiki/任意らじる番組設定手順)                   
 #### Mac版で発生している設定が保存されない不具合の対策版をリリースしました。情報提供、検証に協力頂いたMacユーザの皆様に感謝します。不具合が発生していない環境では更新する必要はありませんが、Mac版以外も軽微な修正をしています。今後Macと同等の機能を他のOS版に展開するかどうかは、検討中です。　【English】【Mult】版は今年度で更新終了なので反映する場合はCS2になると思います。              
