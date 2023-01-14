@@ -1,5 +1,5 @@
 ## 語学講座CS (2022年度)      
-## ([【Top Page】](https://csreviser.github.io/CS-English/index)/[【CS2】](https://csreviser.github.io/CS-English/CS2/))
+## ([TOP Page](https://csreviser.github.io/CS-English/index)/[【CS2】](https://csreviser.github.io/CS-English/CS2/))
 ## 【初めての方へ】              
 #### 語学講座CS【English】/語学講座CS【Mult】は2023年3月末で更新を終了します。2023年度のNHK語学講座を受講予定の方は他のアプリの採用をご検討ください。 [［類似アプリ］](https://csreviser.github.io/CS-English/CS2/application)のページも参考にしてください。ページに記載の特定のアプリを推奨する意図はありません。採用はご自身でご判断ください。          
 ## 
