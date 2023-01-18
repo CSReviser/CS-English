@@ -93,6 +93,7 @@ private:
 	static QString flv_host;
 	static QString flv_app;
 	static QString flv_service_prefix;
+	static QString Xml_koza;
 
 	static QString flvstreamer;
 	static QString ffmpeg;

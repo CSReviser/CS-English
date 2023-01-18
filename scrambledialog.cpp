@@ -80,7 +80,7 @@ QString ScrambleDialog::opt5[] = {
 		"0164", //青春アドベンチャー
 		"0930", //新日曜名作座
 		"8062", //朗読
-		"4121"  //FMシアター
+		"0058"  //FMシアター
 };
 
 QString ScrambleDialog::opt6[] = {

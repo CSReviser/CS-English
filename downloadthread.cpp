@@ -90,6 +90,7 @@ QString DownloadThread::flv_service_prefix = "mp4:flv/gogaku/streaming/mp4/";
 
 QString DownloadThread::flvstreamer;
 QString DownloadThread::ffmpeg;
+QString DownloadThread::Xml_koza;
 QString DownloadThread::test;
 QString DownloadThread::scramble;
 QString DownloadThread::optional1;
@@ -503,17 +504,17 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 #else
 	dstPath = outputDir + outFileName;
 #endif
-	QString filem3u8a; QString filem3u8b;
-	if ( dir == "") {prefix1 = prefix1.remove("/mp4"); prefix2 = prefix2.remove("/mp4"); prefix3 = prefix3.remove("/mp4");
-	} else {prefix1 = prefix1.replace( "mp4", dir ); prefix2 = prefix2.replace( "mp4", dir ); prefix3 = prefix3.replace( "mp4", dir ); };
+	QString filem3u8a; QString filem3u8b; QString prefix1a = prefix1;  QString prefix2a = prefix2;  QString prefix3a = prefix3;
+	if ( dir ==  ""  ) { prefix1a.remove("/mp4");        prefix2a.remove("/mp4");        prefix3a.remove("/mp4");
+	} else             { prefix1a.replace( "mp4", dir ); prefix2a.replace( "mp4", dir ); prefix3a.replace( "mp4", dir ); }; 
 	if ( file.right(4) != ".mp4" ) {
-		filem3u8a = prefix1 + file + suffix2;
-		filem3u8b = prefix2 + file + suffix2;
+		filem3u8a = prefix1a + file + ".mp4/master.m3u8";
+		filem3u8b = prefix2a + file + ".mp4/master.m3u8";
 	} else {
-		filem3u8a = prefix1 + file + suffix1;
-		filem3u8b = prefix2 + file + suffix1;
+		filem3u8a = prefix1a + file + "/master.m3u8";
+		filem3u8b = prefix2a + file + "/master.m3u8";
 	}
-	QString filem3u8c = prefix3 + file  + "/index.m3u8";	
+	QString filem3u8c = prefix3a + file  + "/index.m3u8";
 	QStringList arguments_v = { "-http_seekable", "0", "-version", "0" };
 	QProcess process_v;
 	process_v.setProgram( ffmpeg );
@@ -909,7 +910,7 @@ void DownloadThread::run() {
 			QStringList dirList = getAttribute( prefix + Xml_koza + "/" + suffix, "@dir" );
 
 			if ( fileList.count() && fileList.count() == kouzaList.count() && fileList.count() == hdateList.count() && ( ui->checkBox_next_week2->isChecked() || json_paths[i] == "0000") ) {
-			     if ( Xml_koza == "NULL" && !(ui->checkBox_next_week2->isChecked()) )	continue;									
+			     if ( Xml_koza == "NULL" && !(ui->checkBox_next_week2->isChecked()) )	continue;
 				if ( true /*ui->checkBox_this_week->isChecked()*/ ) {
 					for ( int j = 0; j < fileList.count() && !isCanceled; j++ ){
 						QString RR = "R";
@@ -933,8 +934,8 @@ void DownloadThread::run() {
 						captureStream_json( kouzaList2[j], hdateList2[j], fileList2[j], yearList[j], file_titleList[j] );
 					}
 			}
-		   }		   
-	  }}
+		   }}		   
+	  }
 	
 	//if ( !isCanceled && ui->checkBox_shower->isChecked() )
 		//downloadShower();

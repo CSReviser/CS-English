@@ -94,7 +94,7 @@ void CustomizeDialog::settings( bool write ) {
 		NULL
 	};
 	
-	QString path = Utility::applicationBundlePath();
+	QString path =  MainWindow::ini_file_path;
 	QSettings settings( path + INI_FILE, QSettings::IniFormat );
 	settings.beginGroup( SETTING_GROUP );
 	
@@ -118,5 +118,6 @@ void CustomizeDialog::settings( bool write ) {
 }
 
 void CustomizeDialog::accepted() {
+	if ( MainWindow::no_write_ini == "yes" )
 	settings( true );
 }
