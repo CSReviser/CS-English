@@ -56,6 +56,7 @@
 #define SETTING_GROUP "MainWindow"
 #define SETTING_GEOMETRY "geometry"
 #define SETTING_WINDOWSTATE "windowState"
+#define SETTING_MAINWINDOW_POSITION "Mainwindow_Position"
 #define SETTING_SAVE_FOLDER "save_folder"
 #define SETTING_SCRAMBLE "scramble"
 #define SETTING_SCRAMBLE_URL1 "scramble_url1"
