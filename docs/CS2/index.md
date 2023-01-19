@@ -21,7 +21,7 @@
 ##### 　　　従来：非対応
 ###    　　　　　　　        
 ***
-### ＜語学講座CS2 β1.3ベータテスト用バイナリ（実行ファイル）＞
+### ＜語学講座CS2 β1.4ベータテスト用バイナリ（実行ファイル）＞
 ### Windows用
 ### [CaptureStream2-Windows-20230119.zip](https://github.com/CSReviser/CS-English/releases/download/20230119/CaptureStream2-Windows-20230119.zip)
 ### [CaptureStream2-Windows-x64-20230119.zip 【64bit版】](https://github.com/CSReviser/CS-English/releases/download/20230119/CaptureStream2-Windows-x64-20230119.zip) 　　　　　　　　　　　　　　　　　　
