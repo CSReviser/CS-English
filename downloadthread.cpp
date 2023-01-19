@@ -897,10 +897,9 @@ void DownloadThread::run() {
 		if ( paths[i].right( 9 ).startsWith("optional8") ) json_paths[i] = optional8;
 
 		if ( checkbox[i]->isChecked()) {
-		     QString Xml_koza = "NULL";
-		     for ( int ii = 0; json_paths2[ii] != NULL; ii++ ) {
+		   QString Xml_koza = "NULL";
+		   for ( int ii = 0; json_paths2[ii] != NULL; ii++ ) 
 		     	if ( json_paths[i] == json_paths2[ii]  )  Xml_koza = paths2[ii];  
-		     }
 		
 		   if ( (ui->checkBox_next_week2->isChecked()) || json_paths[i] == "0000" ) {
 			QStringList fileList = getAttribute( prefix + Xml_koza + "/" + suffix, "@file" );
@@ -934,7 +933,8 @@ void DownloadThread::run() {
 						captureStream_json( kouzaList2[j], hdateList2[j], fileList2[j], yearList[j], file_titleList[j] );
 					}
 			}
-		   }}		   
+		   }
+		}		   
 	  }
 	
 	//if ( !isCanceled && ui->checkBox_shower->isChecked() )
