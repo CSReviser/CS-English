@@ -23,14 +23,14 @@
 ***
 ### ＜語学講座CS2 β1.3ベータテスト用バイナリ（実行ファイル）＞
 ### Windows用
-### [CaptureStream2-Windows-20230113.zip](https://github.com/CSReviser/CS-English/releases/download/20230113-1/CaptureStream2-Windows-20230113.zip)
-### [CaptureStream2-Windows-x64-20230113.zip 【64bit版】](https://github.com/CSReviser/CS-English/releases/download/20230113-1/CaptureStream2-Windows-x64-20230113.zip) 　　　　　　　　　　　　　　　　　　
+### [CaptureStream2-Windows-20230119.zip](https://github.com/CSReviser/CS-English/releases/download/20230119/CaptureStream2-Windows-20230119.zip)
+### [CaptureStream2-Windows-x64-20230119.zip 【64bit版】](https://github.com/CSReviser/CS-English/releases/download/20230113-1/CaptureStream2-Windows-x64-20230119.zip) 　　　　　　　　　　　　　　　　　　
 ### Ubuntu用
-### [CaptureStream2-Ubuntu-qt5-20230113.zip](https://github.com/CSReviser/CS-English/releases/download/20230113-1/CaptureStream2-Ubuntu-qt5-20230113.zip)
+### [CaptureStream2-Ubuntu-qt5-20230119.zip](https://github.com/CSReviser/CS-English/releases/download/20230119/CaptureStream2-Ubuntu-qt5-20230119.zip)
 ### Macintosh用
-### [CaptureStream2-Macintosh-20230113.dmg](https://github.com/CSReviser/CS-English/releases/download/20230113-1/CaptureStream2-Macintosh-20230113.dmg)
+### [CaptureStream2-Macintosh-20230119.dmg](https://github.com/CSReviser/CS-English/releases/download/20230119/CaptureStream2-Macintosh-20230119.dmg)
 
-### ※バグ報告などは[こちら](https://github.com/CSReviser/CS-English/discussions/27)に投稿してください。
+### ※バグ報告などは[こちら](https://github.com/CSReviser/CS-English/discussions/28)に投稿してください。
 ***
 * [Windows版インストール手順](https://csreviser.github.io/CS-English/CS2/install_win) 
 * [MacOS版インストール手順](https://csreviser.github.io/CS-English/CS2/install_mac) 
@@ -55,6 +55,7 @@
 ### 2023/01/08：ベータテスト「β１.1」公開(バグ修正)
 ### 2023/01/09：ベータテスト「β１.2」公開(バグ修正)
 ### 2023/01/13：ベータテスト「β１.3」公開(設定ファイル関連変更)
+### 2023/01/19：ベータテスト「β１.4」公開(バグ修正)
 ### 2023/02/上旬：専用サイト設置、ベータテスト「β2」公開予定
 ### 2023/02/中旬前後：2023年度NHKゴガク講座関連情報収集
 ### 2023/03：ベータテスト「β3」公開予定
