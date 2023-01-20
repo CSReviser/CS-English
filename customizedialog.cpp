@@ -56,7 +56,7 @@ QStringList CustomizeDialog::fileNameDefaults = QStringList()
 void CustomizeDialog::formats( QString course, QString& titleFormat, QString& fileNameFormat ) {
 	int index = courses.indexOf( course );
 	if ( index >= 0 ) {
-		QString path = Utility::applicationBundlePath();
+		QString path = MainWindow::ini_file_path;
 		QSettings settings( path + INI_FILE, QSettings::IniFormat );
 		settings.beginGroup( SETTING_GROUP );
 		titleFormat = settings.value( titleKeys[index], titleDefaults[index] ).toString();
