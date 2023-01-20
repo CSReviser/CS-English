@@ -28,7 +28,7 @@
 ### Ubuntu用
 ### [CaptureStream2-Ubuntu-qt5-20230119.zip](https://github.com/CSReviser/CS-English/releases/download/20230119/CaptureStream2-Ubuntu-qt5-20230119.zip)
 ### Macintosh用
-### [CaptureStream2-Macintosh-20230119.dmg](https://github.com/CSReviser/CS-English/releases/download/20230119/CaptureStream2-Macintosh-20230119.dmg)
+### [CaptureStream2-Macintosh-20230120.dmg](https://github.com/CSReviser/CS-English/releases/download/20230120/CaptureStream2-Macintosh-20230120.dmg)
 
 ### ※バグ報告などは[こちら](https://github.com/CSReviser/CS-English/discussions/28)に投稿してください。
 ***
