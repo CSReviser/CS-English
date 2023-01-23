@@ -216,6 +216,22 @@ bool DownloadThread::checkExecutable( QString path ) {
 
 bool DownloadThread::isFfmpegAvailable( QString& path ) {
 	path = Utility::applicationBundlePath() + "ffmpeg";
+
+#ifdef QT4_QT5_MAC    // MacのみoutputDirフォルダに置かれたffmpegを優先する
+	path = MainWindow::outputDir + "ffmpeg";
+	QFileInfo fileInfo( path );
+	if ( !fileInfo.exists() ) {
+		path = Utility::appConfigLocationPath() + "ffmpeg";
+		QFileInfo fileInfo( path );
+		if ( !fileInfo.exists() ) {
+			path = Utility::ConfigLocationPath() + "ffmpeg";
+			QFileInfo fileInfo( path );
+			if ( !fileInfo.exists() ) {
+				path = Utility::applicationBundlePath() + "ffmpeg";
+			}
+		}
+	} 
+#endif	
 #ifdef QT4_QT5_WIN
 	path += ".exe";
 #endif
@@ -592,17 +608,13 @@ QString DownloadThread::formatName( QString format, QString kouza, QString hdate
 	int month = hdate.left( 2 ).toInt();
 	int year = nendo.right( 4 ).toInt();
 	int day = hdate.mid( 3, 2 ).toInt();
-	int year1 = QDate::currentDate().year();
 
 	if ( QString::compare(  kouza , QString::fromUtf8( "ボキャブライダー" ) ) ==0 ){
-		if ( month == 3 && ( day == 30 || day == 31) && year == 2022 ) 
+		if ( month == 3 && ( day == 30 || day == 31) && year == 2021 ) 
 		year += 0;
- 		else
-		if ( month < 4 )
-		year += 1;
 	} else {
 	if ( month <= 4 && QDate::currentDate().year() > year )
-		year = year + (year1 - year);
+		year += 1;
 	}
 
 	if ( file.right( 4 ) == ".flv" )
@@ -647,6 +659,7 @@ QString DownloadThread::formatName( QString format, QString kouza, QString hdate
 	return result;
 }
 
+
 //--------------------------------------------------------------------------------
 
 bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, QString nendo, QString dir ) {
@@ -655,7 +668,7 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 	if ( !checkOutputDir( outputDir ) )
 		return false;
 	outputDir += QDir::separator();	//通常ファイルが存在する場合のチェックのために後から追加する
-
+        QString outputDir2 = MainWindow::outputDir;
 	QString titleFormat;
 	QString fileNameFormat;
 	CustomizeDialog::formats( kouza, titleFormat, fileNameFormat );
@@ -720,7 +733,8 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 		return true;
 	}
   	emit current( QString::fromUtf8( "レコーディング中：　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
-	
+
+
 	Q_ASSERT( ffmpegHash.contains( extension ) );
 	QString dstPath;
 #ifdef QT4_QT5_WIN
@@ -737,17 +751,18 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 #else
 	dstPath = outputDir + outFileName;
 #endif
-	QString filem3u8a; QString filem3u8b;
-	if ( dir == "") {prefix1 = prefix1.remove("/mp4"); prefix2 = prefix2.remove("/mp4"); prefix3 = prefix3.remove("/mp4");
-	} else {prefix1 = prefix1.replace( "mp4", dir ); prefix2 = prefix2.replace( "mp4", dir ); prefix3 = prefix3.replace( "mp4", dir ); };
+
+	QString filem3u8a; QString filem3u8b; QString prefix1a = prefix1;  QString prefix2a = prefix2;  QString prefix3a = prefix3;
+	if ( dir ==  ""  ) { prefix1a.remove("/mp4");        prefix2a.remove("/mp4");        prefix3a.remove("/mp4");
+	} else             { prefix1a.replace( "mp4", dir ); prefix2a.replace( "mp4", dir ); prefix3a.replace( "mp4", dir ); }; 
 	if ( file.right(4) != ".mp4" ) {
-		filem3u8a = prefix1 + file + suffix2;
-		filem3u8b = prefix2 + file + suffix2;
+		filem3u8a = prefix1a + file + ".mp4/master.m3u8";
+		filem3u8b = prefix2a + file + ".mp4/master.m3u8";
 	} else {
-		filem3u8a = prefix1 + file + suffix1;
-		filem3u8b = prefix2 + file + suffix1;
+		filem3u8a = prefix1a + file + "/master.m3u8";
+		filem3u8b = prefix2a + file + "/master.m3u8";
 	}
-	QString filem3u8c = prefix3 + file  + suffix3;	
+	QString filem3u8c = prefix3a + file  + suffix3;	
 	QStringList arguments_v = { "-http_seekable", "0", "-version", "0" };
 	QProcess process_v;
 	process_v.setProgram( ffmpeg );
