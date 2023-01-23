@@ -22,7 +22,7 @@ macOS版のインストール手順です。Macユーザーの[Twitterの投稿]
 ![image](https://user-images.githubusercontent.com/46049273/169676481-8707c1b7-9fa1-45f6-a8ef-dc74b529cd01.png)
 ![image](https://user-images.githubusercontent.com/46049273/169676487-7c828631-34d1-4fae-913d-cbdca381f031.png)
 
-6.アプリが立ち上がるので、カスタマイズ > 保存フォルダから自分が音声を保存したいフォルダを指定する
+6.アプリの初回起動時に保存フォルダを選択する画面が開きますので、自分が音声を保存したい書き込み可能なフォルダを指定する。保存フォルダは、カスタマイズ > 保存フォルダから変更することができる。
 ![image](https://user-images.githubusercontent.com/46049273/169676522-675d76f5-df5e-4fe2-b8f7-14d9dbad39b1.png)
 
 
