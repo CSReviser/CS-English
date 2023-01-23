@@ -472,15 +472,8 @@ void MainWindow::customizeFileName() {
 }
 
 void MainWindow::customizeSaveFolder() {
-#if !defined( QT4_QT5_MAC )
 	QString dir = QFileDialog::getExistingDirectory( 0, QString::fromUtf8( "書き込み可能な保存フォルダを指定してください" ),
 									   outputDir, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
-#endif
-#ifdef QT4_QT5_MAC
-	QString dir = QFileDialog::getExistingDirectory( 0, QString::fromUtf8( "書き込み可能な保存フォルダを指定してください" ),
-									   QStandardPaths::writableLocation(QStandardPaths::HomeLocation), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
-#endif
-
 	if ( dir.length() ) {
 		outputDir = dir + QDir::separator();
 		outputDirSpecified = true;
