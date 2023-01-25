@@ -3,7 +3,7 @@
 ## [【初めての方へ】](https://csreviser.github.io/CS-English/CS2/introduction)
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)　[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)         
 ## [［任意らじる番組設定手順］](https://github.com/CSReviser/CS-English/wiki/任意らじる番組設定手順)                   
-#### 2023/01/23に主にMac版で発生した不具合のBug Fix版をリリースしました。情報提供、検証に協力頂いたMacユーザの皆様に感謝します。不具合が発生していない環境では更新する必要はありませんが、Mac版以外も軽微な修正をしています。             
+#### Mac版は初回起動時に音声ファイル保存フォルダを指定する仕様に変更しましたが、他のOSについて同様の仕様にするか[Twitterでアンケートを実施](https://twitter.com/CSReviser/status/1616202487752712196)したところ意外な結果となりました。回答件数は1件のみ。[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行が完了したことを確認する結果となりました。                           
                
 #### 語学講座CS2(仮称)のベータテストβ１.3を公開しました。語学講座CSと同等の設定ファイル関係の修正版です。語学講座CS2に統合することで語学講座CS【English】/【Mult】版のアップデートは2022年度末(2023/3末)で終了します。2023年度もNHK語学講座を受講予定の方は、この機会に[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。              
               
