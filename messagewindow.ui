@@ -10,11 +10,6 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <pointsize>11</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -33,11 +28,6 @@
     </property>
     <item>
      <widget class="QPlainTextEdit" name="plainTextEdit">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
       <property name="readOnly">
        <bool>false</bool>
       </property>

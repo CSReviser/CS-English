@@ -69,7 +69,7 @@
 #define OriginalFormat "ts"
 #define FilterOption "-bsf:a aac_adtstoasc"
 #define CancelCheckTimeOut 500	// msec
-#define DebugLog(s) if ( ui->toolButton_detailed_message->isChecked() ) {emit information((s));}
+#define DebugLog(s) if ( ui->checkBox_detailed_message->isChecked() ) {emit information((s));}
 
 //--------------------------------------------------------------------------------
 QString DownloadThread::prefix = "https://www2.nhk.or.jp/gogaku/st/xml/";
@@ -473,7 +473,7 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 
 	QString kon_nendo = "2022"; //QString::number(year1);
 
-	if ( ui->toolButton_skip->isChecked() && QFile::exists( outputDir + outFileName ) ) {
+	if ( ui->checkBox_skip->isChecked() && QFile::exists( outputDir + outFileName ) ) {
 	   if ( this_week == "R" ) {
 		emit current( QString::fromUtf8( "スキップ：[前週]　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
 	   } else {
@@ -708,7 +708,7 @@ bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString f
 
 	QString kon_nendo = "2022"; //QString::number(year1);
 	
-	if ( ui->toolButton_skip->isChecked() && QFile::exists( outputDir + outFileName ) ) {
+	if ( ui->checkBox_skip->isChecked() && QFile::exists( outputDir + outFileName ) ) {
 		emit current( QString::fromUtf8( "スキップ：　　　　　" ) + kouza + QString::fromUtf8( "　" ) + yyyymmdd );
 	   	return true;
 	}
@@ -820,19 +820,24 @@ bool DownloadThread::captureStream_json( QString kouza, QString hdate, QString f
 
 QString DownloadThread::paths[] = {
 	"english/basic0", "english/basic1", "english/basic2", "english/basic3",
-	"english/timetrial",  "english/enjoy", "english/kaiwa", "english/business1",
-	"null", "english/vr-radio",
-//	"english/business2", "english/everybody", "english/gendai", "english/enjoy", 
-	"null_optional1", "null_optional2", "null_optional3", "null_optional4",
-	"null_optional5", "null_optional6", "null_optional7", "null_optional8"
+	"english/timetrial",  "english/kaiwa", "english/business1", "english/enjoy", 
+	"english/vr-radio", "null", 
+	"chinese/kouza", "chinese/stepup", "hangeul/kouza", "hangeul/stepup",
+	"french/kouza", "french/kouza2",  "italian/kouza", "italian/kouza2",
+	"german/kouza", "german/kouza2", "spanish/kouza", "spanish/kouza2",
+	"russian/kouza","russian/kouza2", "null", "null",
+	"null", "null", "null"
 };
 
 QString DownloadThread::json_paths[] = {
 	"0000", "6806", "6807", "6808",
-	"2331", "3064", "0916", "6809", 
-	"7512", "4121",
-	"0953", "0943", "0946", "0948",
-	"0953", "0943", "0946", "0948"
+	"2331", "0916", "6809", "3064",
+	"4121", "7512",
+	"0915", "6581", "0951", "6810",	
+	"0953", "4412", "0946", "4411",
+	"0943", "4410", "0948", "4413",
+	"0956", "4414", "1893", "2769",
+	"0937", "0701", "7629", "7155"
 };
 
 
@@ -859,13 +864,14 @@ QString DownloadThread::json_paths2[] = {
 
 void DownloadThread::run() {
 	QAbstractButton* checkbox[] = {
-		ui->toolButton_basic0, ui->toolButton_basic1, ui->toolButton_basic2, ui->toolButton_basic3,
-		ui->toolButton_timetrial, ui->toolButton_enjoy, ui->toolButton_kaiwa, ui->toolButton_business1,
-		ui->toolButton_gendai, ui->toolButton_vrradio,
-		ui->toolButton_optional1, ui->toolButton_optional2, 
-		ui->toolButton_optional3, ui->toolButton_optional4,
-		ui->toolButton_optional5, ui->toolButton_optional6, 
-		ui->toolButton_optional7, ui->toolButton_optional8, 
+		ui->checkBox_basic0, ui->checkBox_basic1, ui->checkBox_basic2, ui->checkBox_basic3,
+		ui->checkBox_timetrial, ui->checkBox_kaiwa, ui->checkBox_business1, ui->checkBox_enjoy,
+		ui->checkBox_vrradio, ui->checkBox_gendai,
+		ui->checkBox_chinese, ui->checkBox_chinese, ui->checkBox_hangeul, ui->checkBox_hangeul, 
+		ui->checkBox_french, ui->checkBox_french, ui->checkBox_italian, ui->checkBox_italian,
+		ui->checkBox_german, ui->checkBox_german, ui->checkBox_spanish, ui->checkBox_spanish,
+		ui->checkBox_russian, ui->checkBox_russian, ui->checkBox_portuguese, ui->checkBox_portuguese,
+		ui->checkBox_arabic, ui->checkBox_japanese, ui->checkBox_japanese, ui->checkBox_japanese,
 		NULL
 	};
 
@@ -879,23 +885,6 @@ void DownloadThread::run() {
 
        for ( int i = 0; checkbox[i] && !isCanceled; i++ ) {
        
-		optional1 = MainWindow::optional1;
-		optional2 = MainWindow::optional2;
-		optional3 = MainWindow::optional3;
-		optional4 = MainWindow::optional4;
-		optional5 = MainWindow::optional5;
-		optional6 = MainWindow::optional6;
-		optional7 = MainWindow::optional7;
-		optional8 = MainWindow::optional8;
-		if ( paths[i].right( 9 ).startsWith("optional1") ) json_paths[i] = optional1;
-		if ( paths[i].right( 9 ).startsWith("optional2") ) json_paths[i] = optional2;
-		if ( paths[i].right( 9 ).startsWith("optional3") ) json_paths[i] = optional3;
-		if ( paths[i].right( 9 ).startsWith("optional4") ) json_paths[i] = optional4;
-		if ( paths[i].right( 9 ).startsWith("optional5") ) json_paths[i] = optional5;
-		if ( paths[i].right( 9 ).startsWith("optional6") ) json_paths[i] = optional6;
-		if ( paths[i].right( 9 ).startsWith("optional7") ) json_paths[i] = optional7;
-		if ( paths[i].right( 9 ).startsWith("optional8") ) json_paths[i] = optional8;
-
 		if ( checkbox[i]->isChecked()) {
 		   QString Xml_koza = "NULL";
 		   for ( int ii = 0; json_paths2[ii] != NULL; ii++ ) 

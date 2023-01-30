@@ -32,17 +32,17 @@
 namespace {
 	const QString SETTING_GROUP( "MessageWindow" );
 	const QString SETTING_GEOMETRY( "geometry" );
-	const int DEFAULT_WIDTH = 540;
+	const int DEFAULT_WIDTH = 500;
 	const int DEFAULT_HEIGHT = 300;
-#ifdef QT4_QT5_WIN
-	const int FONT_SIZE = 13;
-#else
-#ifdef QT4_QT5_MAC
-	const int FONT_SIZE = 11;
-#else
-	const int FONT_SIZE = 14;
-#endif
-#endif
+//#ifdef QT4_QT5_WIN
+//	const int FONT_SIZE = 8;
+//#else
+//#ifdef QT4_QT5_MAC
+//	const int FONT_SIZE = 9;
+//#else
+//	const int FONT_SIZE = 9;
+//#endif
+//#endif
 }
 
 MessageWindow::MessageWindow(QWidget *parent) :
@@ -73,9 +73,9 @@ void MessageWindow::setupGui() {
 	textEdit = new QPlainTextEdit;
 	textEdit->setReadOnly( true );
 	textEdit->setWordWrapMode( QTextOption::WrapAnywhere );
-	QFont* font = new QFont();
-	font->setPixelSize( FONT_SIZE );
-	textEdit->setFont( *font );
+//	QFont* font = new QFont();
+//	font->setPixelSize( FONT_SIZE );
+//	textEdit->setFont( *font );
 
 	clearTextButton = new QPushButton( QString::fromUtf8( "クリア" ) );
 	connect( clearTextButton, SIGNAL(clicked()), this, SLOT(clearText()) );
