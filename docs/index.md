@@ -3,9 +3,7 @@
 ## [【初めての方へ】](https://csreviser.github.io/CaptureStream2/introduction)
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)　[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)         
 ## [［任意らじる番組設定手順］](https://github.com/CSReviser/CS-English/wiki/任意らじる番組設定手順)                   
-#### Mac版は初回起動時に音声ファイル保存フォルダを指定する仕様に変更しましたが、他のOSについて同様の仕様にするか[Twitterでアンケートを実施](https://twitter.com/CSReviser/status/1616202487752712196)したところ意外な結果となりました。回答件数は1件のみ。[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行が完了したことを確認する結果となりました。                           
-               
-#### 語学講座CS2(仮称)のベータテストβ１.3を公開しました。語学講座CSと同等の設定ファイル関係の修正版です。語学講座CS2に統合することで語学講座CS【English】/【Mult】版のアップデートは2022年度末(2023/3末)で終了します。2023年度もNHK語学講座を受講予定の方は、この機会に[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。              
+#### 語学講座CS2のサイトを新設して公開しました。[こちら](https://csreviser.github.io/CaptureStream2)　2023年度もNHK語学講座を受講予定の方は、この機会に[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行をご検討ください。              
               
 #### ストリーミングの公開は放送日の翌月曜日10時から1週間です。らじる★らじるの聴き逃しとは公開時期/期間が異なりますのでご注意ください。らじる★らじるの聴き逃し配信に一部講座で対応しています。このサイトには古い情報の記述が残っています。順次更新予定です。[ストリーミング配信期間](https://github.com/CSReviser/CS-English/wiki/%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E9%85%8D%E4%BF%A1%E6%9C%9F%E9%96%93)                        　　           　　       
                             
