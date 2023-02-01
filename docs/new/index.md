@@ -1,5 +1,5 @@
 ## 語学講座CS【English】      
-## ([TOP Page](https://csreviser.github.io/CS-English/)/[【Mult】](https://csreviser.github.io/CS-Mult/)/[【CS2】](https://csreviser.github.io/CS-English/CS2/))
+## ([TOP Page](https://csreviser.github.io/CS-English/)/[【Mult】](https://csreviser.github.io/CS-Mult/)/[【CS2】](https://csreviser.github.io/CaptureStream2/))
 ***
 ### 語学講座CS【English】 [2023/01/23版](https://github.com/CSReviser/CS-English/releases/tag/20230123)                 
 #### ※語学講座CS【English】は2022年度末(2023/3末)で更新を終了し、語学講座CS【English】と【Mult】を統合した[語学講座CS2(仮称)](https://csreviser.github.io/CS-English/CS2/)に移行します。仮設サイトを作成しました。[(こちら)](https://csreviser.github.io/CS-English/CS2/)
