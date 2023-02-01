@@ -1,6 +1,6 @@
 ## 語学講座CS (2022年度)      
 ## ([【English】](https://csreviser.github.io/CS-English/new/)/[【Mult】](https://csreviser.github.io/CS-Mult/)/[【CS2】](https://csreviser.github.io/CaptureStream2/))
-## [【初めての方へ】](https://csreviser.github.io/CS-English/CS2/introduction)
+## [【初めての方へ】](https://csreviser.github.io/CaptureStream2/introduction)
 ## [［お知らせ］](https://github.com/CSReviser/CS-English/wiki/お知らせ)　[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)         
 ## [［任意らじる番組設定手順］](https://github.com/CSReviser/CS-English/wiki/任意らじる番組設定手順)                   
 #### Mac版は初回起動時に音声ファイル保存フォルダを指定する仕様に変更しましたが、他のOSについて同様の仕様にするか[Twitterでアンケートを実施](https://twitter.com/CSReviser/status/1616202487752712196)したところ意外な結果となりました。回答件数は1件のみ。[［類似アプリ］](https://github.com/CSReviser/CS-English/wiki/%E9%A1%9E%E4%BC%BC%E3%82%A2%E3%83%97%E3%83%AA)など、他のアプリに乗り換え、移行が完了したことを確認する結果となりました。                           
