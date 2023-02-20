@@ -18,10 +18,10 @@ NHK語学のストリーミングは2020年度から、らじる★らじる(聴
 ### 語学講座CS【Mult】の実行ファイルダウンロードページは[こちら](https://csreviser.github.io/CS-Mult/) に移動しました。                
 *** 
 
-### [［NHKゴガクのお知らせ］](https://www2.nhk.or.jp/gogaku/topics.cgi)   　
-### [［放送内容変更のお知らせ］](https://www2.nhk.or.jp/gogaku/topics2.cgi)   
+### [［NHKゴガクのお知らせ］](https://www2.nhk.or.jp/gogaku/topics.html)   　
+### [［放送内容変更のお知らせ］](https://www2.nhk.or.jp/gogaku/topics2.html)   
                               
-##### ※ NHKの語学講座の放送日時やストリーミングの日程変更は[NHKゴガクのお知らせ](https://www2.nhk.or.jp/gogaku/topics.cgi) をご確認下さい。                     
+##### ※ NHKの語学講座の放送日時やストリーミングの日程変更は[NHKゴガクのお知らせ](https://www2.nhk.or.jp/gogaku/topics.html) をご確認下さい。                     
 - #### [NHKテキスト 2022](https://www.nhk-book.co.jp/text/index.html)
 - #### [英語力測定テスト 2022](https://eigoryoku.nhk-book.co.jp/?_ga=2.177137829.1000592643.1613186020-1646930887.1611275979)
 - #### [NHK語学テキストのはじめかた](https://www.nhk-book.co.jp/pr/text/hajimekata.html)
