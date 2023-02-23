@@ -66,6 +66,7 @@ NHK語学のストリーミングは2020年度から、らじる★らじる(聴
 ##### 名称を変更した語学講座CS([CS-English](https://github.com/CSReviser/CS-English/wiki/CS-English)/CS-Mult)に移行し、更新を終了する予定です。               
 ##### 旧名称の部分は順次訂正していきます。   
 ##### 旧名称最終版は[こちら](https://csreviser.github.io/CS-English/old/)に移動しました。                                           
+
 ***
 
  <link rel="shortcut icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/46049273?v=4">
