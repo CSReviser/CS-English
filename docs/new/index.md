@@ -29,3 +29,6 @@
 - [音声形式mp3](https://github.com/CSReviser/CaptureStream/wiki/%E9%9F%B3%E5%A3%B0%E5%BD%A2%E5%BC%8Fmp3)           
 - [作者・改版者](https://github.com/CSReviser/CaptureStream/wiki/作者・改版者)   
 - [リンク](https://github.com/CSReviser/CS-English/wiki/リンク)   
+*** 
+ <link rel="shortcut icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/46049273?v=4">
+ <meta name="twitter:image:src" content="https://avatars.githubusercontent.com/u/46049273?v=4">
